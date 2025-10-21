@@ -24,7 +24,7 @@ public class ControllerSystem : MonoBehaviour
         Vector2 direccion = (target - (Vector2)transform.position).normalized;
         transform.position = Vector2.MoveTowards(transform.position,target,aPersonajes.Velocidad * Time.deltaTime);
 
-        Debug.Log(direccion);
+        
     }
 
 

@@ -7,53 +7,74 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Fsm : MonoBehaviour
 {
-    private Animator animPlayer;
-    private Rigidbody2D rbPlayer; 
+    private Animator animPersonaje;
+    private Rigidbody2D rbPersonaje; 
     private Camera cam;
     private Atributos aPersonaje;
+    private SpriteRenderer spPersonaje;
     private Vector2 target;
 
     private void Awake()
     {
-        animPlayer = GetComponent<Animator>();
-        rbPlayer = GetComponent<Rigidbody2D>();
+        animPersonaje = GetComponent<Animator>();
+        rbPersonaje = GetComponent<Rigidbody2D>();
         aPersonaje = GetComponent<Atributos>();
+        spPersonaje = GetComponent<SpriteRenderer>();
         cam = Camera.main;
     }
 
- 
-
     void OrientarPersonajeHacia_(float unAngulo)
     {
-         if(unAngulo >= -45f && unAngulo < 45f)
+         if(unAngulo > -110f && unAngulo <= 90f)
          {            
-             animPlayer.SetBool("miraDerecha", true);
-             animPlayer.SetBool("miraArriba", false);
-             
-             animPlayer.SetBool("miraIzquierda", false);
+             spPersonaje.flipX = false;
+         }else{
+
+            spPersonaje.flipX = true;
          }
-         if (unAngulo >= 45f && unAngulo < 135f)
-         {
-             animPlayer.SetBool("miraArriba", true);
-             
-             animPlayer.SetBool("miraIzquierda", false);
-             animPlayer.SetBool("miraDerecha", false);
-         }
-         if (unAngulo >= 135f || unAngulo < -135f)
-         {
-             
-             animPlayer.SetBool("miraIzquierda", true);
-             animPlayer.SetBool("miraDerecha", false);
-             animPlayer.SetBool("miraArriba", false);
-         }
-         if (unAngulo >= -135f && unAngulo < -45f || unAngulo ==0)
-         {
-             animPlayer.SetBool("miraIzquierda", false);
-             animPlayer.SetBool("miraDerecha", false);
-             animPlayer.SetBool("miraArriba", false);
-             
-         }
+
     }
+
+    void EstaCaminando(Vector2 unaDireccion)
+    {
+        if(unaDireccion.x!= 0 || unaDireccion.y != 0)
+        {
+            
+            Cambiar_A_("isWalk", true);
+        }
+        else
+        {
+            
+            Cambiar_A_("isWalk", false);
+        }
+
+    }
+
+    void EstaMuerto() {
+        if(aPersonaje.Vida < 1)
+        {
+            Cambiar_A_("isDeath", true);
+        }
+    }
+
+    void EstaAtacando()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Cambiar_A_("isAttacking1",true);
+            aPersonaje.Velocidad = 0;
+        }
+    }
+
+
+    void Cambiar_A_(string unaAnimacion,bool unValorDeVerdad)
+    {
+        // prop: sirve para activar o desactivar cualquier animacion de la maquina de estado
+        animPersonaje.SetBool(unaAnimacion, unValorDeVerdad);
+    }
+
+
+    
 
     private void Update()
     {
@@ -63,10 +84,31 @@ public class Fsm : MonoBehaviour
         }
         Vector2 direccion = (target - (Vector2)transform.position).normalized;
         float angulo = Mathf.Atan2(direccion.y, direccion.x) * Mathf.Rad2Deg;
+        AnimatorStateInfo estado = animPersonaje.GetCurrentAnimatorStateInfo(0);
+
+        if (estado.IsName("attack1") && estado.normalizedTime >= 1f)
+        {
+            Cambiar_A_("isAttacking1", false);
+            aPersonaje.Velocidad = 1;
+        }else if (Input.GetKeyDown(KeyCode.R) && estado.IsName("attack1") && estado.normalizedTime < 1f)
+        {
+            Cambiar_A_("isAttacking1", false);
+            Cambiar_A_("isAttacking2", true);
+            aPersonaje.Velocidad = 0;
+        }
+        if (estado.IsName("attack2") && estado.normalizedTime >= 1f)
+        {
+            Cambiar_A_("isAttacking1", false);
+            Cambiar_A_("isAttacking2", false);
+            aPersonaje.Velocidad = 1;
+        }
 
         OrientarPersonajeHacia_(angulo);
-        Debug.Log("el angulo es : " + angulo);
+        EstaCaminando(direccion);
+        EstaMuerto();
+        EstaAtacando();
 
+        
     }
 
 

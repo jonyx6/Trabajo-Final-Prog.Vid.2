@@ -13,6 +13,9 @@ public class Fsm : MonoBehaviour
     private Atributos aPersonaje;
     private SpriteRenderer spPersonaje;
     private Vector2 target;
+    private float angulo;
+    public float  Angulo => angulo;// solo lectura.
+    
 
     private void Awake()
     {
@@ -21,11 +24,12 @@ public class Fsm : MonoBehaviour
         aPersonaje = GetComponent<Atributos>();
         spPersonaje = GetComponent<SpriteRenderer>();
         cam = Camera.main;
+        
     }
 
     void OrientarPersonajeHacia_(float unAngulo)
     {
-         if(unAngulo > -110f && unAngulo <= 90f)
+         if(MirandoIzquierda(unAngulo))
          {            
              spPersonaje.flipX = false;
          }else{
@@ -34,6 +38,13 @@ public class Fsm : MonoBehaviour
          }
 
     }
+
+    public bool MirandoIzquierda(float angulo)
+    {
+        return angulo > -110f && angulo <= 90f;
+    }
+
+
 
     void EstaCaminando(Vector2 unaDireccion)
     {
@@ -76,7 +87,7 @@ public class Fsm : MonoBehaviour
 
     
 
-    private void Update()
+    public void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -94,7 +105,7 @@ public class Fsm : MonoBehaviour
         {
             Cambiar_A_("isAttacking1", false);
             Cambiar_A_("isAttacking2", true);
-            aPersonaje.Velocidad = 0;
+            //aPersonaje.Velocidad = 0;
         }
         if (estado.IsName("attack2") && estado.normalizedTime >= 1f)
         {

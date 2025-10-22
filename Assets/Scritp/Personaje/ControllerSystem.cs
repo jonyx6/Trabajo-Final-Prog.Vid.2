@@ -8,6 +8,8 @@ public class ControllerSystem : MonoBehaviour
     private Atributos aPersonajes;
     private Camera cam;
     private Vector2 target;// guarda la posicion donde hago el clik
+
+ 
     private void Awake()
     {
         cam = Camera.main;
@@ -24,7 +26,10 @@ public class ControllerSystem : MonoBehaviour
         Vector2 direccion = (target - (Vector2)transform.position).normalized;
         transform.position = Vector2.MoveTowards(transform.position,target,aPersonajes.Velocidad * Time.deltaTime);
 
-        
+        if(direccion.x < 0)
+        {
+            
+        }
     }
 
 

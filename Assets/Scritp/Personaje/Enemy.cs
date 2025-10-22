@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -23,9 +24,16 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("la Vida actual de " + aEnemy.Nombre + " es " + aEnemy.Vida);
+        
         hsEnemy.Morir();
     }
 
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (EsPersonaje_ConTag_(collision, "Espada"))
+        {
+            AtacarAl_(collision);
+        }
+    }
+
 }

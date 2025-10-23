@@ -23,22 +23,6 @@ public class Personaje : MonoBehaviour
       
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (EsPersonaje_ConTag_(collision,"Espada"))
-        {
-            AtacarAl_(collision);
-        }
-    }
 
-    void AtacarAl_(Collider2D enemigo)
-    {
-        enemigo.GetComponent<HealdSystem>().RecibirUn_(aPersonaje.Pa);
-    }
-
-    bool EsPersonaje_ConTag_(Collider2D unPersonaje,string unTag)
-    {
-        return unPersonaje.gameObject.CompareTag(unTag);
-    }
 
 }

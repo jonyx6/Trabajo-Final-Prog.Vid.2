@@ -43,3 +43,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: piso
+    uniqueID: 3544946467
+    locked: 0
+  - name: pared
+    uniqueID: 440231201
+    locked: 0
+  - name: personaje
+    uniqueID: 3108692309
+    locked: 0

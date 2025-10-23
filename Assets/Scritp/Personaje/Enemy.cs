@@ -26,14 +26,11 @@ public class Enemy : MonoBehaviour
     {
         
         hsEnemy.Morir();
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (EsPersonaje_ConTag_(collision, "Espada"))
-        {
-            AtacarAl_(collision);
-        }
+        Debug.Log(" la vida del enemigo es : " + aEnemy.Vida);
     }
+    
+
+    
 
 }

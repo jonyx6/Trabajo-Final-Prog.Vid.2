@@ -75,6 +75,28 @@ public class Fsm : MonoBehaviour
             Cambiar_A_("isAttacking1",true);
             aPersonaje.Velocidad = 0;
         }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            Cambiar_A_("isAttacking3", true);
+            aPersonaje.Velocidad = 0;
+        }
+    }
+
+    void AtaqueEspecial(AnimatorStateInfo unEstado)
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            Cambiar_A_("isAttacking3", true);
+            aPersonaje.Velocidad = 0;
+        }
+
+        if (unEstado.IsName("attack3") && unEstado.normalizedTime >= 1f)
+        {
+            Cambiar_A_("isAttacking3", false);
+            aPersonaje.Velocidad = 1;
+        }
+
     }
 
 
@@ -114,6 +136,9 @@ public class Fsm : MonoBehaviour
             aPersonaje.Velocidad = 1;
         }
 
+
+
+        AtaqueEspecial(estado);
         OrientarPersonajeHacia_(angulo);
         EstaCaminando(direccion);
         EstaMuerto();
@@ -121,6 +146,8 @@ public class Fsm : MonoBehaviour
 
         
     }
+
+
 
 
 

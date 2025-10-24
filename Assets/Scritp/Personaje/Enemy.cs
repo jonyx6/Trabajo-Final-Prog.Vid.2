@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
         
         hsEnemy.Morir();
 
-        Debug.Log(" la vida del enemigo es : " + aEnemy.Vida);
+        //Debug.Log(" la vida del enemigo es : " + aEnemy.Vida);
     }
     
 

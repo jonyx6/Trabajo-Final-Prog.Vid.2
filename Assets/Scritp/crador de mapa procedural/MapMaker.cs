@@ -8,7 +8,7 @@ using System;
 public class MapMaker : MonoBehaviour
 {
     [Header("Pared")]
-    public Tile tile;
+    public RuleTile tile;
 
     public Tilemap tilemap;
 

@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class CelularData : MonoBehaviour
 {
-    // el porcentaje de lleno que esta el mapa de tiles
-
-    public float fillPercente = 0.5f;
-
-    public int iterations = 1;
-
-    public int[,] GenerateData(int w , int h)
+    public int[,] GenerateData(int w , int h, int iterations, float fillPercente)
     {
         int[,] mapData = new int[w,h];
 
@@ -20,14 +14,14 @@ public class CelularData : MonoBehaviour
             for( int j =0; j< h; j++)
             {
                 float chance = Random.Range(0f, 1f);
-                mapData[i, j] = chance < this.fillPercente ? 1 : 0;
+                mapData[i, j] = chance < fillPercente ? 1 : 0;
             }
         }
 
         int[,] buffer= new int[w,h];
         //
 
-        for(int x = 0; x < this.iterations; x++)
+        for(int x = 0; x < iterations; x++)
         {
             for(int i=0; i<w; i++)
             {

@@ -4,92 +4,94 @@ using UnityEngine.Tilemaps;
 using UnityEngine;
 using System.Data;
 using System;
+using System.Linq;
 
 public class MapMaker : MonoBehaviour
 {
     [Header("Pared")]
-    public RuleTile tile;
+    public TileBase tile;
 
     public Tilemap tilemap;
 
-    //aca definimos el tama�o del mapa 
+    [SerializeField]
+    private CelularData cell;
 
-    public int mapWith;
-    public int mapHeight;
+    [Header("Forma del mapa")]
+    [SerializeField]
+    private int mapWith;
+    [SerializeField]
+    private int mapHeight;
+    [SerializeField]
+    private float fillPercente;
+    [SerializeField]
+    private int iterations;
 
+    //Datos del mapa
     private int[,] mapData;
 
-    public List<Vector2Int> posVacias = new();
+    //Posicion de los tiles vacios , sirve para hacer aparecer cosas y verificar que halla espacio
+    public List<Vector2Int> EmptyTiles { get; private set; } = new();
 
+    [Header("Objetos A Ubicar")]
     [SerializeField]
-    private GameObject personaje;
+    private GameObject character;
     [SerializeField]
-    private GameObject salida;
+    private GameObject exit;
 
-    // le pasamos el celularData
-    public CelularData cell;
-    public CelularData cellData;    
+    //el objeto que genera los datos del mapa
 
-     void Start()
+    public void GenerateMap()
     {
-        this.mapData = this.cell.GenerateData(this.mapWith,this.mapHeight);
-
-        //this.GenerateFloor();
-        this.GenerateTiles();
-        UbicarJugador();
-        UbicarSalida();
+        GenerateTiles();
+        PlaceCharacter();
+        PlaceExit();
     }
-
-
     void GenerateTiles()
     {
+        mapData = cell.GenerateData(mapWith, mapHeight,iterations,fillPercente);
+        EmptyTiles.Clear();
+        tilemap.ClearAllTiles();
 
-        for (int i = 0; i < this.mapWith; i++)
+        for (int i = 0; i < mapWith; i++)
         {
-            for (int j = 0; j < this.mapWith; j++)
+            for (int j = 0; j < mapHeight ; j++)
             {
-                if (this.mapData[i, j] == 1)
+                if (mapData[i, j] == 1)
                 {
-                    this.tilemap.SetTile(new Vector3Int(i, j, 0), this.tile);
+                    tilemap.SetTile(new Vector3Int(i, j, 0), tile);
                 }
                 else
                 {
-                    posVacias.Add(new Vector2Int(i, j));
+                    EmptyTiles.Add(new Vector2Int(i, j));
                 }
             }
         }
     }
-    Vector2Int BuscarPosicionCercanaA(Vector2Int posOrigen)
+    Vector2Int FindClosestTileTo(Vector2Int pos)
     {
-        Vector2Int celdaMasCercana = posVacias[0];
-        int distMasCorta = Distancia(posOrigen, posVacias[0]);
-        foreach (var pos in posVacias)
+        Vector2Int closestTile = EmptyTiles[0];
+        float shortestDist = Vector2Int.Distance(pos, closestTile);
+        foreach (var tile in EmptyTiles)
         {
-            int distActual = Distancia(posOrigen, pos);
-            if (distActual < distMasCorta)
+            float distActual = Vector2Int.Distance(pos, tile);
+            if (distActual < shortestDist)
             {
-                distMasCorta = distActual;
-                celdaMasCercana = pos;
+                shortestDist = distActual;
+                closestTile = tile;
             }
         }
-        return celdaMasCercana;
+        return closestTile;
     }
 
-    void UbicarJugador()
+    void PlaceCharacter()
     {
-        Vector2 posPersonaje = BuscarPosicionCercanaA(new Vector2Int(0, 64));
-        personaje.transform.position = posPersonaje;
+        Vector2 characterPos = FindClosestTileTo(new Vector2Int(0, mapHeight));
+        character.transform.position = characterPos;
     }
-    void UbicarSalida()
+    void PlaceExit()
     {
-        Vector2 posSalida = BuscarPosicionCercanaA(new Vector2Int(64, 0));
-        salida.transform.position = posSalida;
-    }
-    int Distancia(Vector2Int pos1,Vector2Int pos2)
-    {
-        int distX = Math.Abs(pos1.x - pos2.x);
-        int distY = Math.Abs(pos1.y - pos2.y);
-        return distX + distY;
+        Vector2 exitPos = FindClosestTileTo(new Vector2Int(mapWith, 0));
+        exit.transform.position = exitPos;
     }
 
     /*void GenerateFloor()

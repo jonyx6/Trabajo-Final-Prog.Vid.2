@@ -100,7 +100,7 @@ TextureImporter:
       name: Dragon 2_6
       rect:
         serializedVersion: 2
-        x: 178
+        x: 177
         y: 707
         width: 129
         height: 143
@@ -293,8 +293,8 @@ TextureImporter:
         y: 386
         width: 176
         height: 65
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.3409091, y: 0.50769234}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -314,8 +314,8 @@ TextureImporter:
         y: 386
         width: 177
         height: 65
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.33898306, y: 0.50769234}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -335,8 +335,8 @@ TextureImporter:
         y: 386
         width: 181
         height: 65
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.3314917, y: 0.50769234}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -356,8 +356,8 @@ TextureImporter:
         y: 386
         width: 179
         height: 65
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.33519554, y: 0.50769234}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

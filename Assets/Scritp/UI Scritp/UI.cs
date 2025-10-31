@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,7 +34,14 @@ public class UI : MonoBehaviour
 
     public Atributos aPersonaje;
 
-    private void Start()
+    [Header("textos de los atributos")]
+
+    public TextMeshProUGUI textPoderAtaque;
+    public TextMeshProUGUI textVida;
+    public TextMeshProUGUI textPoderDefensa;
+    public TextMeshProUGUI textVelocidad;
+
+    private void Awake()
     {
         // Asegurar que los botones empiecen llenos
         boton1.fillAmount = 1f;
@@ -41,7 +49,7 @@ public class UI : MonoBehaviour
         boton3.fillAmount = 1f;
         boton4.fillAmount = 1f;
 
-        aPersonaje = GetComponent<Atributos>();
+       
     }
 
     private void Update()
@@ -53,7 +61,11 @@ public class UI : MonoBehaviour
         CargaBoton(boton2, KeyCode.E, recargaBoton2);
         CargaBoton(boton3, KeyCode.W, recargaBoton3);
         CargaBoton(boton4, KeyCode.Q, recargaBoton4);
+
+        
     }
+
+
 
     void ActivarInventario()
     {
@@ -69,6 +81,7 @@ public class UI : MonoBehaviour
 
             Debug.Log("Se activó el inventario");
         }
+        
     }
 
     void ActivarAtributos()
@@ -85,6 +98,8 @@ public class UI : MonoBehaviour
 
             Debug.Log("Se activaron los atributos");
         }
+
+        ActualizarAtributos();
     }
 
     void CargaBoton(Image unBoton, KeyCode tecla, float duracion)
@@ -109,5 +124,16 @@ public class UI : MonoBehaviour
             yield return null;
         }
         unBoton.fillAmount = 1f;
+    }
+
+    // textos atributos
+
+    void ActualizarAtributos()
+    {
+        textPoderAtaque.text = aPersonaje.Pa.ToString();
+        textPoderDefensa.text = aPersonaje.Pd.ToString();
+        textVida.text = aPersonaje.Vida.ToString();
+        textVelocidad.text = aPersonaje.Velocidad.ToString();
+
     }
 }

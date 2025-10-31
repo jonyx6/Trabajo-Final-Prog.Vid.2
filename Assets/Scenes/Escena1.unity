@@ -225,6 +225,10 @@ MonoBehaviour:
   recargaBoton3: 6
   recargaBoton4: 10
   aPersonaje: {fileID: 0}
+  textPoderAtaque: {fileID: 0}
+  textVida: {fileID: 0}
+  textPoderDefensa: {fileID: 0}
+  textVelocidad: {fileID: 0}
 --- !u!1 &182501457
 GameObject:
   m_ObjectHideFlags: 0
@@ -4037,6 +4041,10 @@ MonoBehaviour:
   recargaBoton3: 6
   recargaBoton4: 10
   aPersonaje: {fileID: 329899406}
+  textPoderAtaque: {fileID: 908179810}
+  textVida: {fileID: 416263936}
+  textPoderDefensa: {fileID: 375561158}
+  textVelocidad: {fileID: 1799182039}
 --- !u!1 &1463966863
 GameObject:
   m_ObjectHideFlags: 0
@@ -4993,6 +5001,10 @@ MonoBehaviour:
   recargaBoton3: 6
   recargaBoton4: 10
   aPersonaje: {fileID: 0}
+  textPoderAtaque: {fileID: 0}
+  textVida: {fileID: 0}
+  textPoderDefensa: {fileID: 0}
+  textVelocidad: {fileID: 0}
 --- !u!1 &1891425126
 GameObject:
   m_ObjectHideFlags: 0
@@ -5220,7 +5232,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1959739201
 RectTransform:
   m_ObjectHideFlags: 0

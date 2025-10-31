@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 5641902542405866061}
   - component: {fileID: 7041804189007755175}
   - component: {fileID: 7046780995194662004}
+  - component: {fileID: 6759256570876724740}
   m_Layer: 0
   m_Name: Personaje
   m_TagString: Player
@@ -254,6 +255,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea69607930dc7d408c979dcc81d6d77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6759256570876724740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680029946037451657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a57a0fb236c9e314ba69d615425b5c2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowPrefab: {fileID: 3424439298263046513, guid: 129d6fdf7d8174945b968046d4e8b499, type: 3}
+  shootPoint: {fileID: 5147743383665184579}
 --- !u!1 &7027263827130240943
 GameObject:
   m_ObjectHideFlags: 0

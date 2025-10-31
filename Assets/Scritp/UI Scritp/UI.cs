@@ -19,8 +19,19 @@ public class UI : MonoBehaviour
     public Image boton3; // W
     public Image boton4; // Q
 
+    [Header("estado de inventario y atributos")]
     private bool inventarioActivado = false;
     private bool atributosActivado = false;
+
+    [Header("recuperacion de cada boton ")]
+    public float recargaBoton1 = 0.1f;
+    public float recargaBoton2 = 3f;
+    public float recargaBoton3 = 6f;
+    public float recargaBoton4 = 10f;
+
+    [Header("Atributos Del Personaje")]
+
+    public Atributos aPersonaje;
 
     private void Start()
     {
@@ -29,6 +40,8 @@ public class UI : MonoBehaviour
         boton2.fillAmount = 1f;
         boton3.fillAmount = 1f;
         boton4.fillAmount = 1f;
+
+        aPersonaje = GetComponent<Atributos>();
     }
 
     private void Update()
@@ -36,10 +49,10 @@ public class UI : MonoBehaviour
         ActivarInventario();
         ActivarAtributos();
 
-        CargaBoton(boton1, KeyCode.R, 2f);
-        CargaBoton(boton2, KeyCode.E, 2f);
-        CargaBoton(boton3, KeyCode.W, 2f);
-        CargaBoton(boton4, KeyCode.Q, 2f);
+        CargaBoton(boton1, KeyCode.R, recargaBoton1);
+        CargaBoton(boton2, KeyCode.E, recargaBoton2);
+        CargaBoton(boton3, KeyCode.W, recargaBoton3);
+        CargaBoton(boton4, KeyCode.Q, recargaBoton4);
     }
 
     void ActivarInventario()

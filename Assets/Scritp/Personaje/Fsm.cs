@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 
 public class Fsm : MonoBehaviour
@@ -15,7 +16,12 @@ public class Fsm : MonoBehaviour
     private Vector2 target;
     private float angulo;
     public float  Angulo => angulo;// solo lectura.
+    private int velocidadActualDelPersonaje;
+    public Image boton1;
     
+    public Image boton3;
+    
+
 
     private void Awake()
     {
@@ -24,6 +30,10 @@ public class Fsm : MonoBehaviour
         aPersonaje = GetComponent<Atributos>();
         spPersonaje = GetComponent<SpriteRenderer>();
         cam = Camera.main;
+        
+
+        velocidadActualDelPersonaje = aPersonaje.Velocidad;
+        
         
     }
 
@@ -70,22 +80,18 @@ public class Fsm : MonoBehaviour
 
     void EstaAtacando()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R ) && boton1.fillAmount ==1 )
         {
             Cambiar_A_("isAttacking1",true);
             aPersonaje.Velocidad = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            Cambiar_A_("isAttacking3", true);
-            aPersonaje.Velocidad = 0;
-        }
+  
     }
 
     void AtaqueEspecial(AnimatorStateInfo unEstado)
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) && boton3.fillAmount ==1)
         {
             Cambiar_A_("isAttacking3", true);
             aPersonaje.Velocidad = 0;
@@ -94,7 +100,7 @@ public class Fsm : MonoBehaviour
         if (unEstado.IsName("attack3") && unEstado.normalizedTime >= 1f)
         {
             Cambiar_A_("isAttacking3", false);
-            aPersonaje.Velocidad = 1;
+            aPersonaje.Velocidad = velocidadActualDelPersonaje;
         }
 
     }
@@ -122,7 +128,7 @@ public class Fsm : MonoBehaviour
         if (estado.IsName("attack1") && estado.normalizedTime >= 1f)
         {
             Cambiar_A_("isAttacking1", false);
-            aPersonaje.Velocidad = 1;
+            aPersonaje.Velocidad = velocidadActualDelPersonaje;
         }else if (Input.GetKeyDown(KeyCode.R) && estado.IsName("attack1") && estado.normalizedTime < 1f)
         {
             Cambiar_A_("isAttacking1", false);
@@ -133,7 +139,7 @@ public class Fsm : MonoBehaviour
         {
             Cambiar_A_("isAttacking1", false);
             Cambiar_A_("isAttacking2", false);
-            aPersonaje.Velocidad = 1;
+            aPersonaje.Velocidad = velocidadActualDelPersonaje;
         }
 
 

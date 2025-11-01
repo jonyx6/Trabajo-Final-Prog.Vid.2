@@ -41,6 +41,8 @@ public class UI : MonoBehaviour
     public TextMeshProUGUI textPoderDefensa;
     public TextMeshProUGUI textVelocidad;
 
+
+
     private void Awake()
     {
         // Asegurar que los botones empiecen llenos
@@ -121,9 +123,11 @@ public class UI : MonoBehaviour
         {
             tiempo += Time.deltaTime;
             unBoton.fillAmount = tiempo / duracion;
+            
             yield return null;
         }
         unBoton.fillAmount = 1f;
+        
     }
 
     // textos atributos

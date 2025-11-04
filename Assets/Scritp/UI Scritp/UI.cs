@@ -14,6 +14,8 @@ public class UI : MonoBehaviour
     [Header("Panel de Atributos")]
     public GameObject Atributos;
 
+
+
     [Header("Botones de habilidades")]
     public Image boton1; // R
     public Image boton2; // E
@@ -33,6 +35,7 @@ public class UI : MonoBehaviour
     [Header("Atributos Del Personaje")]
 
     public Atributos aPersonaje;
+    public LevelSystem lsPersonaje;
 
     [Header("textos de los atributos")]
 
@@ -40,6 +43,12 @@ public class UI : MonoBehaviour
     public TextMeshProUGUI textVida;
     public TextMeshProUGUI textPoderDefensa;
     public TextMeshProUGUI textVelocidad;
+
+    [Header("Texto De Los Niveles")]
+
+    public TextMeshProUGUI textNroNivel;
+    public TextMeshProUGUI textExpActual;
+    public TextMeshProUGUI textTopeNivel;
 
 
 
@@ -50,6 +59,9 @@ public class UI : MonoBehaviour
         boton2.fillAmount = 1f;
         boton3.fillAmount = 1f;
         boton4.fillAmount = 1f;
+
+    
+        
 
        
     }
@@ -138,6 +150,11 @@ public class UI : MonoBehaviour
         textPoderDefensa.text = aPersonaje.Pd.ToString();
         textVida.text = aPersonaje.Vida.ToString();
         textVelocidad.text = aPersonaje.Velocidad.ToString();
+
+        // texto niveles 
+        textNroNivel.text = lsPersonaje.Nivel.ToString();
+        textExpActual.text = lsPersonaje.expActual.ToString();
+        textTopeNivel.text =  lsPersonaje.limitDelNivel.ToString(); 
 
     }
 }

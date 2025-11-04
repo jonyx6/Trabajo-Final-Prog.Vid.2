@@ -23,6 +23,13 @@ public class Atributos : MonoBehaviour
     public int Velocidad;
 
 
+    [Header("ExpAEntregar")]
+
+    public int ExpAEntregar = 10;
+
+ 
+
+
 
 }
 

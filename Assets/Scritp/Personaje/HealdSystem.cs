@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealdSystem : MonoBehaviour
+public class HealdSystem : MonoBehaviour,IInteractable
 {
     private Atributos aPlayer;
-    //private bool estaVivo = true;
+    
    
 
     private void Awake()
@@ -23,15 +23,25 @@ public class HealdSystem : MonoBehaviour
         aPlayer.Vida += cantVida;
     }
 
-    public void Morir()
+    public void Interact(LevelSystem unPersonaje)
+    {
+        
+
+        unPersonaje.SubirExperiencia(aPlayer.ExpAEntregar);
+    }
+
+
+    public void Morir(LevelSystem unPersonaje)
     {
         if(aPlayer.Vida < 1)
         {
-            //estaVivo=false;
+            Interact(unPersonaje);
             Destroy(gameObject);
             
         }
     }
+
+    
 
 
 }

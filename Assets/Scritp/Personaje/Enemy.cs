@@ -22,15 +22,5 @@ public class Enemy : MonoBehaviour
         hsEnemy = GetComponent<HealdSystem>();
     }
 
-    private void Update()
-    {
-        
-        hsEnemy.Morir();
-
-        //Debug.Log(" la vida del enemigo es : " + aEnemy.Vida);
-    }
-    
-
-    
 
 }

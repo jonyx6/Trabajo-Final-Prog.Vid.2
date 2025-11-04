@@ -8,24 +8,24 @@ public class Atributos : MonoBehaviour
     public string Nombre;
 
     [Header("Vida")]
-    public int Vida;
+    public float Vida;
 
     [Header("Poder De Ataque")]
 
-    public int Pa;
+    public float Pa;
 
     [Header("Poder De Defensa")]
 
-    public int Pd;
+    public float Pd;
 
     [Header("Velocidad")]
 
-    public int Velocidad;
+    public float Velocidad;
 
 
     [Header("ExpAEntregar")]
 
-    public int ExpAEntregar = 10;
+    public float ExpAEntregar = 10;
 
  
 

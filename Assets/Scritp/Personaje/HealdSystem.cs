@@ -12,7 +12,7 @@ public class HealdSystem : MonoBehaviour,IInteractable
     {
         aPlayer = GetComponent<Atributos>();
     }
-    public void RecibirUn_(int unDanio)
+    public void RecibirUn_(float unDanio)
     {
         Debug.Log("Recibio daño");
         aPlayer.Vida -= (unDanio - aPlayer.Pd);

@@ -146,15 +146,15 @@ public class UI : MonoBehaviour
 
     void ActualizarAtributos()
     {
-        textPoderAtaque.text = aPersonaje.Pa.ToString();
-        textPoderDefensa.text = aPersonaje.Pd.ToString();
-        textVida.text = aPersonaje.Vida.ToString();
-        textVelocidad.text = aPersonaje.Velocidad.ToString();
+        textPoderAtaque.text = aPersonaje.Pa.ToString("F1");
+        textPoderDefensa.text = aPersonaje.Pd.ToString("F1");
+        textVida.text = aPersonaje.Vida.ToString("F1");
+        textVelocidad.text = aPersonaje.Velocidad.ToString("F1");
 
         // texto niveles 
         textNroNivel.text = lsPersonaje.Nivel.ToString();
-        textExpActual.text = lsPersonaje.expActual.ToString();
-        textTopeNivel.text =  lsPersonaje.limitDelNivel.ToString(); 
+        textExpActual.text = lsPersonaje.expActual.ToString("F1");
+        textTopeNivel.text =  lsPersonaje.limitDelNivel.ToString("F1"); 
 
     }
 }

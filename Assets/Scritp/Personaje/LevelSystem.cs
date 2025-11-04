@@ -4,26 +4,39 @@ using UnityEngine;
 
 public class LevelSystem : MonoBehaviour
 {
-    public int Nivel = 1;
+    public int Nivel = 0;
     public float expActual = 0f;
     public float limitDelNivel = 100f;
+    public Atributos aPersonaje;
+    public float porcentajeDeAumentoDeAtributos=0.1f;
+
+ 
+
+
 
     public void SubirDeNivel()
     {
         if (expActual >= limitDelNivel)
         {
-            Nivel += 1;
-            
-            expActual = ResultadoExperienciaFinal();
-            limitDelNivel *= 1.25f;
+            expActual -= limitDelNivel;
+            Nivel ++;
+            AumentarAtributos(porcentajeDeAumentoDeAtributos);
         }
 
     }
 
-    float  ResultadoExperienciaFinal()
+
+    public void AumentarAtributos(float unaCant)
     {
-        return expActual - limitDelNivel;
+        limitDelNivel *= 1+unaCant;
+        aPersonaje.Pa *= 1+unaCant ;
+        aPersonaje.Vida *=1+ unaCant ;
+        aPersonaje.Pd *= 1+unaCant ;
+        aPersonaje.Velocidad *= 1+unaCant;
+        aPersonaje.ExpAEntregar *= 1+ unaCant;
     }
+
+
 
     public void SubirExperiencia(float unCantDeExp)
     {
@@ -33,6 +46,7 @@ public class LevelSystem : MonoBehaviour
 
     private void Update()
     {
+
         SubirDeNivel();
     }
 

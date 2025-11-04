@@ -15,8 +15,9 @@ public class Fsm : MonoBehaviour
     private SpriteRenderer spPersonaje;
     private Vector2 target;
     private float angulo;
+    public ControllerSystem goPersonaje;
     public float  Angulo => angulo;// solo lectura.
-    private int velocidadActualDelPersonaje;
+    private float velocidadActualDelPersonaje;
     public Image boton1;
     
     public Image boton3;
@@ -29,10 +30,11 @@ public class Fsm : MonoBehaviour
         rbPersonaje = GetComponent<Rigidbody2D>();
         aPersonaje = GetComponent<Atributos>();
         spPersonaje = GetComponent<SpriteRenderer>();
+        goPersonaje = GetComponent<ControllerSystem>();
         cam = Camera.main;
         
 
-        velocidadActualDelPersonaje = aPersonaje.Velocidad;
+       
         
         
     }
@@ -83,7 +85,7 @@ public class Fsm : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R ) && boton1.fillAmount ==1 )
         {
             Cambiar_A_("isAttacking1",true);
-            aPersonaje.Velocidad = 0;
+            goPersonaje.enabled = false;
         }
 
   
@@ -94,13 +96,13 @@ public class Fsm : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) && boton3.fillAmount ==1)
         {
             Cambiar_A_("isAttacking3", true);
-            aPersonaje.Velocidad = 0;
+            goPersonaje.enabled=false;
         }
 
         if (unEstado.IsName("attack3") && unEstado.normalizedTime >= 1f)
         {
             Cambiar_A_("isAttacking3", false);
-            aPersonaje.Velocidad = velocidadActualDelPersonaje;
+            goPersonaje.enabled=true;
         }
 
     }
@@ -128,7 +130,7 @@ public class Fsm : MonoBehaviour
         if (estado.IsName("attack1") && estado.normalizedTime >= 1f)
         {
             Cambiar_A_("isAttacking1", false);
-            aPersonaje.Velocidad = velocidadActualDelPersonaje;
+            goPersonaje.enabled = true;
         }else if (Input.GetKeyDown(KeyCode.R) && estado.IsName("attack1") && estado.normalizedTime < 1f)
         {
             Cambiar_A_("isAttacking1", false);
@@ -139,7 +141,7 @@ public class Fsm : MonoBehaviour
         {
             Cambiar_A_("isAttacking1", false);
             Cambiar_A_("isAttacking2", false);
-            aPersonaje.Velocidad = velocidadActualDelPersonaje;
+            goPersonaje.enabled = true;
         }
 
 

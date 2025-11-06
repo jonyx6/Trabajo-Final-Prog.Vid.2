@@ -3,23 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Personaje
 {
-    [Header("Sistema de ataque")]
-    private AttackSystem asEnemy;
-
-    [Header("Atributos")]
-    private Atributos2 atributos;
-
-    [Header("Sistema de getsion De Vida")]
-
-    private HealdSystem hsEnemy;
-
-    void Awake()
-    {
-        asEnemy = GetComponent<AttackSystem>();
-        hsEnemy = GetComponent<HealdSystem>();
-    }
-
 
 }

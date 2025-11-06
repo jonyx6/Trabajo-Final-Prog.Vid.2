@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(HealdSystem))]
 public class InterationSystem : MonoBehaviour
 {
     [Header(" tag del objeto")]
 
     public string tagName;
 
-    public HealdSystem hsPersonaje;
+    private HealdSystem hsPersonaje;
 
     private void Awake()
     {

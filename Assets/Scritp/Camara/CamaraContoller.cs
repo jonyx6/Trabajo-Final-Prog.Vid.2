@@ -4,37 +4,59 @@ using UnityEngine;
 
 public class CamaraContoller : MonoBehaviour
 {
-    public Transform objetivo;
-    public float velocidadCamara = 0.025f;
-    public Vector3 desplazamiento;
+    [SerializeField]
+    private Transform objetivo;
+    [SerializeField]
+    private float velocidadCamara = 0.025f;
+    [SerializeField]
+    private Vector3 desplazamiento;
+    [Header("Limites de la camara")]
     [SerializeField]
     private Vector2 tamañoDeZonaVisual;
     [SerializeField]
     private Vector2 posDeZonaVisual;
+    private Camera _camera;
+    [Header("Zoom")]
+    [SerializeField]
+    private float zoomMinimo = 4;
+    [SerializeField]
+    private float zoomMaximo = 10;
+    [SerializeField]
+    private float velocidadDeZoom = 10;
 
-    private void LateUpdate()
+    void Start()
     {
-        Vector3 posicionDeseada = objetivo.position + desplazamiento;
-
-        Vector3 posicionSuavizada = Vector3.Lerp(transform.position, posicionDeseada, velocidadCamara);
-
-        
+        _camera = GetComponent<Camera>();
     }
     private void Update()
     {
-        Vector3 posicionDeseada = objetivo.position ;
+        MoverCamara();
+        HacerZoom();
+    }
+    private void HacerZoom()
+    {
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+
+        Debug.Log(scroll);
+
+        if (scroll != 0)
+        {
+            _camera.orthographicSize -= scroll * velocidadDeZoom;  // Ajusta el zoom
+            _camera.orthographicSize = Mathf.Clamp(_camera.orthographicSize, zoomMinimo, zoomMaximo);
+        }
+    }
+    private void MoverCamara()
+    {
+        Vector3 posicionDeseada = objetivo.position;
 
         posicionDeseada = Vector3.Lerp(transform.position, posicionDeseada, velocidadCamara * Time.deltaTime);
 
         posicionDeseada = LimitarPosDeCamara(posicionDeseada);
-        
+
         transform.position = posicionDeseada + desplazamiento;
     }
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(posDeZonaVisual, tamañoDeZonaVisual);
-    }
+
+
     private Vector2 TamañoDeCamara()
     {
         Vector2 tamaño;
@@ -62,4 +84,9 @@ public class CamaraContoller : MonoBehaviour
         return LimitarPosicion(posActual, limiteMinimo, limiteMaximo);
     }
 
-}
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(posDeZonaVisual, tamañoDeZonaVisual);
+    }
+    }

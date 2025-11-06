@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
+[RequireComponent(typeof(Personaje))]
 public class HealdSystem : MonoBehaviour,IInteractable
 {
     private Atributos2 atributos;
     
-   
-
     private void Awake()
     {
         atributos = GetComponent<Personaje>().atributos;
@@ -15,7 +13,8 @@ public class HealdSystem : MonoBehaviour,IInteractable
     public void RecibirUn_(float unDanio)
     {
         Debug.Log("Recibio da�o");
-        atributos.Vida -= (unDanio - atributos.Pd);
+        //el max lo utilizo para que si tiene mas escudo que daño no le suba la vida
+        atributos.Vida -= Mathf.Max(0,unDanio - atributos.Pd);
     }
 
     public void AumentarVida(int cantVida)

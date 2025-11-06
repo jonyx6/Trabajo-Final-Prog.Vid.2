@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Atributos2 atributosBaseDelJugador;
     public int nivelDelJugador = 1;
-    private bool atributosAsignadosAnteriormente = false;
     public static GameManager Instance{ get; private set;}
     // Start is called before the first frame update
     private void Awake()

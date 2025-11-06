@@ -134,11 +134,11 @@ GameObject:
   - component: {fileID: 11783565}
   - component: {fileID: 11783564}
   - component: {fileID: 11783563}
-  - component: {fileID: 11783562}
   - component: {fileID: 11783561}
   - component: {fileID: 11783560}
   - component: {fileID: 11783559}
   - component: {fileID: 11783558}
+  - component: {fileID: 11783567}
   m_Layer: 0
   m_Name: Enemigo (9)
   m_TagString: Enemigo
@@ -161,7 +161,13 @@ MonoBehaviour:
   Nivel: 1
   expActual: 0
   limitDelNivel: 100
-  aPersonaje: {fileID: 11783562}
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
   porcentajeDeAumentoDeAtributos: 0.1
 --- !u!114 &11783559
 MonoBehaviour:
@@ -201,24 +207,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc3c081f59208e47a870f569c81c254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11783562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 11783557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba2b051a9c8fbc4f9edb4a82163c051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nombre: Dr Malito
-  Vida: 100
-  Pa: 11
-  Pd: 5
-  Velocidad: 1
-  ExpAEntregar: 35
 --- !u!61 &11783563
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -358,6 +346,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &11783567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11783557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de561dd88a5a5514ab7ad94cd2f1194a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
 --- !u!1 &131713267
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,11 +377,11 @@ GameObject:
   - component: {fileID: 131713275}
   - component: {fileID: 131713274}
   - component: {fileID: 131713273}
-  - component: {fileID: 131713272}
   - component: {fileID: 131713271}
   - component: {fileID: 131713270}
   - component: {fileID: 131713269}
   - component: {fileID: 131713268}
+  - component: {fileID: 131713277}
   m_Layer: 0
   m_Name: Enemigo (10)
   m_TagString: Enemigo
@@ -397,7 +404,13 @@ MonoBehaviour:
   Nivel: 1
   expActual: 0
   limitDelNivel: 100
-  aPersonaje: {fileID: 131713272}
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
   porcentajeDeAumentoDeAtributos: 0.1
 --- !u!114 &131713269
 MonoBehaviour:
@@ -437,24 +450,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc3c081f59208e47a870f569c81c254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &131713272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 131713267}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba2b051a9c8fbc4f9edb4a82163c051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nombre: Dr Malito
-  Vida: 100
-  Pa: 11
-  Pd: 5
-  Velocidad: 1
-  ExpAEntregar: 35
 --- !u!61 &131713273
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -594,6 +589,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &131713277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131713267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de561dd88a5a5514ab7ad94cd2f1194a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
 --- !u!1 &140381717
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,11 +620,11 @@ GameObject:
   - component: {fileID: 140381725}
   - component: {fileID: 140381724}
   - component: {fileID: 140381723}
-  - component: {fileID: 140381722}
   - component: {fileID: 140381721}
   - component: {fileID: 140381720}
   - component: {fileID: 140381719}
   - component: {fileID: 140381718}
+  - component: {fileID: 140381727}
   m_Layer: 0
   m_Name: Enemigo (19)
   m_TagString: Enemigo
@@ -633,7 +647,13 @@ MonoBehaviour:
   Nivel: 1
   expActual: 0
   limitDelNivel: 100
-  aPersonaje: {fileID: 140381722}
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
   porcentajeDeAumentoDeAtributos: 0.1
 --- !u!114 &140381719
 MonoBehaviour:
@@ -673,24 +693,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc3c081f59208e47a870f569c81c254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &140381722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140381717}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba2b051a9c8fbc4f9edb4a82163c051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nombre: Dr Malito
-  Vida: 100
-  Pa: 11
-  Pd: 5
-  Velocidad: 1
-  ExpAEntregar: 35
 --- !u!61 &140381723
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -830,6 +832,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &140381727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140381717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de561dd88a5a5514ab7ad94cd2f1194a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
 --- !u!1 &329899398 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1680029946037451657, guid: 41707e5753803144b86d1156838a4630, type: 3}
@@ -1073,11 +1094,11 @@ GameObject:
   - component: {fileID: 564787317}
   - component: {fileID: 564787316}
   - component: {fileID: 564787315}
-  - component: {fileID: 564787314}
   - component: {fileID: 564787313}
   - component: {fileID: 564787312}
   - component: {fileID: 564787311}
   - component: {fileID: 564787310}
+  - component: {fileID: 564787319}
   m_Layer: 0
   m_Name: Enemigo (3)
   m_TagString: Enemigo
@@ -1100,7 +1121,13 @@ MonoBehaviour:
   Nivel: 1
   expActual: 0
   limitDelNivel: 100
-  aPersonaje: {fileID: 564787314}
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
   porcentajeDeAumentoDeAtributos: 0.1
 --- !u!114 &564787311
 MonoBehaviour:
@@ -1140,24 +1167,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc3c081f59208e47a870f569c81c254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &564787314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 564787309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba2b051a9c8fbc4f9edb4a82163c051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nombre: Dr Malito
-  Vida: 100
-  Pa: 11
-  Pd: 5
-  Velocidad: 1
-  ExpAEntregar: 35
 --- !u!61 &564787315
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1297,6 +1306,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &564787319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564787309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de561dd88a5a5514ab7ad94cd2f1194a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
 --- !u!1 &569811427
 GameObject:
   m_ObjectHideFlags: 0
@@ -1309,11 +1337,11 @@ GameObject:
   - component: {fileID: 569811435}
   - component: {fileID: 569811434}
   - component: {fileID: 569811433}
-  - component: {fileID: 569811432}
   - component: {fileID: 569811431}
   - component: {fileID: 569811430}
   - component: {fileID: 569811429}
   - component: {fileID: 569811428}
+  - component: {fileID: 569811437}
   m_Layer: 0
   m_Name: Enemigo (13)
   m_TagString: Enemigo
@@ -1336,7 +1364,13 @@ MonoBehaviour:
   Nivel: 1
   expActual: 0
   limitDelNivel: 100
-  aPersonaje: {fileID: 569811432}
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
   porcentajeDeAumentoDeAtributos: 0.1
 --- !u!114 &569811429
 MonoBehaviour:
@@ -1376,24 +1410,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc3c081f59208e47a870f569c81c254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &569811432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 569811427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba2b051a9c8fbc4f9edb4a82163c051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nombre: Dr Malito
-  Vida: 100
-  Pa: 11
-  Pd: 5
-  Velocidad: 1
-  ExpAEntregar: 35
 --- !u!61 &569811433
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1533,6 +1549,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &569811437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 569811427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de561dd88a5a5514ab7ad94cd2f1194a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
 --- !u!1 &599360140
 GameObject:
   m_ObjectHideFlags: 0
@@ -1545,11 +1580,11 @@ GameObject:
   - component: {fileID: 599360148}
   - component: {fileID: 599360147}
   - component: {fileID: 599360146}
-  - component: {fileID: 599360145}
   - component: {fileID: 599360144}
   - component: {fileID: 599360143}
   - component: {fileID: 599360142}
   - component: {fileID: 599360141}
+  - component: {fileID: 599360150}
   m_Layer: 0
   m_Name: Enemigo (20)
   m_TagString: Enemigo
@@ -1572,7 +1607,13 @@ MonoBehaviour:
   Nivel: 1
   expActual: 0
   limitDelNivel: 100
-  aPersonaje: {fileID: 599360145}
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
   porcentajeDeAumentoDeAtributos: 0.1
 --- !u!114 &599360142
 MonoBehaviour:
@@ -1612,24 +1653,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc3c081f59208e47a870f569c81c254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &599360145
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 599360140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba2b051a9c8fbc4f9edb4a82163c051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nombre: Dr Malito
-  Vida: 100
-  Pa: 11
-  Pd: 5
-  Velocidad: 1
-  ExpAEntregar: 35
 --- !u!61 &599360146
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1769,6 +1792,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &599360150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599360140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de561dd88a5a5514ab7ad94cd2f1194a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1863,11 +1905,11 @@ GameObject:
   - component: {fileID: 681125402}
   - component: {fileID: 681125401}
   - component: {fileID: 681125400}
-  - component: {fileID: 681125399}
   - component: {fileID: 681125398}
   - component: {fileID: 681125397}
   - component: {fileID: 681125396}
   - component: {fileID: 681125395}
+  - component: {fileID: 681125404}
   m_Layer: 0
   m_Name: Enemigo (6)
   m_TagString: Enemigo
@@ -1890,7 +1932,13 @@ MonoBehaviour:
   Nivel: 1
   expActual: 0
   limitDelNivel: 100
-  aPersonaje: {fileID: 681125399}
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
   porcentajeDeAumentoDeAtributos: 0.1
 --- !u!114 &681125396
 MonoBehaviour:
@@ -1930,24 +1978,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc3c081f59208e47a870f569c81c254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &681125399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 681125394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba2b051a9c8fbc4f9edb4a82163c051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nombre: Dr Malito
-  Vida: 100
-  Pa: 11
-  Pd: 5
-  Velocidad: 1
-  ExpAEntregar: 35
 --- !u!61 &681125400
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2087,6 +2117,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &681125404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681125394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de561dd88a5a5514ab7ad94cd2f1194a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
 --- !u!1 &706253652
 GameObject:
   m_ObjectHideFlags: 0
@@ -2099,11 +2148,11 @@ GameObject:
   - component: {fileID: 706253660}
   - component: {fileID: 706253659}
   - component: {fileID: 706253658}
-  - component: {fileID: 706253657}
   - component: {fileID: 706253656}
   - component: {fileID: 706253655}
   - component: {fileID: 706253654}
   - component: {fileID: 706253653}
+  - component: {fileID: 706253662}
   m_Layer: 0
   m_Name: Enemigo (16)
   m_TagString: Enemigo
@@ -2126,7 +2175,13 @@ MonoBehaviour:
   Nivel: 1
   expActual: 0
   limitDelNivel: 100
-  aPersonaje: {fileID: 706253657}
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
   porcentajeDeAumentoDeAtributos: 0.1
 --- !u!114 &706253654
 MonoBehaviour:
@@ -2166,24 +2221,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc3c081f59208e47a870f569c81c254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &706253657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 706253652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba2b051a9c8fbc4f9edb4a82163c051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nombre: Dr Malito
-  Vida: 100
-  Pa: 11
-  Pd: 5
-  Velocidad: 1
-  ExpAEntregar: 35
 --- !u!61 &706253658
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2323,6 +2360,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &706253662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 706253652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de561dd88a5a5514ab7ad94cd2f1194a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
 --- !u!1 &849020285
 GameObject:
   m_ObjectHideFlags: 0
@@ -2335,11 +2391,11 @@ GameObject:
   - component: {fileID: 849020293}
   - component: {fileID: 849020292}
   - component: {fileID: 849020291}
-  - component: {fileID: 849020290}
   - component: {fileID: 849020289}
   - component: {fileID: 849020288}
   - component: {fileID: 849020287}
   - component: {fileID: 849020286}
+  - component: {fileID: 849020295}
   m_Layer: 0
   m_Name: Enemigo (14)
   m_TagString: Enemigo
@@ -2362,7 +2418,13 @@ MonoBehaviour:
   Nivel: 1
   expActual: 0
   limitDelNivel: 100
-  aPersonaje: {fileID: 849020290}
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
   porcentajeDeAumentoDeAtributos: 0.1
 --- !u!114 &849020287
 MonoBehaviour:
@@ -2402,24 +2464,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc3c081f59208e47a870f569c81c254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &849020290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 849020285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba2b051a9c8fbc4f9edb4a82163c051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nombre: Dr Malito
-  Vida: 100
-  Pa: 11
-  Pd: 5
-  Velocidad: 1
-  ExpAEntregar: 35
 --- !u!61 &849020291
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2559,6 +2603,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &849020295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 849020285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de561dd88a5a5514ab7ad94cd2f1194a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
 --- !u!1 &906262928
 GameObject:
   m_ObjectHideFlags: 0
@@ -2571,11 +2634,11 @@ GameObject:
   - component: {fileID: 906262936}
   - component: {fileID: 906262935}
   - component: {fileID: 906262934}
-  - component: {fileID: 906262933}
   - component: {fileID: 906262932}
   - component: {fileID: 906262931}
   - component: {fileID: 906262930}
   - component: {fileID: 906262929}
+  - component: {fileID: 906262938}
   m_Layer: 0
   m_Name: Enemigo (1)
   m_TagString: Enemigo
@@ -2598,7 +2661,13 @@ MonoBehaviour:
   Nivel: 1
   expActual: 0
   limitDelNivel: 100
-  aPersonaje: {fileID: 906262933}
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
   porcentajeDeAumentoDeAtributos: 0.1
 --- !u!114 &906262930
 MonoBehaviour:
@@ -2638,24 +2707,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc3c081f59208e47a870f569c81c254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &906262933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 906262928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba2b051a9c8fbc4f9edb4a82163c051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nombre: Dr Malito
-  Vida: 100
-  Pa: 11
-  Pd: 5
-  Velocidad: 1
-  ExpAEntregar: 35
 --- !u!61 &906262934
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2795,6 +2846,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &906262938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906262928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de561dd88a5a5514ab7ad94cd2f1194a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
 --- !u!1 &920127841
 GameObject:
   m_ObjectHideFlags: 0
@@ -2807,11 +2877,11 @@ GameObject:
   - component: {fileID: 920127849}
   - component: {fileID: 920127848}
   - component: {fileID: 920127847}
-  - component: {fileID: 920127846}
   - component: {fileID: 920127845}
   - component: {fileID: 920127844}
   - component: {fileID: 920127843}
   - component: {fileID: 920127842}
+  - component: {fileID: 920127851}
   m_Layer: 0
   m_Name: Enemigo (5)
   m_TagString: Enemigo
@@ -2834,7 +2904,13 @@ MonoBehaviour:
   Nivel: 1
   expActual: 0
   limitDelNivel: 100
-  aPersonaje: {fileID: 920127846}
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
   porcentajeDeAumentoDeAtributos: 0.1
 --- !u!114 &920127843
 MonoBehaviour:
@@ -2874,24 +2950,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc3c081f59208e47a870f569c81c254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &920127846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 920127841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba2b051a9c8fbc4f9edb4a82163c051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nombre: Dr Malito
-  Vida: 100
-  Pa: 11
-  Pd: 5
-  Velocidad: 1
-  ExpAEntregar: 35
 --- !u!61 &920127847
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3031,6 +3089,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &920127851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920127841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de561dd88a5a5514ab7ad94cd2f1194a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
 --- !u!1 &1080157180
 GameObject:
   m_ObjectHideFlags: 0
@@ -3043,11 +3120,11 @@ GameObject:
   - component: {fileID: 1080157188}
   - component: {fileID: 1080157187}
   - component: {fileID: 1080157186}
-  - component: {fileID: 1080157185}
   - component: {fileID: 1080157184}
   - component: {fileID: 1080157183}
   - component: {fileID: 1080157182}
   - component: {fileID: 1080157181}
+  - component: {fileID: 1080157190}
   m_Layer: 0
   m_Name: Enemigo (2)
   m_TagString: Enemigo
@@ -3070,7 +3147,13 @@ MonoBehaviour:
   Nivel: 1
   expActual: 0
   limitDelNivel: 100
-  aPersonaje: {fileID: 1080157185}
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
   porcentajeDeAumentoDeAtributos: 0.1
 --- !u!114 &1080157182
 MonoBehaviour:
@@ -3110,24 +3193,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc3c081f59208e47a870f569c81c254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1080157185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1080157180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba2b051a9c8fbc4f9edb4a82163c051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nombre: Dr Malito
-  Vida: 100
-  Pa: 11
-  Pd: 5
-  Velocidad: 1
-  ExpAEntregar: 35
 --- !u!61 &1080157186
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3267,6 +3332,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1080157190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080157180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de561dd88a5a5514ab7ad94cd2f1194a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
 --- !u!1 &1163580561
 GameObject:
   m_ObjectHideFlags: 0
@@ -3279,11 +3363,11 @@ GameObject:
   - component: {fileID: 1163580569}
   - component: {fileID: 1163580568}
   - component: {fileID: 1163580567}
-  - component: {fileID: 1163580566}
   - component: {fileID: 1163580565}
   - component: {fileID: 1163580564}
   - component: {fileID: 1163580563}
   - component: {fileID: 1163580562}
+  - component: {fileID: 1163580571}
   m_Layer: 0
   m_Name: Enemigo (17)
   m_TagString: Enemigo
@@ -3306,7 +3390,13 @@ MonoBehaviour:
   Nivel: 1
   expActual: 0
   limitDelNivel: 100
-  aPersonaje: {fileID: 1163580566}
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
   porcentajeDeAumentoDeAtributos: 0.1
 --- !u!114 &1163580563
 MonoBehaviour:
@@ -3346,24 +3436,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc3c081f59208e47a870f569c81c254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1163580566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1163580561}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba2b051a9c8fbc4f9edb4a82163c051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nombre: Dr Malito
-  Vida: 100
-  Pa: 11
-  Pd: 5
-  Velocidad: 1
-  ExpAEntregar: 35
 --- !u!61 &1163580567
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3503,6 +3575,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1163580571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163580561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de561dd88a5a5514ab7ad94cd2f1194a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
 --- !u!114 &1176743883 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3984397219013316402, guid: 4b20b58bd0ae6d342bcfddb364296d28, type: 3}
@@ -3526,11 +3617,11 @@ GameObject:
   - component: {fileID: 1190222781}
   - component: {fileID: 1190222780}
   - component: {fileID: 1190222779}
-  - component: {fileID: 1190222778}
   - component: {fileID: 1190222777}
   - component: {fileID: 1190222776}
   - component: {fileID: 1190222775}
   - component: {fileID: 1190222774}
+  - component: {fileID: 1190222783}
   m_Layer: 0
   m_Name: Enemigo (7)
   m_TagString: Enemigo
@@ -3553,7 +3644,13 @@ MonoBehaviour:
   Nivel: 1
   expActual: 0
   limitDelNivel: 100
-  aPersonaje: {fileID: 1190222778}
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
   porcentajeDeAumentoDeAtributos: 0.1
 --- !u!114 &1190222775
 MonoBehaviour:
@@ -3593,24 +3690,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc3c081f59208e47a870f569c81c254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1190222778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1190222773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba2b051a9c8fbc4f9edb4a82163c051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nombre: Dr Malito
-  Vida: 100
-  Pa: 11
-  Pd: 5
-  Velocidad: 1
-  ExpAEntregar: 35
 --- !u!61 &1190222779
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3750,6 +3829,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1190222783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190222773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de561dd88a5a5514ab7ad94cd2f1194a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
 --- !u!1 &1201170826
 GameObject:
   m_ObjectHideFlags: 0
@@ -3841,11 +3939,11 @@ GameObject:
   - component: {fileID: 1327105218}
   - component: {fileID: 1327105217}
   - component: {fileID: 1327105216}
-  - component: {fileID: 1327105215}
   - component: {fileID: 1327105214}
   - component: {fileID: 1327105213}
   - component: {fileID: 1327105212}
   - component: {fileID: 1327105211}
+  - component: {fileID: 1327105220}
   m_Layer: 0
   m_Name: Enemigo (12)
   m_TagString: Enemigo
@@ -3868,7 +3966,13 @@ MonoBehaviour:
   Nivel: 1
   expActual: 0
   limitDelNivel: 100
-  aPersonaje: {fileID: 1327105215}
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
   porcentajeDeAumentoDeAtributos: 0.1
 --- !u!114 &1327105212
 MonoBehaviour:
@@ -3908,24 +4012,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc3c081f59208e47a870f569c81c254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1327105215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1327105210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba2b051a9c8fbc4f9edb4a82163c051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nombre: Dr Malito
-  Vida: 100
-  Pa: 11
-  Pd: 5
-  Velocidad: 1
-  ExpAEntregar: 35
 --- !u!61 &1327105216
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4065,6 +4151,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1327105220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327105210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de561dd88a5a5514ab7ad94cd2f1194a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
 --- !u!1 &1389235876
 GameObject:
   m_ObjectHideFlags: 0
@@ -4077,11 +4182,11 @@ GameObject:
   - component: {fileID: 1389235884}
   - component: {fileID: 1389235883}
   - component: {fileID: 1389235882}
-  - component: {fileID: 1389235881}
   - component: {fileID: 1389235880}
   - component: {fileID: 1389235879}
   - component: {fileID: 1389235878}
   - component: {fileID: 1389235877}
+  - component: {fileID: 1389235886}
   m_Layer: 0
   m_Name: Enemigo (15)
   m_TagString: Enemigo
@@ -4104,7 +4209,13 @@ MonoBehaviour:
   Nivel: 1
   expActual: 0
   limitDelNivel: 100
-  aPersonaje: {fileID: 1389235881}
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
   porcentajeDeAumentoDeAtributos: 0.1
 --- !u!114 &1389235878
 MonoBehaviour:
@@ -4144,24 +4255,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc3c081f59208e47a870f569c81c254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1389235881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1389235876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba2b051a9c8fbc4f9edb4a82163c051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nombre: Dr Malito
-  Vida: 100
-  Pa: 11
-  Pd: 5
-  Velocidad: 1
-  ExpAEntregar: 35
 --- !u!61 &1389235882
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4301,6 +4394,76 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1389235886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389235876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de561dd88a5a5514ab7ad94cd2f1194a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
+--- !u!1 &1425984531
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1425984533}
+  - component: {fileID: 1425984532}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1425984532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425984531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69a8777d70a12c441a2d8d6f247253a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atributosBaseDelJugador:
+    Nombre: Jony
+    Vida: 123
+    Pa: 1
+    Pd: 1
+    Velocidad: 10
+    ExpAEntregar: 10
+--- !u!4 &1425984533
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425984531}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.569162, y: 31.172693, z: 4.7191873}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1500530503
 GameObject:
   m_ObjectHideFlags: 0
@@ -4313,11 +4476,11 @@ GameObject:
   - component: {fileID: 1500530511}
   - component: {fileID: 1500530510}
   - component: {fileID: 1500530509}
-  - component: {fileID: 1500530508}
   - component: {fileID: 1500530507}
   - component: {fileID: 1500530506}
   - component: {fileID: 1500530505}
   - component: {fileID: 1500530504}
+  - component: {fileID: 1500530513}
   m_Layer: 0
   m_Name: Enemigo (8)
   m_TagString: Enemigo
@@ -4340,7 +4503,13 @@ MonoBehaviour:
   Nivel: 1
   expActual: 0
   limitDelNivel: 100
-  aPersonaje: {fileID: 1500530508}
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
   porcentajeDeAumentoDeAtributos: 0.1
 --- !u!114 &1500530505
 MonoBehaviour:
@@ -4380,24 +4549,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc3c081f59208e47a870f569c81c254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1500530508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1500530503}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba2b051a9c8fbc4f9edb4a82163c051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nombre: Dr Malito
-  Vida: 100
-  Pa: 11
-  Pd: 5
-  Velocidad: 1
-  ExpAEntregar: 35
 --- !u!61 &1500530509
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4537,6 +4688,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1500530513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500530503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de561dd88a5a5514ab7ad94cd2f1194a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
 --- !u!1 &1565781910 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3915096964881675746, guid: 621a1bebb9f6f174ea37c786deac5377, type: 3}
@@ -4554,11 +4724,11 @@ GameObject:
   - component: {fileID: 1687196860}
   - component: {fileID: 1687196859}
   - component: {fileID: 1687196858}
-  - component: {fileID: 1687196857}
   - component: {fileID: 1687196856}
   - component: {fileID: 1687196855}
   - component: {fileID: 1687196854}
   - component: {fileID: 1687196853}
+  - component: {fileID: 1687196862}
   m_Layer: 0
   m_Name: Enemigo (18)
   m_TagString: Enemigo
@@ -4581,7 +4751,13 @@ MonoBehaviour:
   Nivel: 1
   expActual: 0
   limitDelNivel: 100
-  aPersonaje: {fileID: 1687196857}
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
   porcentajeDeAumentoDeAtributos: 0.1
 --- !u!114 &1687196854
 MonoBehaviour:
@@ -4621,24 +4797,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc3c081f59208e47a870f569c81c254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1687196857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1687196852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba2b051a9c8fbc4f9edb4a82163c051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nombre: Dr Malito
-  Vida: 100
-  Pa: 11
-  Pd: 5
-  Velocidad: 1
-  ExpAEntregar: 35
 --- !u!61 &1687196858
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4778,242 +4936,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1793090263
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1793090265}
-  - component: {fileID: 1793090264}
-  - component: {fileID: 1793090266}
-  - component: {fileID: 1793090267}
-  - component: {fileID: 1793090268}
-  - component: {fileID: 1793090269}
-  - component: {fileID: 1793090270}
-  - component: {fileID: 1793090271}
-  - component: {fileID: 1793090272}
-  m_Layer: 0
-  m_Name: Enemigo
-  m_TagString: Enemigo
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &1793090264
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793090263}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &1793090265
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793090263}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.5, y: 27, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1793090266
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793090263}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!61 &1793090267
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793090263}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!114 &1793090268
+--- !u!114 &1687196862
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793090263}
+  m_GameObject: {fileID: 1687196852}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba2b051a9c8fbc4f9edb4a82163c051, type: 3}
+  m_Script: {fileID: 11500000, guid: de561dd88a5a5514ab7ad94cd2f1194a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Nombre: Dr Malito
-  Vida: 100
-  Pa: 11
-  Pd: 5
-  Velocidad: 1
-  ExpAEntregar: 1000
---- !u!114 &1793090269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793090263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fc3c081f59208e47a870f569c81c254, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1793090270
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793090263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03d2e6647ae8f914dac5dd6ad55cafd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1793090271
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793090263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0273546a1651ea4e8d5213a63c2a01b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tagName: Espada
-  hsPersonaje: {fileID: 1793090269}
---- !u!114 &1793090272
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793090263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5785d4138e3432c4c8c0c32ebb56cfa9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nivel: 1
-  expActual: 0
-  limitDelNivel: 100
-  aPersonaje: {fileID: 1793090268}
-  porcentajeDeAumentoDeAtributos: 0.1
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
 --- !u!1 &1833515650
 GameObject:
   m_ObjectHideFlags: 0
@@ -5026,11 +4967,11 @@ GameObject:
   - component: {fileID: 1833515658}
   - component: {fileID: 1833515657}
   - component: {fileID: 1833515656}
-  - component: {fileID: 1833515655}
   - component: {fileID: 1833515654}
   - component: {fileID: 1833515653}
   - component: {fileID: 1833515652}
   - component: {fileID: 1833515651}
+  - component: {fileID: 1833515660}
   m_Layer: 0
   m_Name: Enemigo (4)
   m_TagString: Enemigo
@@ -5053,7 +4994,13 @@ MonoBehaviour:
   Nivel: 1
   expActual: 0
   limitDelNivel: 100
-  aPersonaje: {fileID: 1833515655}
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
   porcentajeDeAumentoDeAtributos: 0.1
 --- !u!114 &1833515652
 MonoBehaviour:
@@ -5093,24 +5040,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc3c081f59208e47a870f569c81c254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1833515655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1833515650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba2b051a9c8fbc4f9edb4a82163c051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nombre: Dr Malito
-  Vida: 100
-  Pa: 11
-  Pd: 5
-  Velocidad: 1
-  ExpAEntregar: 35
 --- !u!61 &1833515656
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5250,6 +5179,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1833515660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833515650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de561dd88a5a5514ab7ad94cd2f1194a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
 --- !u!1 &1837336787
 GameObject:
   m_ObjectHideFlags: 0
@@ -5262,11 +5210,11 @@ GameObject:
   - component: {fileID: 1837336795}
   - component: {fileID: 1837336794}
   - component: {fileID: 1837336793}
-  - component: {fileID: 1837336792}
   - component: {fileID: 1837336791}
   - component: {fileID: 1837336790}
   - component: {fileID: 1837336789}
   - component: {fileID: 1837336788}
+  - component: {fileID: 1837336797}
   m_Layer: 0
   m_Name: Enemigo (11)
   m_TagString: Enemigo
@@ -5289,7 +5237,13 @@ MonoBehaviour:
   Nivel: 1
   expActual: 0
   limitDelNivel: 100
-  aPersonaje: {fileID: 1837336792}
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
   porcentajeDeAumentoDeAtributos: 0.1
 --- !u!114 &1837336789
 MonoBehaviour:
@@ -5329,24 +5283,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fc3c081f59208e47a870f569c81c254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1837336792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1837336787}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ba2b051a9c8fbc4f9edb4a82163c051, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Nombre: Dr Malito
-  Vida: 100
-  Pa: 11
-  Pd: 5
-  Velocidad: 1
-  ExpAEntregar: 35
 --- !u!61 &1837336793
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5486,6 +5422,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1837336797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837336787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de561dd88a5a5514ab7ad94cd2f1194a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atributos:
+    Nombre: 
+    Vida: 0
+    Pa: 0
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
 --- !u!114 &2027615444 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1723679310840259594, guid: 4b20b58bd0ae6d342bcfddb364296d28, type: 3}
@@ -6437,6 +6392,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b20b58bd0ae6d342bcfddb364296d28, type: 3}
+--- !u!1001 &4895206440546206911
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3097820832056081101, guid: 6358862c993a35042b559940c3b73704, type: 3}
+      propertyPath: m_Name
+      value: Enemigo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8788189024356981542, guid: 6358862c993a35042b559940c3b73704, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 18.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8788189024356981542, guid: 6358862c993a35042b559940c3b73704, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 8788189024356981542, guid: 6358862c993a35042b559940c3b73704, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8788189024356981542, guid: 6358862c993a35042b559940c3b73704, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8788189024356981542, guid: 6358862c993a35042b559940c3b73704, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8788189024356981542, guid: 6358862c993a35042b559940c3b73704, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8788189024356981542, guid: 6358862c993a35042b559940c3b73704, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8788189024356981542, guid: 6358862c993a35042b559940c3b73704, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8788189024356981542, guid: 6358862c993a35042b559940c3b73704, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8788189024356981542, guid: 6358862c993a35042b559940c3b73704, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6358862c993a35042b559940c3b73704, type: 3}
 --- !u!1001 &7289382259080404040
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6513,7 +6525,7 @@ SceneRoots:
   - {fileID: 1732636337997545777}
   - {fileID: 619394802}
   - {fileID: 7289382259080404040}
-  - {fileID: 1793090265}
+  - {fileID: 4895206440546206911}
   - {fileID: 906262937}
   - {fileID: 1080157189}
   - {fileID: 564787318}
@@ -6539,3 +6551,4 @@ SceneRoots:
   - {fileID: 508744365}
   - {fileID: 4440146781939479897}
   - {fileID: 1201170829}
+  - {fileID: 1425984533}

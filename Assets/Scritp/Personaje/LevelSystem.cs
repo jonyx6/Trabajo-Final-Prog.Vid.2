@@ -7,14 +7,17 @@ public class LevelSystem : MonoBehaviour
     public int Nivel = 0;
     public float expActual = 0f;
     public float limitDelNivel = 100f;
-    public Atributos aPersonaje;
+    public Atributos2 atributos;
     public float porcentajeDeAumentoDeAtributos=0.1f;
 
- 
+
+    void Start()
+    {
+        atributos = GetComponent<Personaje>().atributos;
+    }
 
 
-
-    public void SubirDeNivel()
+    public void SubirDeNivelSiPuede()
     {
         if (expActual >= limitDelNivel)
         {
@@ -29,11 +32,11 @@ public class LevelSystem : MonoBehaviour
     public void AumentarAtributos(float unaCant)
     {
         limitDelNivel *= 1+unaCant;
-        aPersonaje.Pa *= 1+unaCant ;
-        aPersonaje.Vida *=1+ unaCant ;
-        aPersonaje.Pd *= 1+unaCant ;
-        aPersonaje.Velocidad *= 1+unaCant;
-        aPersonaje.ExpAEntregar *= 1+ unaCant;
+        atributos.Pa *= 1+unaCant ;
+        atributos.Vida *=1+ unaCant ;
+        atributos.Pd *= 1+unaCant ;
+        atributos.Velocidad *= 1+unaCant;
+        atributos.ExpAEntregar *= 1+ unaCant;
     }
 
 
@@ -42,13 +45,7 @@ public class LevelSystem : MonoBehaviour
     {
         expActual += unCantDeExp;
 
+        SubirDeNivelSiPuede();
+
     }
-
-    private void Update()
-    {
-
-        SubirDeNivel();
-    }
-
-
 }

@@ -5,7 +5,7 @@ using Photon.Pun;
 
 public class SimpleMovement : MonoBehaviourPunCallbacks//
 {
-    public Atributos aPersonaje;// la velocidad la saco de los atributos
+    public Atributos2 atributos;// la velocidad la saco de los atributos
 
     void Update()
     {
@@ -14,7 +14,7 @@ public class SimpleMovement : MonoBehaviourPunCallbacks//
             float movimienHorizontal = Input.GetAxis("Horizontal");
             float movimientoVerticla = Input.GetAxis("Vertical");
 
-            Vector3 desplazamiento = new Vector3(movimienHorizontal, movimientoVerticla)*aPersonaje.Velocidad*Time.deltaTime;
+            Vector3 desplazamiento = new Vector3(movimienHorizontal, movimientoVerticla)*atributos.Velocidad*Time.deltaTime;
 
             transform.Translate(desplazamiento);
         }

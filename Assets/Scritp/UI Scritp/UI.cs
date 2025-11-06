@@ -33,8 +33,6 @@ public class UI : MonoBehaviour
     public float recargaBoton4 = 10f;
 
     [Header("Atributos Del Personaje")]
-
-    public Atributos aPersonaje;
     public LevelSystem lsPersonaje;
 
     [Header("textos de los atributos")]
@@ -88,12 +86,12 @@ public class UI : MonoBehaviour
             inventarioActivado = !inventarioActivado;
             Inventario.SetActive(inventarioActivado);
 
-            // Activar hijo explícitamente si existe
+            // Activar hijo explï¿½citamente si existe
             Transform hijo = Inventario.transform.Find("Inventario");
             if (hijo != null)
                 hijo.gameObject.SetActive(inventarioActivado);
 
-            Debug.Log("Se activó el inventario");
+            Debug.Log("Se activï¿½ el inventario");
         }
         
     }
@@ -105,7 +103,7 @@ public class UI : MonoBehaviour
             atributosActivado = !atributosActivado;
             Atributos.SetActive(atributosActivado);
 
-            // Activar hijo explícitamente si existe
+            // Activar hijo explï¿½citamente si existe
             Transform hijo = Atributos.transform.Find("atributos");
             if (hijo != null)
                 hijo.gameObject.SetActive(atributosActivado);
@@ -146,10 +144,11 @@ public class UI : MonoBehaviour
 
     void ActualizarAtributos()
     {
-        textPoderAtaque.text = aPersonaje.Pa.ToString("F1");
-        textPoderDefensa.text = aPersonaje.Pd.ToString("F1");
-        textVida.text = aPersonaje.Vida.ToString("F1");
-        textVelocidad.text = aPersonaje.Velocidad.ToString("F1");
+        Atributos2 atributos = GameManager.Instance.AtributosDelJugador;
+        textPoderAtaque.text = atributos.Pa.ToString("F1");
+        textPoderDefensa.text = atributos.Pd.ToString("F1");
+        textVida.text = atributos.Vida.ToString("F1");
+        textVelocidad.text = atributos.Velocidad.ToString("F1");
 
         // texto niveles 
         textNroNivel.text = lsPersonaje.Nivel.ToString();

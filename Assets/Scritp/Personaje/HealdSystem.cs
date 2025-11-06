@@ -4,36 +4,34 @@ using UnityEngine;
 
 public class HealdSystem : MonoBehaviour,IInteractable
 {
-    private Atributos aPlayer;
+    private Atributos2 atributos;
     
    
 
     private void Awake()
     {
-        aPlayer = GetComponent<Atributos>();
+        atributos = GetComponent<Personaje>().atributos;
     }
     public void RecibirUn_(float unDanio)
     {
-        Debug.Log("Recibio daño");
-        aPlayer.Vida -= (unDanio - aPlayer.Pd);
+        Debug.Log("Recibio daï¿½o");
+        atributos.Vida -= (unDanio - atributos.Pd);
     }
 
     public void AumentarVida(int cantVida)
     {
-        aPlayer.Vida += cantVida;
+        atributos.Vida += cantVida;
     }
 
     public void Interact(LevelSystem unPersonaje)
     {
-        
-
-        unPersonaje.SubirExperiencia(aPlayer.ExpAEntregar);
+        unPersonaje.SubirExperiencia(atributos.ExpAEntregar);
     }
 
 
     public void Morir(LevelSystem unPersonaje)
     {
-        if(aPlayer.Vida < 1)
+        if(atributos.Vida < 1)
         {
             Interact(unPersonaje);
             Destroy(gameObject);

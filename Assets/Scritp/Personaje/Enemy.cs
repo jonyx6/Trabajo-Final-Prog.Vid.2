@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     private AttackSystem asEnemy;
 
     [Header("Atributos")]
-    private Atributos aEnemy;
+    private Atributos2 atributos;
 
     [Header("Sistema de getsion De Vida")]
 
@@ -18,7 +18,6 @@ public class Enemy : MonoBehaviour
     void Awake()
     {
         asEnemy = GetComponent<AttackSystem>();
-        aEnemy = GetComponent<Atributos>();
         hsEnemy = GetComponent<HealdSystem>();
     }
 

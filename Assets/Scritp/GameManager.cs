@@ -1,19 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public Atributos playerStats;
+    [SerializeField]
+    private Atributos2 atributosBaseDelJugador;
+    public int nivelDelJugador = 1;
+    private bool atributosAsignadosAnteriormente = false;
+    public static GameManager Instance{ get; private set;}
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(this);
+        }
     }
-
-    // Update is called once per frame
-    void Update()
+    public Atributos2 AtributosDelJugador
     {
-        
+        get { return atributosBaseDelJugador; }
     }
 }

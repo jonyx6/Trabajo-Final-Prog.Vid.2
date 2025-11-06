@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ControllerSystem : MonoBehaviour
 {
-    private Atributos aPersonaje;
+    private Personaje Personaje;
     private Rigidbody2D _rigidbody2D;
     private Camera cam;
     private Vector2 target;// guarda la posicion donde hago el clik
@@ -16,8 +16,8 @@ public class ControllerSystem : MonoBehaviour
     {
         cam = Camera.main;
         target = transform.position;
+        Personaje = GetComponent<Personaje>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        aPersonaje = GetComponent<Atributos>();
         
     }
 
@@ -40,7 +40,7 @@ public class ControllerSystem : MonoBehaviour
     }
     void FixedUpdate()
     {
-        _rigidbody2D.velocity = direccion * aPersonaje.Velocidad;
+        _rigidbody2D.velocity = direccion * Personaje.atributos.Velocidad;
     }
 
 

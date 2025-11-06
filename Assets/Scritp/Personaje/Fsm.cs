@@ -9,45 +9,58 @@ using static UnityEngine.GraphicsBuffer;
 public class Fsm : MonoBehaviour
 {
     private Animator animPersonaje;
-    private Rigidbody2D rbPersonaje; 
+    private Rigidbody2D rbPersonaje;
     private Camera cam;
-    private Atributos aPersonaje;
+    private Personaje Personaje;
     private SpriteRenderer spPersonaje;
-    private Vector2 target;
     private float angulo;
-    public ControllerSystem goPersonaje;
-    public float  Angulo => angulo;// solo lectura.
+    public float Angulo => angulo;// solo lectura.
     private float velocidadActualDelPersonaje;
     public Image boton1;
-    
+
     public Image boton3;
-    
+
 
 
     private void Awake()
     {
         animPersonaje = GetComponent<Animator>();
         rbPersonaje = GetComponent<Rigidbody2D>();
-        aPersonaje = GetComponent<Atributos>();
+        Personaje = GetComponent<Personaje>();
         spPersonaje = GetComponent<SpriteRenderer>();
-        goPersonaje = GetComponent<ControllerSystem>();
         cam = Camera.main;
-        
 
-       
-        
-        
+
+
+
+
     }
 
     void OrientarPersonajeHacia_(float unAngulo)
     {
-         if(MirandoIzquierda(unAngulo))
-         {            
-             spPersonaje.flipX = false;
-         }else{
+        if (MirandoIzquierda(unAngulo))
+        {
+            spPersonaje.flipX = false;
+        }
+        else
+        {
 
             spPersonaje.flipX = true;
-         }
+        }
+
+    }
+    void OrientarPersonaje()
+    {
+        Vector2 target = cam.ScreenToWorldPoint(Input.mousePosition);//comvierte las cordenadad del screen en las del wordspace
+        //conseguimos 
+        if (target.x > transform.position.x)
+        {
+            spPersonaje.flipX = false;
+        }
+        else
+        {
+            spPersonaje.flipX = true;
+        }
 
     }
 
@@ -58,23 +71,16 @@ public class Fsm : MonoBehaviour
 
 
 
-    void EstaCaminando(Vector2 unaDireccion)
+    void EstaCaminando()
     {
-        if(unaDireccion.x!= 0 || unaDireccion.y != 0)
-        {
-            
-            Cambiar_A_("isWalk", true);
-        }
-        else
-        {
-            
-            Cambiar_A_("isWalk", false);
-        }
-
+        //sqrMagnitude convierte la velocidad en un numero
+        //si la velocidad es menor a 0.1 no se muestra la animacionDeCaminando
+        Cambiar_A_("isWalk", rbPersonaje.velocity.sqrMagnitude >= 0.1);
     }
 
-    void EstaMuerto() {
-        if(aPersonaje.Vida < 1)
+    void EstaMuerto()
+    {
+        if (Personaje.atributos.Vida < 1)
         {
             Cambiar_A_("isDeath", true);
         }
@@ -82,77 +88,47 @@ public class Fsm : MonoBehaviour
 
     void EstaAtacando()
     {
-        if (Input.GetKeyDown(KeyCode.R ) && boton1.fillAmount ==1 )
+        AnimatorStateInfo estado = animPersonaje.GetCurrentAnimatorStateInfo(0);
+        if (estado.IsName("attack1") || estado.IsName("attack2") || estado.IsName("especialAtack"))
         {
-            Cambiar_A_("isAttacking1",true);
-            goPersonaje.enabled = false;
+            rbPersonaje.velocity = Vector2.zero;
         }
-
-  
     }
-
-    void AtaqueEspecial(AnimatorStateInfo unEstado)
+    void AtaqueSimple()
     {
-        if (Input.GetKeyDown(KeyCode.W) && boton3.fillAmount ==1)
+        if (Input.GetKeyDown(KeyCode.R) && boton3.fillAmount == 1)
         {
-            Cambiar_A_("isAttacking3", true);
-            goPersonaje.enabled=false;
+            Debug.Log("sr atacao simple");
+            animPersonaje.SetTrigger("isAtacking");
         }
+    }
 
-        if (unEstado.IsName("attack3") && unEstado.normalizedTime >= 1f)
+    void AtaqueEspecial()
+    {
+        if (Input.GetKeyDown(KeyCode.W) && boton1.fillAmount == 1)
         {
-            Cambiar_A_("isAttacking3", false);
-            goPersonaje.enabled=true;
+            animPersonaje.SetTrigger("isEspecialAtacking");
         }
-
     }
 
 
-    void Cambiar_A_(string unaAnimacion,bool unValorDeVerdad)
+    void Cambiar_A_(string unaAnimacion, bool unValorDeVerdad)
     {
         // prop: sirve para activar o desactivar cualquier animacion de la maquina de estado
         animPersonaje.SetBool(unaAnimacion, unValorDeVerdad);
     }
 
 
-    
+
 
     public void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            target = cam.ScreenToWorldPoint(Input.mousePosition);//comvierte las cordenadad del screen en las del wordspace
-        }
-        Vector2 direccion = (target - (Vector2)transform.position).normalized;
-        float angulo = Mathf.Atan2(direccion.y, direccion.x) * Mathf.Rad2Deg;
-        AnimatorStateInfo estado = animPersonaje.GetCurrentAnimatorStateInfo(0);
-
-        if (estado.IsName("attack1") && estado.normalizedTime >= 1f)
-        {
-            Cambiar_A_("isAttacking1", false);
-            goPersonaje.enabled = true;
-        }else if (Input.GetKeyDown(KeyCode.R) && estado.IsName("attack1") && estado.normalizedTime < 1f)
-        {
-            Cambiar_A_("isAttacking1", false);
-            Cambiar_A_("isAttacking2", true);
-            //aPersonaje.Velocidad = 0;
-        }
-        if (estado.IsName("attack2") && estado.normalizedTime >= 1f)
-        {
-            Cambiar_A_("isAttacking1", false);
-            Cambiar_A_("isAttacking2", false);
-            goPersonaje.enabled = true;
-        }
-
-
-
-        AtaqueEspecial(estado);
-        OrientarPersonajeHacia_(angulo);
-        EstaCaminando(direccion);
-        EstaMuerto();
+        AtaqueSimple();
+        AtaqueEspecial();
+        OrientarPersonaje();
+        EstaCaminando();
         EstaAtacando();
-
-        
+        EstaMuerto();
     }
 
 

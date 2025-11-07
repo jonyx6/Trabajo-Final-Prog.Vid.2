@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -12,34 +13,34 @@ public class InSightView : MonoBehaviour
     [SerializeField]
     private float anguloMaximo;
     private Collider2D target;
+    public event Action<Transform> OnEnemyVisible;
+    public event Action OnEnemyNoVisible;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    private void Update() {
+        if (EstaCerca() && EstaEnAngulo() && NoHayObstaculos())
+        {
+            OnEnemyVisible?.Invoke(target.transform);
+        }
+        else
+        {
+            //linea 26
+            OnEnemyNoVisible?.Invoke();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-    public bool Distancia()
+    public bool EstaCerca()
     {
         target = Physics2D.OverlapCircle(transform.position, visionRadius, _layerMask);
-        if (target)
-        {
-            return true;
-        }
-        return false;
+        return target != null;
     }
-    public bool EstaEnAngulo(Transform target)
+    public bool EstaEnAngulo()
     {
-        float angulo = Vector2.Angle(transform.right, DirectionToTarget(target));
+        float angulo = Vector2.Angle(transform.right, DirectionToTarget(target.transform));
         return angulo < anguloMaximo;
     }
-    public bool NoHayAlgoEnElMedio(Transform target)
+    public bool NoHayObstaculos()
     {
-        Vector2 direction = DirectionToTarget(target);
+        Vector2 direction = DirectionToTarget(target.transform);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, visionRadius);
         return hit && hit.collider.gameObject == target.gameObject;
     }
@@ -50,7 +51,7 @@ public class InSightView : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        if (Distancia())
+        if (EstaCerca())
         {
             Gizmos.color = Color.blue;
         }
@@ -59,10 +60,10 @@ public class InSightView : MonoBehaviour
         if(target)
         {
             
-            if (EstaEnAngulo(target.transform))
+            if (EstaEnAngulo())
             {
                 Gizmos.color = Color.blue;
-                if (NoHayAlgoEnElMedio(target.transform))
+                if (NoHayObstaculos())
                 {
                     Gizmos.color = Color.green;
                 }

@@ -37,8 +37,6 @@ public class CamaraContoller : MonoBehaviour
     {
         float scroll = Input.GetAxis("Mouse ScrollWheel");
 
-        Debug.Log(scroll);
-
         if (scroll != 0)
         {
             _camera.orthographicSize -= scroll * velocidadDeZoom;  // Ajusta el zoom

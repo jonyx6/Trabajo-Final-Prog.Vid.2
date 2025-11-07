@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 1721586532404299384}
   - component: {fileID: 3993646643222623635}
   - component: {fileID: 4794183356775907251}
+  - component: {fileID: 3479630516276338591}
+  - component: {fileID: 1143073493267910405}
   m_Layer: 0
   m_Name: Orco
   m_TagString: Enemigo
@@ -218,6 +220,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagName: Espada
+--- !u!114 &3479630516276338591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202368367870172980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3aab069b91f78941b9bc34262adea37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 10
+  steeringPower: 4
+--- !u!114 &1143073493267910405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 202368367870172980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e8ae5c2bc7192341b8b2bfcec6698dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  visionRadius: 6
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 8
+  anguloMaximo: 100
 --- !u!1 &1571035176536429740
 GameObject:
   m_ObjectHideFlags: 0

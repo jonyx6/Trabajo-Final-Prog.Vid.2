@@ -1,0 +1,96 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using static UnityEditor.Progress;
+
+public class Inventario : MonoBehaviour
+{
+    private bool inventarioActivado;
+
+    public GameObject inventario;
+
+    private int totalDeSlot;
+    private int slotsActivados;
+
+    private GameObject[] slot;
+
+    public GameObject slotHolder;
+
+    private void Start()
+    {
+        totalDeSlot = slotHolder.transform.childCount;//cantidad del array
+
+        slot = new GameObject[totalDeSlot]; //  creamos la lista de objetos con la cantidad de obj en el array
+
+        for (int i = 0; i < totalDeSlot; i++)
+        {
+            slot[i] = slotHolder.transform.GetChild(i).gameObject;
+            if (slot[i].GetComponent<Slot>().item == null)
+            {
+                slot[i].GetComponent<Slot>().estaVacio = true;
+            }
+        }
+    }
+
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            inventarioActivado = !inventarioActivado;
+        }
+
+        if (inventarioActivado)
+        {
+            inventario.SetActive(true);
+        }
+        else
+        {
+            inventario.SetActive(false);
+        }
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Item")
+        {
+            GameObject itemAAgarrar = collision.gameObject;
+            Item item = itemAAgarrar.GetComponent<Item>();
+
+            AddItem(itemAAgarrar, item.id, item.type, item.descripcion, item.icon);
+        }
+
+
+    }
+
+    public void AddItem(GameObject unObjeto, int itemId, string itemType, string itemDescripcion, Sprite itemIcon)
+    {
+        for (int i = 0; i < totalDeSlot; i++)
+        {
+            if (slot[i].GetComponent<Slot>().estaVacio)
+            {
+                unObjeto.GetComponent<Item>().estaAgarrado = true;
+
+                slot[i].GetComponent<Slot>().item = unObjeto;
+                slot[i].GetComponent<Slot>().id = itemId;
+                slot[i].GetComponent<Slot>().itemType = itemType;
+                slot[i].GetComponent<Slot>().descripcion = itemDescripcion;
+                slot[i].GetComponent<Slot>().icon = itemIcon;
+
+                unObjeto.transform.parent = slot[i].transform;
+                unObjeto.SetActive(false);
+
+
+                slot[i].GetComponent<Slot>().ActualizaSlot();
+                slot[i].GetComponent<Slot>().estaVacio = false;
+
+                return;// evitamos el el objeto se añada en los slot vacios
+            }
+
+
+        }
+    }
+}
+  
+

@@ -22,8 +22,8 @@ public class UI : MonoBehaviour
     public Image boton3; // W
     public Image boton4; // Q
 
-    [Header("estado de inventario y atributos")]
-    private bool inventarioActivado = false;
+    [Header("estado de  atributos")]
+   
     private bool atributosActivado = false;
 
     [Header("recuperacion de cada boton ")]
@@ -66,7 +66,7 @@ public class UI : MonoBehaviour
 
     private void Update()
     {
-        ActivarInventario();
+       
         ActivarAtributos();
 
         CargaBoton(boton1, KeyCode.R, recargaBoton1);
@@ -79,22 +79,7 @@ public class UI : MonoBehaviour
 
 
 
-    void ActivarInventario()
-    {
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            inventarioActivado = !inventarioActivado;
-            Inventario.SetActive(inventarioActivado);
 
-            // Activar hijo expl�citamente si existe
-            Transform hijo = Inventario.transform.Find("Inventario");
-            if (hijo != null)
-                hijo.gameObject.SetActive(inventarioActivado);
-
-            Debug.Log("Se activ� el inventario");
-        }
-        
-    }
 
     void ActivarAtributos()
     {
@@ -144,7 +129,7 @@ public class UI : MonoBehaviour
 
     void ActualizarAtributos()
     {
-        Atributos2 atributos = GameManager.Instance.AtributosDelJugador;
+        /*Atributos2 atributos = GameManager.Instance.AtributosDelJugador;
         textPoderAtaque.text = atributos.Pa.ToString("F1");
         textPoderDefensa.text = atributos.Pd.ToString("F1");
         textVida.text = atributos.Vida.ToString("F1");
@@ -153,7 +138,7 @@ public class UI : MonoBehaviour
         // texto niveles 
         textNroNivel.text = lsPersonaje.Nivel.ToString();
         textExpActual.text = lsPersonaje.expActual.ToString("F1");
-        textTopeNivel.text =  lsPersonaje.limitDelNivel.ToString("F1"); 
+        textTopeNivel.text =  lsPersonaje.limitDelNivel.ToString("F1"); */
 
     }
 }

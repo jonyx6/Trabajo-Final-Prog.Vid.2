@@ -129,7 +129,7 @@ public class UI : MonoBehaviour
 
     void ActualizarAtributos()
     {
-        /*Atributos2 atributos = GameManager.Instance.AtributosDelJugador;
+        Atributos2 atributos = GameManager.Instance.AtributosDelJugador;
         textPoderAtaque.text = atributos.Pa.ToString("F1");
         textPoderDefensa.text = atributos.Pd.ToString("F1");
         textVida.text = atributos.Vida.ToString("F1");
@@ -138,7 +138,7 @@ public class UI : MonoBehaviour
         // texto niveles 
         textNroNivel.text = lsPersonaje.Nivel.ToString();
         textExpActual.text = lsPersonaje.expActual.ToString("F1");
-        textTopeNivel.text =  lsPersonaje.limitDelNivel.ToString("F1"); */
+        textTopeNivel.text =  lsPersonaje.limitDelNivel.ToString("F1"); 
 
     }
 }

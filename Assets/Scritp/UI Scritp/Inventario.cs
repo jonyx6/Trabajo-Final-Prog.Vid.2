@@ -7,14 +7,19 @@ public class Inventario : MonoBehaviour
 {
     private bool inventarioActivado;
 
+
     public GameObject inventario;
 
     private int totalDeSlot;
+    private int totalDeSlotEquip;
     private int slotsActivados;
 
     private GameObject[] slot;
+    private GameObject[] slotEquip;
+
 
     public GameObject slotHolder;
+    public GameObject slotHolderEquip;
 
     private void Start()
     {
@@ -30,6 +35,19 @@ public class Inventario : MonoBehaviour
                 slot[i].GetComponent<Slot>().estaVacio = true;
             }
         }
+
+         totalDeSlotEquip = slotHolderEquip.transform.childCount;
+        slotEquip = new GameObject[totalDeSlotEquip]; 
+
+        for (int i = 0;i < totalDeSlotEquip; i++)
+        {
+            slotEquip[i] = slotHolderEquip.transform.GetChild(i).gameObject;
+            if (slotEquip[i].GetComponent<Slot>().item == null)
+            {
+                slotEquip[i].GetComponent <Slot>().estaVacio = true;
+            }
+        }
+
     }
 
 
@@ -91,6 +109,43 @@ public class Inventario : MonoBehaviour
 
         }
     }
+
+    public void EquiparItemDesdeSlot(Slot slotOrigen)
+    {
+        for (int i = 0; i < totalDeSlotEquip; i++)
+        {
+            Slot slotDestino = slotEquip[i].GetComponent<Slot>();
+
+            if (slotDestino.estaVacio)
+            {
+                slotDestino.item = slotOrigen.item;
+                slotDestino.id = slotOrigen.id;
+                slotDestino.itemType = slotOrigen.itemType;
+                slotDestino.descripcion = slotOrigen.descripcion;
+                slotDestino.icon = slotOrigen.icon;
+                slotDestino.estaVacio = false;
+
+                slotDestino.item.transform.SetParent(slotEquip[i].transform);
+                slotDestino.item.SetActive(false);
+                slotDestino.ActualizaSlot();
+
+                slotOrigen.item = null;
+                slotOrigen.id = 0;
+                slotOrigen.itemType = "";
+                slotOrigen.descripcion = "";
+                slotOrigen.icon = null;
+                slotOrigen.estaVacio = true;
+                slotOrigen.ActualizaSlot();
+
+                return;
+            }
+        }
+
+        Debug.Log("No hay espacio en el equipamiento.");
+    }
+
+
+
 }
   
 

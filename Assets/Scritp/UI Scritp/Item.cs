@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Item : MonoBehaviour
@@ -8,8 +9,11 @@ public class Item : MonoBehaviour
     public string type;
     public string descripcion;
     public Sprite icon;
-    //[HideInInspector]
+   
     public bool estaAgarrado;
+
+
+    public bool estaEquipado;
 
 
 

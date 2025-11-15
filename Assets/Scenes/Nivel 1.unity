@@ -38727,7 +38727,7 @@ MonoBehaviour:
     Nombre: Jony
     Vida: 100
     Pa: 2
-    Pd: 2
+    Pd: 0
     Velocidad: 1
     ExpAEntregar: 10
   nivelDelJugador: 1
@@ -39377,6 +39377,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644512278}
   m_CullTransparentMesh: 1
+--- !u!1 &767849415 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1680029946037451657, guid: 41707e5753803144b86d1156838a4630, type: 3}
+  m_PrefabInstance: {fileID: 2087847619}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &812896782
 GameObject:
   m_ObjectHideFlags: 0
@@ -39481,6 +39486,73 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812896782}
   m_CullTransparentMesh: 1
+--- !u!1 &860910583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 860910584}
+  - component: {fileID: 860910585}
+  m_Layer: 0
+  m_Name: hitbox
+  m_TagString: EspadaEnemiga
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &860910584
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860910583}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.534, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1669014205}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!70 &860910585
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860910583}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.006216049}
+  m_Size: {x: 0.5, y: 0.6022377}
+  m_Direction: 0
 --- !u!1 &872026203 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3915096964881675746, guid: 621a1bebb9f6f174ea37c786deac5377, type: 3}
@@ -41614,7 +41686,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8734424495271772294, guid: 41707e5753803144b86d1156838a4630, type: 3}
   m_PrefabInstance: {fileID: 2087847619}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 767849415}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5785d4138e3432c4c8c0c32ebb56cfa9, type: 3}
@@ -41625,6 +41697,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2063913609021867646, guid: 41707e5753803144b86d1156838a4630, type: 3}
   m_PrefabInstance: {fileID: 2087847619}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1607621906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767849415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0273546a1651ea4e8d5213a63c2a01b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagName: EspadaEnemiga
 --- !u!1 &1627993889
 GameObject:
   m_ObjectHideFlags: 0
@@ -41792,6 +41877,7 @@ GameObject:
   - component: {fileID: 1669014198}
   - component: {fileID: 1669014197}
   - component: {fileID: 1669014206}
+  - component: {fileID: 1669014207}
   m_Layer: 0
   m_Name: Enemigo
   m_TagString: Untagged
@@ -42003,7 +42089,8 @@ Transform:
   m_LocalPosition: {x: 11.98, y: 34.3, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 860910584}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1669014206
@@ -42027,6 +42114,25 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1669014207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669014196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03d2e6647ae8f914dac5dd6ad55cafd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atributos:
+    Nombre: fdsafasdf
+    Vida: 0
+    Pa: 2
+    Pd: 0
+    Velocidad: 0
+    ExpAEntregar: 10
 --- !u!1 &1734108488
 GameObject:
   m_ObjectHideFlags: 0
@@ -43765,6 +43871,14 @@ PrefabInstance:
       propertyPath: slotHolderEquip
       value: 
       objectReference: {fileID: 812896782}
+    - target: {fileID: 5143607878462955180, guid: 41707e5753803144b86d1156838a4630, type: 3}
+      propertyPath: atributos.Vida
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143607878462955180, guid: 41707e5753803144b86d1156838a4630, type: 3}
+      propertyPath: atributos.Velocidad
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7046780995194662004, guid: 41707e5753803144b86d1156838a4630, type: 3}
       propertyPath: boton1
       value: 
@@ -43776,7 +43890,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1680029946037451657, guid: 41707e5753803144b86d1156838a4630, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1607621906}
   m_SourcePrefab: {fileID: 100100000, guid: 41707e5753803144b86d1156838a4630, type: 3}
 --- !u!1 &2120492466
 GameObject:

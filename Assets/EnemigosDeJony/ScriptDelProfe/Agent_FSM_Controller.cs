@@ -71,7 +71,10 @@ public class Agent_FSM_Controller : MonoBehaviour
 
      void Update()
     {
-        _fsm.OnUpdate();    
+        if(_target != null)
+        {
+            _fsm.OnUpdate();   
+        }
     }
 
     public bool CanChase()

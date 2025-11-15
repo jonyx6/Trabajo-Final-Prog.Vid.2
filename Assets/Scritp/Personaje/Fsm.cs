@@ -93,11 +93,16 @@ public class Fsm : MonoBehaviour
         {
             rbPersonaje.velocity = Vector2.zero;
         }
+        // if (estado.IsName("death") && estado.normalizedTime > 1)
+        // {
+        //     Debug.Log("murio");
+        //     Destroy(gameObject);
+        // }
     }
     void AtaqueSimple()
     {
        
-        if (Input.GetKeyDown(KeyCode.R) && boton3.fillAmount == 1)
+        if (Input.GetKeyDown(KeyCode.R))
         {
             Debug.Log("sr atacao simple");
             animPersonaje.SetTrigger("isAtacking");

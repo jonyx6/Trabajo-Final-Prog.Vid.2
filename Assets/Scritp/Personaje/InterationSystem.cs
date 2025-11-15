@@ -21,9 +21,9 @@ public class InterationSystem : MonoBehaviour
     {
         if (EsPersonaje_ConTag_(collision, tagName))
         {
-            LevelSystem personaje = collision.GetComponentInParent<LevelSystem>();
-            hsPersonaje.RecibirUn_(collision.GetComponentInParent<Personaje>().atributos.Pa);
-            hsPersonaje.Morir(personaje);
+            Personaje personaje = collision.GetComponentInParent<Personaje>();
+            hsPersonaje.RecibirUn_(1/* collision.GetComponentInParent<Personaje>().atributos */);
+            //hsPersonaje.Morir(personaje);
         }
     }
 

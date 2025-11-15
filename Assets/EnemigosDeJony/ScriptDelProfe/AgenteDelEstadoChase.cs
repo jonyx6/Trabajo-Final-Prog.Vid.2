@@ -33,7 +33,7 @@ public class AgenteDelEstadoChase<T>: State<T>
     /* public override void Execute()
       {
           base.Execute();
-          // Lógica de Chase: Moverse hacia el objetivo.
+          // Lï¿½gica de Chase: Moverse hacia el objetivo.
           if (_target != null)
           {
               Vector3 direction = (_target.position - _agentTransform.position).normalized;
@@ -41,13 +41,13 @@ public class AgenteDelEstadoChase<T>: State<T>
 
               if (direction.sqrMagnitude > 0.01f)
               {
-                  // Creamos la variable que apunta en la dirección de movimiento
+                  // Creamos la variable que apunta en la direcciï¿½n de movimiento
                   Vector3 dir = new Vector3(direction.x, direction.y, 0).normalized;
 
-                  // Creamos la rotación objetivo
+                  // Creamos la rotaciï¿½n objetivo
                   Quaternion targetRotation = Quaternion.FromToRotation(Vector3.right, dir);
 
-                  // Rotación suave
+                  // Rotaciï¿½n suave
                   _agentTransform.rotation = Quaternion.RotateTowards(_agentTransform.rotation, targetRotation, _rotationSpeed);
               }
           }
@@ -63,11 +63,18 @@ public class AgenteDelEstadoChase<T>: State<T>
             Vector3 direction = (_target.position - _agentTransform.position).normalized;
             _agentTransform.position += direction * _chaseSpeed * Time.deltaTime;
 
-            // Volteamos el sprite según la dirección en X
+            // Volteamos el sprite segï¿½n la direcciï¿½n en X
             SpriteRenderer sr = _agentTransform.GetComponent<SpriteRenderer>();
             if (sr != null)
             {
-                sr.flipX = direction.x < 0;
+                if(direction.x < 0)
+                {
+                    _agentTransform.rotation = Quaternion.Euler(0,-180,0);
+                }
+                else
+                {
+                    _agentTransform.rotation = Quaternion.Euler(0,0,0);
+                }
             }
         }
     }
@@ -96,13 +103,13 @@ public class AgenteDelEstadoChase<T>: State<T>
 
     public Vector3 CalculateSteering()
     {
-        // Dirección opuesta al target
+        // Direcciï¿½n opuesta al target
         Vector3 fleeDir = (_agentTransform.position - _target.position.normalized);
 
-        // Queremos ir a máxima velocidad
+        // Queremos ir a mï¿½xima velocidad
         Vector3 direction = fleeDir * _maxSpeed;
 
-        // Cálculo del steering
+        // Cï¿½lculo del steering
         Vector3 steer = direction;
 
         return steer;

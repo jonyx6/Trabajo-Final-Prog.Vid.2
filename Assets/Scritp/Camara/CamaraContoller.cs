@@ -30,8 +30,12 @@ public class CamaraContoller : MonoBehaviour
     }
     private void Update()
     {
-        MoverCamara();
-        HacerZoom();
+        if (objetivo != null)
+        {
+            MoverCamara();
+            HacerZoom();
+        }
+
     }
     private void HacerZoom()
     {
@@ -87,4 +91,4 @@ public class CamaraContoller : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(posDeZonaVisual, tamañoDeZonaVisual);
     }
-    }
+}

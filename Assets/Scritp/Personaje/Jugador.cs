@@ -5,6 +5,6 @@ using UnityEngine;
 public class Jugador : Personaje
 {
     private void Start() {
-        atributos = GameManager.Instance.AtributosDelJugador;
+        //atributos = GameManager.Instance.AtributosDelJugador;
     }
 }

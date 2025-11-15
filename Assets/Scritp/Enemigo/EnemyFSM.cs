@@ -5,11 +5,14 @@ using UnityEngine;
 public enum EstadosEnemigo
 {
     seeking,//siguiendo
-    resting//descansando
+    resting,//descansando
+    attacking// atacando
 }
+
 
 [RequireComponent(typeof(InSightView))]
 [RequireComponent(typeof(Rigidbody2D))]
+
 public class EnemyFSM : MonoBehaviour
 {
     [SerializeField]
@@ -43,6 +46,9 @@ public class EnemyFSM : MonoBehaviour
             case EstadosEnemigo.resting:
                 Rest();
                 break;
+            case EstadosEnemigo.attacking:
+                Atacar();
+                break;
             default:
                 break;
         }
@@ -51,17 +57,30 @@ public class EnemyFSM : MonoBehaviour
     {
         _inSightView.OnEnemyVisible -= AlVerAlEnemigo;
         _inSightView.OnEnemyNoVisible -= AlPerderAlEnemigo;
+        _inSightView.OnProximityToTheEnemy -= AlAcercarce;
     }
     private void AlVerAlEnemigo(Transform enemigo)
     {
+       
         estado = EstadosEnemigo.seeking;
         target = enemigo;
+
     }
     private void AlPerderAlEnemigo()
     {
         estado = EstadosEnemigo.resting;
         target = null;
     }
+
+    public void AlAcercarce(Transform enemigo)////
+    {
+
+        estado = EstadosEnemigo.attacking;
+        target = enemigo;
+
+       
+    }
+
     void Seek(Transform target)
     {
         _inSightView.OnEnemyNoVisible += AlPerderAlEnemigo;
@@ -80,10 +99,24 @@ public class EnemyFSM : MonoBehaviour
     {
         _inSightView.OnEnemyVisible += AlVerAlEnemigo;
     }
+
+    void Atacar()
+    {
+        // corregir 
+        _inSightView.OnProximityToTheEnemy += AlAcercarce;
+        Debug.Log(" el Enemigo esta atacanfo");
+
+        // deberi aplicar la logica de ataque?
+    }
+
+   
+
     void RotarSegunVelocidad(Vector2 velocidad)
     {
         Vector3 eulerAngle = transform.rotation.eulerAngles;
         eulerAngle.y = velocidad.x > 0 ? 0f : -180f;
         transform.rotation = Quaternion.Euler(eulerAngle);
     }
+
+
 }

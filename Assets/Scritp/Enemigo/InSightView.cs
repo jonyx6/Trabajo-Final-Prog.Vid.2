@@ -15,20 +15,44 @@ public class InSightView : MonoBehaviour
     private Collider2D target;
     public event Action<Transform> OnEnemyVisible;
     public event Action OnEnemyNoVisible;
+    public event Action<Transform> OnProximityToTheEnemy;
 
     private void Update() {
-        if (EstaCerca() && EstaEnAngulo() && NoHayObstaculos())
+        if (PuedeVerEnemigo())
         {
             OnEnemyVisible?.Invoke(target.transform);
         }
-        else
+        else 
         {
             //linea 26
             OnEnemyNoVisible?.Invoke();
         }
+
+        if (SiEstaADistanciaDeAtaque())
+        {
+            OnProximityToTheEnemy?.Invoke(target.transform);
+        }
     }
 
-    public bool EstaCerca()
+
+    public bool PuedeVerEnemigo()
+    {
+        return ObjetivoDetectado() && EstaEnAngulo() && NoHayObstaculos();
+    }
+
+    public bool SiEstaADistanciaDeAtaque()
+    {
+
+
+        if (target == null) return false;
+        float distancia = (transform.position - target.transform.position).magnitude;   
+        return distancia < 2f;
+       
+
+    }
+
+
+    public bool ObjetivoDetectado()
     {
         target = Physics2D.OverlapCircle(transform.position, visionRadius, _layerMask);
         return target != null;
@@ -51,7 +75,7 @@ public class InSightView : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        if (EstaCerca())
+        if (ObjetivoDetectado())
         {
             Gizmos.color = Color.blue;
         }

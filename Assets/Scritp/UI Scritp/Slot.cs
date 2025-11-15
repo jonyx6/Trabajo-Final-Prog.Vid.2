@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -52,7 +53,8 @@ public class Slot : MonoBehaviour
 
     public void AlTocarSlot()
     {
-        if (itemType == "Arma" && item != null)
+        Debug.Log("CLICK en slot: " + gameObject.name);
+        if ( item != null)
         {
             // Buscar el Inventario en la escena
             Inventario inventario = FindObjectOfType<Inventario>();
@@ -62,6 +64,23 @@ public class Slot : MonoBehaviour
                 inventario.EquiparItemDesdeSlot(this);
             }
         }
+
+    }
+
+    public void DevolverItemAlInventario()
+    {
+        Debug.Log("CLICK en slot: " + gameObject.name);
+        if(item != null)
+        {
+            Inventario inventario = FindObjectOfType<Inventario>();
+
+            if(inventario != null)
+            {
+                inventario.DesequiparObjeto(this);
+            }
+
+        }
+
     }
 
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 using static UnityEditor.Progress;
 
 public class Inventario : MonoBehaviour
@@ -12,7 +13,7 @@ public class Inventario : MonoBehaviour
 
     private int totalDeSlot;
     private int totalDeSlotEquip;
-    private int slotsActivados;
+
 
     private GameObject[] slot;
     private GameObject[] slotEquip;
@@ -22,33 +23,36 @@ public class Inventario : MonoBehaviour
     public GameObject slotHolderEquip;
 
     private void Start()
-    {
-        totalDeSlot = slotHolder.transform.childCount;//cantidad del array
+     {
+         totalDeSlot = slotHolder.transform.childCount;//cantidad en el array
 
-        slot = new GameObject[totalDeSlot]; //  creamos la lista de objetos con la cantidad de obj en el array
+         slot = new GameObject[totalDeSlot]; //  creamos la lista de objetos con la cantidad de obj en el array
 
-        for (int i = 0; i < totalDeSlot; i++)
-        {
-            slot[i] = slotHolder.transform.GetChild(i).gameObject;
+         for (int i = 0; i < totalDeSlot; i++)
+         {
+             slot[i] = slotHolder.transform.GetChild(i).gameObject;//Guarda ese GameObject en el array slot[i].
             if (slot[i].GetComponent<Slot>().item == null)
-            {
-                slot[i].GetComponent<Slot>().estaVacio = true;
-            }
-        }
+             {
+                 slot[i].GetComponent<Slot>().estaVacio = true;
+             }
+         }
 
-         totalDeSlotEquip = slotHolderEquip.transform.childCount;
-        slotEquip = new GameObject[totalDeSlotEquip]; 
+          totalDeSlotEquip = slotHolderEquip.transform.childCount;
+          slotEquip = new GameObject[totalDeSlotEquip]; 
 
-        for (int i = 0;i < totalDeSlotEquip; i++)
-        {
-            slotEquip[i] = slotHolderEquip.transform.GetChild(i).gameObject;
-            if (slotEquip[i].GetComponent<Slot>().item == null)
-            {
-                slotEquip[i].GetComponent <Slot>().estaVacio = true;
-            }
-        }
+         for (int i = 0;i < totalDeSlotEquip; i++)
+         {
+             slotEquip[i] = slotHolderEquip.transform.GetChild(i).gameObject;
+             if (slotEquip[i].GetComponent<Slot>().item == null)
+             {
+                 slotEquip[i].GetComponent <Slot>().estaVacio = true;
+             }
+         }
 
-    }
+     }
+
+    
+
 
 
     private void Update()
@@ -89,7 +93,6 @@ public class Inventario : MonoBehaviour
             if (slot[i].GetComponent<Slot>().estaVacio)
             {
                 unObjeto.GetComponent<Item>().estaAgarrado = true;
-
                 slot[i].GetComponent<Slot>().item = unObjeto;
                 slot[i].GetComponent<Slot>().id = itemId;
                 slot[i].GetComponent<Slot>().itemType = itemType;
@@ -116,7 +119,7 @@ public class Inventario : MonoBehaviour
         {
             Slot slotDestino = slotEquip[i].GetComponent<Slot>();
 
-            if (slotDestino.estaVacio)
+            if (slotDestino.estaVacio && slotOrigen.itemType =="Arma" || slotOrigen.itemType == "Escudo")
             {
                 slotDestino.item = slotOrigen.item;
                 slotDestino.id = slotOrigen.id;
@@ -137,12 +140,49 @@ public class Inventario : MonoBehaviour
                 slotOrigen.estaVacio = true;
                 slotOrigen.ActualizaSlot();
 
-                return;
+                return;// termina el ciclo
+
             }
         }
 
         Debug.Log("No hay espacio en el equipamiento.");
     }
+
+
+    public void DesequiparObjeto(Slot slotOrigen)
+    {
+        for(int i = 0;i< totalDeSlot; i++)
+        {
+            Slot slotDestino = slot[i].GetComponent<Slot>();
+            if (slotDestino.estaVacio)
+            {
+                slotDestino.item = slotOrigen.item;
+                slotDestino.id = slotOrigen.id;
+                slotDestino.itemType = slotOrigen.itemType;
+                slotDestino.descripcion = slotOrigen.descripcion;
+                slotDestino.icon = slotOrigen.icon;
+                slotDestino.estaVacio = false;
+
+                slotDestino.item.transform.SetParent(slotEquip[i].transform);
+                slotDestino.item.SetActive(false);
+                slotDestino.ActualizaSlot();
+
+
+                slotOrigen.item = null;
+                slotOrigen.id = 0;
+                slotOrigen.itemType = "";
+                slotOrigen.descripcion = "";
+                slotOrigen.icon = null;
+                slotOrigen.estaVacio = true;
+                slotOrigen.ActualizaSlot();
+
+                return;// termina el ciclo
+
+            }
+        }
+        Debug.Log("No hay espacio en el inventario.");
+    }
+
 
 
 

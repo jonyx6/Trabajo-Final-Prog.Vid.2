@@ -16,7 +16,4 @@ public class Item : MonoBehaviour
     public bool estaEquipado;
 
 
-
-
-
 }

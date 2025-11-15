@@ -96,6 +96,7 @@ public class Fsm : MonoBehaviour
     }
     void AtaqueSimple()
     {
+       
         if (Input.GetKeyDown(KeyCode.R) && boton3.fillAmount == 1)
         {
             Debug.Log("sr atacao simple");

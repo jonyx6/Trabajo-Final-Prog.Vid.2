@@ -17,17 +17,19 @@ public class InSightViewPro : MonoBehaviour
     public Color withDetect = Color.red;
 
     [Header("Capas")]
-    public LayerMask targetMask;    // Qué puede ser detectado//nombre del objetivo
-    public LayerMask obstacleMask;  // Qué bloquea la visión// nombre del obstaculo si lo hay
+    public LayerMask targetMask;    // Quï¿½ puede ser detectado//nombre del objetivo
+    public LayerMask obstacleMask;  // Quï¿½ bloquea la visiï¿½n// nombre del obstaculo si lo hay
 
     [Header("Debug")]
     public List<Transform> objetivosVisibles = new List<Transform>(); // lista de transform de los objetivos visibles
 
     private Transform objetivoActual;
 
-    private readonly Collider2D[] _targetsBuffer = new Collider2D[20];// readonly:sirve para proteger la referencia de una variable después de inicializarla
+    private readonly Collider2D[] _targetsBuffer = new Collider2D[20];// readonly:sirve para proteger la referencia de una variable despuï¿½s de inicializarla
 
     private int _objetivoEncontrado;
+    [SerializeField]
+    private float distanciaDeAtaque;
 
     private void Update()
     {
@@ -40,7 +42,7 @@ public class InSightViewPro : MonoBehaviour
 
         _objetivoEncontrado = Physics2D.OverlapCircleNonAlloc(transform.position, radioDeVision, _targetsBuffer, targetMask);// devuelve la cantidad de objetos dentro del circulo creado.
         //OverlapCircleNonAlloc:no devuelve un array nuevo,
-        //sino que rellena el array que vos le pasás y te devuelve cuántos elementos se llenaron.
+        //sino que rellena el array que vos le pasï¿½s y te devuelve cuï¿½ntos elementos se llenaron.
 
         for( int i = 0; i< _objetivoEncontrado; i++)
         {
@@ -90,12 +92,12 @@ public class InSightViewPro : MonoBehaviour
 
     public bool EstaCerca()
     {
-        Debug.Log("suestamente el Orco esta serca");
+        //Debug.Log("suestamente el Orco esta serca");
         if (objetivoActual == null) return false;
 
         float distancia = Vector2.Distance(transform.position, objetivoActual.position);
 
-        return distancia < 4; // jony: harcodeado , puede mejorar con una variable attackRadius configurable desde el Inspector
+        return distancia < distanciaDeAtaque; // jony: harcodeado , puede mejorar con una variable attackRadius configurable desde el Inspector
         
     }
 
@@ -124,7 +126,7 @@ public class InSightViewPro : MonoBehaviour
 
         Gizmos.DrawSphere(origin, radioDeVision);
 
-        // Dibuja líneas hacia los targets detectados
+        // Dibuja lï¿½neas hacia los targets detectados
         foreach (Transform target in objetivosVisibles)
         {
             if (target == null) continue;

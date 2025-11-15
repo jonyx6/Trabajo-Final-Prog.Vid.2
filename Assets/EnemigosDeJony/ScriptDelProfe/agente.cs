@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AgenteDelEstadoAtacar<T> : State<T>
 {
+    private Coroutine atacarCoroutine;
     private Agent_FSM_Controller _controller;
 
     public AgenteDelEstadoAtacar(T stateID, Transform NPCAgent, Agent_FSM_Controller controller, FSM<T> fsm) : base(stateID, NPCAgent, fsm)
@@ -16,15 +17,20 @@ public class AgenteDelEstadoAtacar<T> : State<T>
     public override void Enter()
     {
         base.Enter();
-        _controller.GetComponent<Animator>().SetTrigger("isAtacking");
+        atacarCoroutine = _controller.StartCoroutine(Atacar());
         Debug.Log("el personaje Orco Esta Atacando");
 
     }
 
     public override void Execute()
     {
-       
+       base.Execute();
+    }
 
+    public override void Sleep()
+    {
+        base.Sleep();
+        _controller.StopCoroutine(atacarCoroutine);
     }
 
     public override void CheckConditions()
@@ -45,12 +51,13 @@ public class AgenteDelEstadoAtacar<T> : State<T>
 
 
     }
-
-
-    public override void Sleep()
+    private IEnumerator Atacar()
     {
-        //base.Sleep();
-        _controller.GetComponent<Animator>().SetBool("isAtacking", false);
+        while (true)
+        {
+            _controller.GetComponent<Animator>().SetTrigger("isAtacking");
+            yield return new WaitForSeconds(1);
+        }
     }
 
 }

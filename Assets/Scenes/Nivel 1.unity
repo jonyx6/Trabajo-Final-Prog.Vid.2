@@ -41866,6 +41866,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   objetivosVisibles: []
+  distanciaDeAtaque: 2
 --- !u!50 &1669014201
 Rigidbody2D:
   serializedVersion: 4

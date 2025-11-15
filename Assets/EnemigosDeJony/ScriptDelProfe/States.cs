@@ -65,7 +65,7 @@ public class State<T>// T==generico == PUEDE RECIBIR CUALQUIER TIPO DE DATO
 
     public virtual void Sleep()
     {
-
+        Debug.Log("Sleep State: " + this.GetType().Name);
     }
 
     public virtual void CheckConditions()

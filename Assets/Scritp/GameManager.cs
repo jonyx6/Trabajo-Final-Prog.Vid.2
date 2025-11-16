@@ -5,10 +5,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField]
-    private Atributos2 atributosBaseDelJugador;
     public int nivelDelJugador = 1;
     public static GameManager Instance{ get; private set;}
+    public GameObject Jugador;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -21,9 +20,5 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(this);
         }
-    }
-    public Atributos2 AtributosDelJugador
-    {
-        get { return atributosBaseDelJugador; }
     }
 }

@@ -805,4 +805,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.25
+    functionName: PlayAtack2Sound
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: edba669f1e7a68e4fbba58263d318629, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

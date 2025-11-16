@@ -46,6 +46,10 @@ public class EstadoAtacar<T> : State<T>
         {
             _controller.SetIdle();
         }
+        if (_controller.CanFlee())
+        {
+            _controller.SetFlee();
+        }
 
     
 

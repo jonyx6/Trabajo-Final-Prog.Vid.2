@@ -15,7 +15,7 @@ public class SistemaDeSalud : MonoBehaviour
 
     public float CurrentHealth {  get; private set; }
 
-    public bool IsDead => atributos.Vida < 1;
+    public bool IsDead => CurrentHealth < 1;
 
     [field:SerializeField]
     public float MaxHealth { get; set; }
@@ -23,18 +23,24 @@ public class SistemaDeSalud : MonoBehaviour
     //aca declaro dos acciones que van a ocurrir 
     public event Action onDie;
     public event Action onTakeDamage;
+    public event Action onTakeHeal;
+    public event Action<float,float> onHealthChange;
 
     public Atributos atributos { get; private set; }
 
     void Start()
     {
         atributos = GetComponent<Atributos>();
+        MaxHealth = atributos.Vida;
+        CurrentHealth = MaxHealth;
+        onHealthChange?.Invoke(CurrentHealth,MaxHealth);
     }
 
     public void Recibir_(float unDanio)
     {
+        CurrentHealth -= unDanio;
+        onHealthChange?.Invoke(CurrentHealth,MaxHealth);
         onTakeDamage?.Invoke();//se fija si tiene eventos subscrito y los ejecuta 
-        atributos.Vida -= unDanio;
         if (IsDead)
         {
             onDie?.Invoke();
@@ -42,7 +48,9 @@ public class SistemaDeSalud : MonoBehaviour
     }
     public void Curarse_(float unaCuracion)
     {
-        atributos.Vida += Math.Min(unaCuracion,atributos.VidaMaxima);
+        CurrentHealth += Math.Min(unaCuracion,atributos.VidaMaxima);
+        onHealthChange?.Invoke(CurrentHealth,MaxHealth);
+        onTakeHeal?.Invoke();
     }
 
 /*     public IEnumerator Aplicar_(IDamager unDanio)
@@ -65,14 +73,18 @@ public class SistemaDeSalud : MonoBehaviour
             StartCoroutine(Aplicar_(danio)); */
         }
     }
-
-/*     private void OnTriggerExit2D(Collider2D collision)
+    void Update()
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer(layerQueLeHaceDaño))
+        Debug.Log(CurrentHealth);
+    }
+
+    /*     private void OnTriggerExit2D(Collider2D collision)
         {
-            StopAllCoroutines();
-        }
-    } */
+            if (collision.gameObject.layer == LayerMask.NameToLayer(layerQueLeHaceDaño))
+            {
+                StopAllCoroutines();
+            }
+        } */
 
     // dato: los ontrggerexit son espectaculares para parar acciones repetitivas de las corrutinas  
 

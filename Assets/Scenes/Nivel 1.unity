@@ -38456,7 +38456,10 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 5605056322536322022, guid: 4b20b58bd0ae6d342bcfddb364296d28, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6753479180822283803, guid: 4b20b58bd0ae6d342bcfddb364296d28, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 689445608}
   m_SourcePrefab: {fileID: 100100000, guid: 4b20b58bd0ae6d342bcfddb364296d28, type: 3}
 --- !u!1 &303237078
 GameObject:
@@ -39384,6 +39387,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644512278}
   m_CullTransparentMesh: 1
+--- !u!1 &689445604 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6753479180822283803, guid: 4b20b58bd0ae6d342bcfddb364296d28, type: 3}
+  m_PrefabInstance: {fileID: 288479738}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &689445608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689445604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12bf2747448cb5b44b09aae843239782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 2136412725}
+  SistemaDeSalud: {fileID: 6533510887111574538}
 --- !u!1 &812896782
 GameObject:
   m_ObjectHideFlags: 0
@@ -43925,6 +43947,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 621a1bebb9f6f174ea37c786deac5377, type: 3}
+--- !u!114 &2136412725 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6361252706826145169, guid: 4b20b58bd0ae6d342bcfddb364296d28, type: 3}
+  m_PrefabInstance: {fileID: 288479738}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1680029946512588106
 GameObject:
   m_ObjectHideFlags: 0
@@ -43942,6 +43975,7 @@ GameObject:
   - component: {fileID: 5641902541257806990}
   - component: {fileID: 6533510887111574538}
   - component: {fileID: 6533510887111574537}
+  - component: {fileID: 6533510887111574539}
   m_Layer: 3
   m_Name: Personaje
   m_TagString: Player
@@ -44030,8 +44064,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Nombre: 
-  VidaMaxima: 0
-  Vida: 10
+  VidaMaxima: 100
+  Vida: 50
   Pa: 0
   Pd: 0
   Velocidad: 0.1
@@ -44208,6 +44242,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   "layerQueLeHaceDa\xF1o": EnemyDamager
   <MaxHealth>k__BackingField: 3
+--- !u!114 &6533510887111574539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680029946512588106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b8aa8386f4af343b76ddce0916c534, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7027263825057335660
 GameObject:
   m_ObjectHideFlags: 0
@@ -44248,10 +44294,10 @@ SceneRoots:
   - {fileID: 2063913610830528701}
   - {fileID: 2127829462}
   - {fileID: 288479738}
-  - {fileID: 411291586}
   - {fileID: 1291436779}
   - {fileID: 602294481}
   - {fileID: 1859628162}
+  - {fileID: 411291586}
   - {fileID: 1508612545}
   - {fileID: 1756911266}
   - {fileID: 1669014205}

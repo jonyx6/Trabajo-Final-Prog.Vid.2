@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class BarraDeVida : MonoBehaviour
 {
+    [SerializeField]
+    private Image image;
+    [SerializeField]
+    private SistemaDeSalud SistemaDeSalud;
     // Start is called before the first frame update
     void Start()
     {
-        
+        SistemaDeSalud.onHealthChange += RenderizarVida;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void RenderizarVida(float vida,float vidaMaxima)
     {
-        
+        image.fillAmount = vida /vidaMaxima;
     }
 }

@@ -9,8 +9,6 @@ public class Agent_FSM_Controller : MonoBehaviour
     [SerializeField]
     private Transform _target;
 
-    private bool isDeath => _atributos.Vida < 1;
-
     [SerializeField]
     private float _chaseSpeed = 10f;
     [SerializeField]
@@ -68,6 +66,7 @@ public class Agent_FSM_Controller : MonoBehaviour
         //jony: creo una nueva trancision
         atacar.AddTransition(EstadosDeLaIA.attack, atacar);
         atacar.AddTransition(EstadosDeLaIA.Chase, chase);
+        atacar.AddTransition(EstadosDeLaIA.Flee, flee);
 
 
 
@@ -89,7 +88,8 @@ public class Agent_FSM_Controller : MonoBehaviour
 
     public bool CanFlee()
     {
-        return _inSightView.EnRango() && _atributos.Vida < healthForFlee; 
+        Debug.Log(_sistemaDeSalud.CurrentHealth);
+        return _inSightView.EnRango() && _sistemaDeSalud.CurrentHealth < healthForFlee; 
     }
     public void SetIdle()
     {

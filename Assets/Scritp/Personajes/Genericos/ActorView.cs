@@ -28,6 +28,7 @@ public class ActorView : MonoBehaviour
     public void TakeDamageView()
     {
         //Que ejecute una animacion
+        Debug.Log("take dame");
         _anim.SetTrigger("isHurt");
     }
 

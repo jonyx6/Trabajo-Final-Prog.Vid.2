@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider2D))]
-[RequireComponent (typeof(Rigidbody2D))]
 [RequireComponent(typeof(Atributos))]
 public class SistemaDeSalud : MonoBehaviour
 {
@@ -13,12 +11,7 @@ public class SistemaDeSalud : MonoBehaviour
 /*     [SerializeField]
     private float intervaloDeDanio = 0.5f; */
 
-    public float CurrentHealth {  get; private set; }
-
-    public bool IsDead => CurrentHealth < 1;
-
-    [field:SerializeField]
-    public float MaxHealth { get; set; }
+    public bool IsDead => _atributos.Vida < 1;
 
     //aca declaro dos acciones que van a ocurrir 
     public event Action onDie;
@@ -26,41 +19,34 @@ public class SistemaDeSalud : MonoBehaviour
     public event Action onTakeHeal;
     public event Action<float,float> onHealthChange;
 
-    public Atributos atributos { get; private set; }
+    public Atributos _atributos;
 
     void Start()
     {
-        atributos = GetComponent<Atributos>();
-        MaxHealth = atributos.Vida;
-        CurrentHealth = MaxHealth;
-        onHealthChange?.Invoke(CurrentHealth,MaxHealth);
+        _atributos = GetComponent<Atributos>();
+        onHealthChange?.Invoke(_atributos.Vida,_atributos.VidaMaxima);
     }
 
-    public void Recibir_(float unDanio)
+    public void RecibirDaño_(int unDanio)
     {
-        CurrentHealth -= unDanio;
-        onHealthChange?.Invoke(CurrentHealth,MaxHealth);
-        onTakeDamage?.Invoke();//se fija si tiene eventos subscrito y los ejecuta 
+        _atributos.Vida -= unDanio;
+        AlCambiarLaVida();
+        onTakeDamage?.Invoke();
         if (IsDead)
         {
             onDie?.Invoke();
         }
     }
-    public void Curarse_(float unaCuracion)
+    public void Curarse_(int unaCuracion)
     {
-        CurrentHealth += Math.Min(unaCuracion,atributos.VidaMaxima);
-        onHealthChange?.Invoke(CurrentHealth,MaxHealth);
+        _atributos.Vida += Math.Min(unaCuracion,_atributos.VidaMaxima);
+        AlCambiarLaVida();
         onTakeHeal?.Invoke();
     }
-
-/*     public IEnumerator Aplicar_(IDamager unDanio)
+    private void AlCambiarLaVida()
     {
-        while(true)
-        {
-            Recibir_(unDanio.Damage());
-            yield return new WaitForSeconds(intervaloDeDanio);
-        }
-    } */
+        onHealthChange?.Invoke(_atributos.Vida,_atributos.VidaMaxima);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -68,24 +54,7 @@ public class SistemaDeSalud : MonoBehaviour
         {
             Debug.Log("daño hecho");
             IDamager danio = collision.gameObject.GetComponent<IDamager>();
-            Recibir_(danio.Damage());
-/*             IDamager danio = collision.gameObject.GetComponent<IDamager>();
-            StartCoroutine(Aplicar_(danio)); */
+            RecibirDaño_(danio.Damage());
         }
     }
-    void Update()
-    {
-        Debug.Log(CurrentHealth);
-    }
-
-    /*     private void OnTriggerExit2D(Collider2D collision)
-        {
-            if (collision.gameObject.layer == LayerMask.NameToLayer(layerQueLeHaceDaño))
-            {
-                StopAllCoroutines();
-            }
-        } */
-
-    // dato: los ontrggerexit son espectaculares para parar acciones repetitivas de las corrutinas  
-
 }

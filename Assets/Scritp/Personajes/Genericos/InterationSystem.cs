@@ -22,7 +22,7 @@ public class InterationSystem : MonoBehaviour
         if (EsPersonaje_ConTag_(collision, tagName))
         {
             Atributos personaje = collision.GetComponentInParent<Atributos>();
-            hsPersonaje.Recibir_(1/* collision.GetComponentInParent<Personaje>().atributos */);
+            hsPersonaje.RecibirDaño_(1/* collision.GetComponentInParent<Personaje>().atributos */);
             //hsPersonaje.Morir(personaje);
         }
     }

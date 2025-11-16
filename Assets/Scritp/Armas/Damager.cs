@@ -5,10 +5,13 @@ using UnityEngine;
 public class Damager : MonoBehaviour, IDamager
 {
     [SerializeField]
-    private float Damage;
+    private Atributos _atributos;
+    private void Start() {
+        _atributos = GetComponentInParent<Atributos>();
+    }
 
-    float IDamager.Damage()
+    int IDamager.Damage()
     {
-        return Damage;
+        return _atributos.Pa;
     }
 }

@@ -3106,6 +3106,7 @@ MonoBehaviour:
   icon: {fileID: 0}
   estaVacio: 0
   slotIconImage: {fileID: 0}
+  slotIconGameObject: {fileID: 0}
 --- !u!114 &1146724347967054277
 MonoBehaviour:
   m_ObjectHideFlags: 0

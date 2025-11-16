@@ -21,7 +21,7 @@ public class DeteccionDeDaños : MonoBehaviour
         { 
             if(dañadorActual != null) // si exite un daño actual
             {
-                _sistemaDeSaludPersoaje.Recibir_(dañadorActual.Damage());
+                _sistemaDeSaludPersoaje.RecibirDaño_(dañadorActual.Damage());
 
                 yield return new WaitForSeconds(intervaloDeDanio);
             }

@@ -43,6 +43,10 @@ public class ControllerSystem : MonoBehaviour
         {
             Atacar();
         }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            AtacarEspecial();
+        }
 
         if (EstaLejosDelObjetivo())
         {
@@ -96,6 +100,7 @@ public class ControllerSystem : MonoBehaviour
     private void AtacarEspecial()
     {
         _animator.SetTrigger("isEspecialAtack");
+        //la flecha se dispara con un animation event
     }
     private void Morir()
     {

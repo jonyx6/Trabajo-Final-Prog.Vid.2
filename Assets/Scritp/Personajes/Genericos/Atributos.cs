@@ -5,12 +5,11 @@ public class Atributos : MonoBehaviour
 {
     public string Nombre;
     [Min(1)]
-    public float VidaMaxima;
-    public float Vida;
+    public int VidaMaxima;
+    public int Vida;
+    public int Pa;
 
-    public float Pa;
-
-    public float Pd;
+    public int Pd;
 
     public float Velocidad;
 

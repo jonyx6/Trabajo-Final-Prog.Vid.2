@@ -88,8 +88,7 @@ public class Agent_FSM_Controller : MonoBehaviour
 
     public bool CanFlee()
     {
-        Debug.Log(_sistemaDeSalud.CurrentHealth);
-        return _inSightView.EnRango() && _sistemaDeSalud.CurrentHealth < healthForFlee; 
+        return _inSightView.EnRango() && _sistemaDeSalud._atributos.Vida < healthForFlee; 
     }
     public void SetIdle()
     {

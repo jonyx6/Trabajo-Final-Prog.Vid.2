@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
+[RequireComponent(typeof(Atributos))]
 public class GameManager : MonoBehaviour
 {
     public int nivelDelJugador = 1;
     public static GameManager Instance{ get; private set;}
     public GameObject Jugador;
 
-    private Atributos atributosGuardados;
+    public Atributos atributosGuardados;
+    public bool tieneAtributos = false;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -22,5 +24,6 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(this);
         }
+        atributosGuardados = GetComponent<Atributos>();
     }
 }

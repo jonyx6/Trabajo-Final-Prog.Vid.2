@@ -13,10 +13,12 @@ public class Atributos : MonoBehaviour
 {
     public string Nombre;
     //public event Action onChangeName;
-    [Min(1)]
-    public float VidaMaxima;
-    //public event Action onChangeVidaMaxima;
-    public float Vida;
+    [field: SerializeField, Min(1)]
+    public float VidaMaxima { get; private set; }
+
+    [field: SerializeField]
+    public float Vida { get; private set; }
+    public event Action<float, float> OnVidaChange;
     //public event Action onChangeVida;
     public float Pa;
 
@@ -35,27 +37,38 @@ public class Atributos : MonoBehaviour
         Velocidad = otros.Velocidad;
         ExpAEntregar = otros.ExpAEntregar;
     }
-    public void AumentarAtributo(TipoDeAtributo atributo,float cantidad)
+    public void AumentarAtributo(TipoDeAtributo atributo, float cantidad)
     {
         switch (atributo)
         {
             case TipoDeAtributo.Pa:
-                Pa += Mathf.FloorToInt(cantidad);
+                Pa += cantidad;
                 break;
             case TipoDeAtributo.Pd:
-                Pd += Mathf.FloorToInt(cantidad);
+                Pd += cantidad;
                 break;
             case TipoDeAtributo.Velocidad:
                 Velocidad += cantidad;
                 break;
             case TipoDeAtributo.Vida:
-                Vida += Mathf.FloorToInt(cantidad);
+                CambiarVida(Vida + cantidad);
                 break;
             case TipoDeAtributo.VidaMaxima:
-                VidaMaxima += Mathf.FloorToInt(cantidad);
+                CambiarVidaMaxima(VidaMaxima + cantidad);
                 break;
             default:
                 break;
         }
     }
+    public void CambiarVida(float nuevaVida)
+    {
+        Vida = nuevaVida;
+        OnVidaChange?.Invoke(Vida, VidaMaxima);
+    }
+    public void CambiarVidaMaxima(float nuevaVida)
+    {
+        VidaMaxima = nuevaVida;
+        OnVidaChange?.Invoke(Vida, VidaMaxima);
+    }
+
 }

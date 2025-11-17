@@ -21,10 +21,9 @@ public class Damager : MonoBehaviour, IDamager
 
     public void DarXP(float expAEntregar)
     {
-        _levelSystem.SubirExperiencia(expAEntregar);
-    }
-    public void ChorearEvento(Action Evento)
-    {
-        
+        if(_levelSystem != null)
+        {
+            _levelSystem.SubirExperiencia(expAEntregar);
+        }
     }
 }

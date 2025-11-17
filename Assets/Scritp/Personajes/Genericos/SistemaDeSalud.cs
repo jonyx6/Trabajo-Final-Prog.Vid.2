@@ -17,20 +17,19 @@ public class SistemaDeSalud : MonoBehaviour
     public event Action onDie;
     public event Action onTakeDamage;
     public event Action onTakeHeal;
-    public event Action<float, float> onHealthChange;
+    public event Action<float, float> OnChange;
 
     public Atributos _atributos;
 
     void Start()
     {
         _atributos = GetComponent<Atributos>();
-        onHealthChange?.Invoke(_atributos.Vida, _atributos.VidaMaxima);
+        OnChange?.Invoke(_atributos.Vida, _atributos.VidaMaxima);
     }
 
     public void RecibirDañoDe_(IDamager FunteDeDaño)
     {
-        _atributos.Vida -= Math.Max(0, FunteDeDaño.Damage() - _atributos.Pd);
-        AlCambiarLaVida();
+        _atributos.CambiarVida(_atributos.Vida - Math.Max(0,FunteDeDaño.Damage() - _atributos.Pd));
         onTakeDamage?.Invoke();
         if (IsDead)
         {
@@ -39,13 +38,8 @@ public class SistemaDeSalud : MonoBehaviour
     }
     public void Curarse_(float unaCuracion)
     {
-        _atributos.Vida += Math.Min(unaCuracion, _atributos.VidaMaxima);
-        AlCambiarLaVida();
+        _atributos.CambiarVida(Math.Min(_atributos.Vida + unaCuracion, _atributos.VidaMaxima));
         onTakeHeal?.Invoke();
-    }
-    private void AlCambiarLaVida()
-    {
-        onHealthChange?.Invoke(_atributos.Vida, _atributos.VidaMaxima);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -65,7 +59,7 @@ public class SistemaDeSalud : MonoBehaviour
     }
     IEnumerator Desaparecer()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(4);
         Destroy(gameObject);
     }
 }

@@ -299,11 +299,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91127e28f9b20db4bb1548c0f3f7ba97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 0}
   _chaseSpeed: 0.3
   _fleeSpeed: 0.3
   _rotSpeed: 0.3
   _animator: {fileID: 0}
+  _target: {fileID: 0}
   healthForFlee: 9
 --- !u!114 &3709558344271635053
 MonoBehaviour:
@@ -352,8 +352,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Nombre: 
-  VidaMaxima: 0
-  Vida: 20
+  <VidaMaxima>k__BackingField: 10
+  <Vida>k__BackingField: 10
   Pa: 1
   Pd: 0
   Velocidad: 0

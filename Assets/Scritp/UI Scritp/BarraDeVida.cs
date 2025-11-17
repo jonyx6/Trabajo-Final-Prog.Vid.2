@@ -6,11 +6,12 @@ public class BarraDeVida : MonoBehaviour
     [SerializeField]
     private Image image;
     [SerializeField]
-    private Atributos atributos;
+    private Atributos _atributos;
     // Start is called before the first frame update
     void Start()
     {
-        //atributos.onVidaChange += RenderizarVida;
+        image.fillAmount = _atributos.Vida / _atributos.VidaMaxima;
+        _atributos.OnVidaChange += RenderizarVida;
     }
 
     private void RenderizarVida(float vida,float vidaMaxima)

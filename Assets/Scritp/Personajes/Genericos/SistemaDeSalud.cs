@@ -8,8 +8,8 @@ public class SistemaDeSalud : MonoBehaviour
 {
     [SerializeField]
     private string layerQueLeHaceDaño;
-/*     [SerializeField]
-    private float intervaloDeDanio = 0.5f; */
+    /*     [SerializeField]
+        private float intervaloDeDanio = 0.5f; */
 
     public bool IsDead => _atributos.Vida < 1;
 
@@ -17,44 +17,55 @@ public class SistemaDeSalud : MonoBehaviour
     public event Action onDie;
     public event Action onTakeDamage;
     public event Action onTakeHeal;
-    public event Action<float,float> onHealthChange;
+    public event Action<float, float> onHealthChange;
 
     public Atributos _atributos;
 
     void Start()
     {
         _atributos = GetComponent<Atributos>();
-        onHealthChange?.Invoke(_atributos.Vida,_atributos.VidaMaxima);
+        onHealthChange?.Invoke(_atributos.Vida, _atributos.VidaMaxima);
     }
 
-    public void RecibirDaño_(int unDanio)
+    public void RecibirDañoDe_(IDamager FunteDeDaño)
     {
-        _atributos.Vida -= unDanio;
+        _atributos.Vida -= Math.Max(0, FunteDeDaño.Damage() - _atributos.Pd);
         AlCambiarLaVida();
         onTakeDamage?.Invoke();
         if (IsDead)
         {
-            onDie?.Invoke();
+            MorirPor(FunteDeDaño);
         }
     }
-    public void Curarse_(int unaCuracion)
+    public void Curarse_(float unaCuracion)
     {
-        _atributos.Vida += Math.Min(unaCuracion,_atributos.VidaMaxima);
+        _atributos.Vida += Math.Min(unaCuracion, _atributos.VidaMaxima);
         AlCambiarLaVida();
         onTakeHeal?.Invoke();
     }
     private void AlCambiarLaVida()
     {
-        onHealthChange?.Invoke(_atributos.Vida,_atributos.VidaMaxima);
+        onHealthChange?.Invoke(_atributos.Vida, _atributos.VidaMaxima);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer(layerQueLeHaceDaño))
+        if (collision.gameObject.layer == LayerMask.NameToLayer(layerQueLeHaceDaño) && !IsDead)
         {
             Debug.Log("daño hecho");
             IDamager danio = collision.gameObject.GetComponent<IDamager>();
-            RecibirDaño_(danio.Damage());
+            RecibirDañoDe_(danio);
         }
+    }
+    private void MorirPor(IDamager FunteDeDaño)
+    {
+        FunteDeDaño.DarXP(_atributos.ExpAEntregar);
+        onDie?.Invoke();
+        StartCoroutine(Desaparecer());
+    }
+    IEnumerator Desaparecer()
+    {
+        yield return new WaitForSeconds(1);
+        Destroy(gameObject);
     }
 }

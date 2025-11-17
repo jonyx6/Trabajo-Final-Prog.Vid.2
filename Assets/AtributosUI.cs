@@ -32,6 +32,9 @@ public class AtributosUI : MonoBehaviour
 
     [SerializeField] 
     private Atributos atributosAMostrar;
+    [SerializeField] 
+    private LevelSystem levelSystem;
+
     private void Start()
     {
 
@@ -57,9 +60,9 @@ public class AtributosUI : MonoBehaviour
         textVelocidad.text = atributosAMostrar.Velocidad.ToString("F1");
 
         // texto niveles 
-        /* textNroNivel.text = atributosAMostrar.Nivel.ToString();
-        textExpActual.text = atributosAMostrar.expActual.ToString("F1");
-        textTopeNivel.text =  atributosAMostrar.limitDelNivel.ToString("F1");  */
+        textNroNivel.text = levelSystem.Nivel.ToString();
+        textExpActual.text = levelSystem.expActual.ToString("F1");
+        textTopeNivel.text =  levelSystem.limitDelNivel.ToString("F1"); 
     }
 
 }

@@ -5,16 +5,16 @@ using UnityEngine;
 public class EstadoChase<T> : State<T>
 
 {
-    private Transform _target;
     private float _maxSpeed;
     private float _chaseSpeed;
     private float _rotationSpeed;
+    private InSightViewPro _inSightViewPro;
     private Agent_FSM_Controller _controller;
 
-    public EstadoChase(T stateID, Transform NPCAgent, Agent_FSM_Controller controller, FSM<T> fsm, Transform target, float maxSpeed, float rotSpeed)
+    public EstadoChase(T stateID, Transform NPCAgent, Agent_FSM_Controller controller, FSM<T> fsm, InSightViewPro inSightViewPro, float maxSpeed, float rotSpeed)
        : base(stateID, NPCAgent, fsm)
     {
-        _target = target;
+        _inSightViewPro = inSightViewPro;
         _maxSpeed = maxSpeed;
         _rotationSpeed = rotSpeed;
         _controller = controller;
@@ -58,9 +58,10 @@ public class EstadoChase<T> : State<T>
     public override void Execute()
     {
         base.Execute();
-        if (_target != null)
+        Debug.Log(_inSightViewPro.objetivoActual);
+        if (_inSightViewPro.objetivoActual != null)
         {
-            Vector3 direction = (_target.position - _agentTransform.position).normalized;
+            Vector3 direction = (_inSightViewPro.objetivoActual.position - _agentTransform.position).normalized;
             _agentTransform.position += direction * _chaseSpeed * Time.deltaTime;
 
             // Volteamos el sprite segun la direccion en X
@@ -100,10 +101,10 @@ public class EstadoChase<T> : State<T>
     public Vector3 CalculateSteering()
     {
         // Direcci�n opuesta al target
-        Vector3 fleeDir = (_agentTransform.position - _target.position.normalized);
+        Vector3 chaseDir = (_inSightViewPro.objetivoActual.position - _agentTransform.position).normalized;
 
         // Queremos ir a m�xima velocidad
-        Vector3 direction = fleeDir * _maxSpeed;
+        Vector3 direction = chaseDir * _maxSpeed;
 
         // C�lculo del steering
         Vector3 steer = direction;

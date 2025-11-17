@@ -7,7 +7,7 @@ public class LevelSystem : MonoBehaviour
     public int Nivel = 0;
     public float expActual = 0f;
     public float limitDelNivel = 100f;
-    public Atributos atributos;
+    private Atributos atributos;
     public float porcentajeDeAumentoDeAtributos=0.1f;
 
 
@@ -32,11 +32,11 @@ public class LevelSystem : MonoBehaviour
     public void AumentarAtributos(float unaCant)
     {
         limitDelNivel *= 1+unaCant;
-/*         atributos.Pa *= 1+unaCant ;
+        atributos.Pa *= 1+unaCant ;
         atributos.Vida *=1+ unaCant ;
         atributos.Pd *= 1+unaCant ;
         atributos.Velocidad *= 1+unaCant;
-        atributos.ExpAEntregar *= 1+ unaCant; */
+        atributos.ExpAEntregar *= 1+ unaCant;
     }
 
 

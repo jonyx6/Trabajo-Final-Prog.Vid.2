@@ -1,12 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class BoosStateMachine : MonoBehaviour
 {
-    //public List<IEnumerator> ataques = new();
+    /* //public List<IEnumerator> ataques = new();
     public Transform character;
     private Rigidbody2D rb;
     private Collider2D col2D;
@@ -99,5 +95,5 @@ public class BoosStateMachine : MonoBehaviour
     //ataque 1: el dragon espera que el jugador se acerque y escupe fuego
     //ataque 2: el dragon camina hacia el jugador y escupe fuego
     //ataque 3: el dragon vuela y tira fuego 2 veces en x
-    //ataque 4: el dragon hace un circulo de fuego
+    //ataque 4: el dragon hace un circulo de fuego */
 }

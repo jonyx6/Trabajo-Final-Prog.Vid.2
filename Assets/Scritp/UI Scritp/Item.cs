@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    public int id;
+    public TipoDeAtributo atributo;
+    public float cantidadQueAumenta;
+/*     public int id;
     public string type;
     public string descripcion;
     public Sprite icon;
@@ -13,7 +15,7 @@ public class Item : MonoBehaviour
     public bool estaAgarrado;
 
 
-    public bool estaEquipado;
+    public bool estaEquipado; */
 
 
 }

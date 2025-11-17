@@ -6,11 +6,11 @@ public class BarraDeVida : MonoBehaviour
     [SerializeField]
     private Image image;
     [SerializeField]
-    private SistemaDeSalud SistemaDeSalud;
+    private Atributos atributos;
     // Start is called before the first frame update
     void Start()
     {
-        SistemaDeSalud.onHealthChange += RenderizarVida;
+        //atributos.onVidaChange += RenderizarVida;
     }
 
     private void RenderizarVida(float vida,float vidaMaxima)

@@ -1,9 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Slot : MonoBehaviour
@@ -15,7 +10,7 @@ public class Slot : MonoBehaviour
     public Sprite icon;
     public bool estaVacio;
 
-    [Header("Referencia al ícono del slot")]
+    [Header("Referencia al ï¿½cono del slot")]
     public Image slotIconImage;
     public Transform slotIconGameObject;
 
@@ -40,7 +35,7 @@ public class Slot : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("slotIconImage no está asignado en el Inspector", this);
+            Debug.LogWarning("slotIconImage no estï¿½ asignado en el Inspector", this);
         }*/
     }
 

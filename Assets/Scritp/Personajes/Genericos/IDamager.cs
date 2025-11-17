@@ -1,4 +1,5 @@
 public interface IDamager
 {
-     int Damage ();
+     float Damage ();
+     void DarXP(float expAEntregar);
 }

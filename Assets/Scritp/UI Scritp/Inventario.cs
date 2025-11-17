@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
-using static UnityEditor.Progress;
 
 public class Inventario : MonoBehaviour
 {
@@ -75,20 +71,20 @@ public class Inventario : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Item")
+/*         if (collision.tag == "Item")
         {
             GameObject itemAAgarrar = collision.gameObject;
             Item item = itemAAgarrar.GetComponent<Item>();
 
             AddItem(itemAAgarrar, item.id, item.type, item.descripcion, item.icon);
-        }
+        } */
 
 
     }
 
     public void AddItem(GameObject unObjeto, int itemId, string itemType, string itemDescripcion, Sprite itemIcon)
     {
-        for (int i = 0; i < totalDeSlot; i++)
+/*         for (int i = 0; i < totalDeSlot; i++)
         {
             if (slot[i].GetComponent<Slot>().estaVacio)
             {
@@ -106,11 +102,11 @@ public class Inventario : MonoBehaviour
                 slot[i].GetComponent<Slot>().ActualizaSlot();
                 slot[i].GetComponent<Slot>().estaVacio = false;
 
-                return;// evitamos el el objeto se añada en los slot vacios
+                return;// evitamos el el objeto se aï¿½ada en los slot vacios
             }
 
 
-        }
+        } */
     }
 
     public void EquiparItemDesdeSlot(Slot slotOrigen)

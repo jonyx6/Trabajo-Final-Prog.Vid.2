@@ -23,7 +23,7 @@ public class InSightViewPro : MonoBehaviour
     [Header("Debug")]
     public List<Transform> objetivosVisibles = new List<Transform>(); // lista de transform de los objetivos visibles
 
-    private Transform objetivoActual;
+    public Transform objetivoActual{get;private set;}
 
     private readonly Collider2D[] _targetsBuffer = new Collider2D[20];// readonly:sirve para proteger la referencia de una variable despu�s de inicializarla
 
@@ -62,15 +62,19 @@ public class InSightViewPro : MonoBehaviour
 
     public bool EstaAlaVista()
     {
-        if (objetivoActual == null) return false;
         return EnRango() && EnAngulo() && EnVista();
     }
 
     public bool EnRango()
     {
-        if (objetivoActual == null) return false;
-        float distanacia = Vector2.Distance(transform.position, objetivoActual.transform.position);
-        return distanacia <= radioDeVision;
+        //Debug.Log("buscando objetivo");
+        Collider2D target = Physics2D.OverlapCircle(transform.position, radioDeVision, targetMask);
+        if(target != null)
+        {
+            objetivoActual = target.transform;
+            return true;
+        }
+        return false;
     }
 
     private bool EnAngulo()

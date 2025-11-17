@@ -6,6 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(Atributos))]
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
+    private string layerDeItems;
     Atributos atributosDelJugador;
     private void Start()
     {
@@ -17,5 +19,12 @@ public class PlayerController : MonoBehaviour
 
         GameManager.Instance.tieneAtributos = true;
         GameManager.Instance.atributosGuardados.CopiarDesde(atributosDelJugador);
+    }
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.layer == LayerMask.NameToLayer(layerDeItems))
+        {
+            Item item = other.GetComponent<Item>();
+            atributosDelJugador.AumentarAtributo(item.atributo,item.cantidadQueAumenta);
+        }
     }
 }

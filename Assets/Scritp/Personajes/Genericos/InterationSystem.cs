@@ -5,32 +5,32 @@ using UnityEngine;
 [RequireComponent(typeof(SistemaDeSalud))]
 public class InterationSystem : MonoBehaviour
 {
-    [Header(" tag del objeto")]
+    // [Header(" tag del objeto")]
 
-    public string tagName;
+    // public string tagName;
 
-    private SistemaDeSalud hsPersonaje;
+    // private SistemaDeSalud hsPersonaje;
 
-    private void Awake()
-    {
-        hsPersonaje=GetComponent<SistemaDeSalud>();
-    }
+    // private void Awake()
+    // {
+    //     hsPersonaje=GetComponent<SistemaDeSalud>();
+    // }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (EsPersonaje_ConTag_(collision, tagName))
-        {
-            Atributos personaje = collision.GetComponentInParent<Atributos>();
-            hsPersonaje.RecibirDaño_(1/* collision.GetComponentInParent<Personaje>().atributos */);
-            //hsPersonaje.Morir(personaje);
-        }
-    }
+    // private void OnTriggerEnter2D(Collider2D collision)
+    // {
+    //     if (EsPersonaje_ConTag_(collision, tagName))
+    //     {
+    //         Atributos personaje = collision.GetComponentInParent<Atributos>();
+    //         hsPersonaje.RecibirDañoDe_(1/* collision.GetComponentInParent<Personaje>().atributos */);
+    //         //hsPersonaje.Morir(personaje);
+    //     }
+    // }
 
  
 
-    bool EsPersonaje_ConTag_(Collider2D unPersonaje, string unTag)
-    {
-        return unPersonaje.gameObject.CompareTag(unTag);
-    }
+    // bool EsPersonaje_ConTag_(Collider2D unPersonaje, string unTag)
+    // {
+    //     return unPersonaje.gameObject.CompareTag(unTag);
+    // }
 }

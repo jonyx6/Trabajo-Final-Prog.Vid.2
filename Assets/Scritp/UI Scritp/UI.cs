@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -53,10 +51,10 @@ public class UI : MonoBehaviour
     private void Awake()
     {
         // Asegurar que los botones empiecen llenos
-        boton1.fillAmount = 1f;
+/*         boton1.fillAmount = 1f;
         boton2.fillAmount = 1f;
         boton3.fillAmount = 1f;
-        boton4.fillAmount = 1f;
+        boton4.fillAmount = 1f; */
 
     
         

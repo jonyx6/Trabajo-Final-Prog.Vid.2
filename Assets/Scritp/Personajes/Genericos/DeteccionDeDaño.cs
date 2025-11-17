@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DeteccionDeDaños : MonoBehaviour
 {
-    private IDamager dañadorActual;
+/*     private IDamager dañadorActual;
     [SerializeField]
     private float intervaloDeDanio = 0.5F;
     private SistemaDeSalud _sistemaDeSaludPersoaje;
@@ -21,12 +21,12 @@ public class DeteccionDeDaños : MonoBehaviour
         { 
             if(dañadorActual != null) // si exite un daño actual
             {
-                _sistemaDeSaludPersoaje.RecibirDaño_(dañadorActual.Damage());
+                _sistemaDeSaludPersoaje.RecibirDañoDe_(dañadorActual.Damage());
 
                 yield return new WaitForSeconds(intervaloDeDanio);
             }
         
         
         }
-    }
+    } */
 }

@@ -7,9 +7,6 @@ public class Agent_FSM_Controller : MonoBehaviour
     private FSM<EstadosDeLaIA> _fsm;
 
     [SerializeField]
-    private Transform _target;
-
-    [SerializeField]
     private float _chaseSpeed = 10f;
     [SerializeField]
     private float _fleeSpeed = 10f;
@@ -17,6 +14,8 @@ public class Agent_FSM_Controller : MonoBehaviour
     private float _rotSpeed = 10f;
 
     public Animator _animator;
+
+    public Transform _target;
 
     private Atributos _atributos;
     private SistemaDeSalud _sistemaDeSalud;
@@ -48,9 +47,9 @@ public class Agent_FSM_Controller : MonoBehaviour
         ///Instanciamos los estados
         EstadoIdle<EstadosDeLaIA> idle = new EstadoIdle<EstadosDeLaIA>(EstadosDeLaIA.Idle, transform, this, _fsm);
         EstadoFlee<EstadosDeLaIA> flee = new EstadoFlee<EstadosDeLaIA>(EstadosDeLaIA.Flee, transform, this, _fsm, _target, _fleeSpeed, _rotSpeed);
-        EstadoChase<EstadosDeLaIA> chase = new EstadoChase<EstadosDeLaIA>(EstadosDeLaIA.Chase, transform, this, _fsm, _target, _chaseSpeed, _rotSpeed);
+        EstadoChase<EstadosDeLaIA> chase = new EstadoChase<EstadosDeLaIA>(EstadosDeLaIA.Chase, transform, this, _fsm, _inSightView, _chaseSpeed, _rotSpeed);
         //jony:inicio un uevo estado
-        EstadoAtacar<EstadosDeLaIA> atacar = new EstadoAtacar<EstadosDeLaIA>(EstadosDeLaIA.attack,transform,this,_fsm);
+        EstadoAtacar<EstadosDeLaIA> atacar = new EstadoAtacar<EstadosDeLaIA>(EstadosDeLaIA.attack, transform, this, _fsm);
 
         ///Creamos la transiciones
         idle.AddTransition(EstadosDeLaIA.Flee, flee);
@@ -73,12 +72,9 @@ public class Agent_FSM_Controller : MonoBehaviour
         _fsm.SetInit(idle);
     }
 
-     void Update()
+    void Update()
     {
-        if(_target != null)
-        {
-            _fsm.OnUpdate();   
-        }
+        _fsm.OnUpdate();
     }
 
     public bool CanChase()
@@ -110,7 +106,7 @@ public class Agent_FSM_Controller : MonoBehaviour
     {
         _fsm.ChangeState(EstadosDeLaIA.Chase);
     }
-    
+
     public void SetFlee()
     {
         _fsm.ChangeState(EstadosDeLaIA.Flee);

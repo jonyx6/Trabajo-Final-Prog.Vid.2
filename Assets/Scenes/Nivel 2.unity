@@ -374,6 +374,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 161860550728648987, guid: a5349d71450a940449f8ea0511cd9215, type: 3}
+      propertyPath: _atributos
+      value: 
+      objectReference: {fileID: 1201424281}
+    - target: {fileID: 161860550728648987, guid: a5349d71450a940449f8ea0511cd9215, type: 3}
       propertyPath: SistemaDeSalud
       value: 
       objectReference: {fileID: 1201424279}
@@ -481,6 +485,14 @@ PrefabInstance:
     - target: {fileID: 1190130724826333480, guid: 41707e5753803144b86d1156838a4630, type: 3}
       propertyPath: m_Name
       value: Personaje
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383065340048536634, guid: 41707e5753803144b86d1156838a4630, type: 3}
+      propertyPath: <Vida>k__BackingField
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383065340048536634, guid: 41707e5753803144b86d1156838a4630, type: 3}
+      propertyPath: <VidaMaxima>k__BackingField
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7575617771036997328, guid: 41707e5753803144b86d1156838a4630, type: 3}
       propertyPath: m_LocalPosition.x

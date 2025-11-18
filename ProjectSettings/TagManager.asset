@@ -8,6 +8,7 @@ TagManager:
   - Espada
   - Item
   - EspadaEnemiga
+  - Salida
   layers:
   - Default
   - TransparentFX

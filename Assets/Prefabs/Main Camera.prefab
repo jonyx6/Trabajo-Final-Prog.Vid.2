@@ -147,5 +147,5 @@ MonoBehaviour:
   "tama\xF1oDeZonaVisual": {x: 39, y: 38.5}
   posDeZonaVisual: {x: 19.4, y: 19.9}
   zoomMinimo: 4
-  zoomMaximo: 10
-  velocidadDeZoom: 10
+  zoomMaximo: 6
+  velocidadDeZoom: 2

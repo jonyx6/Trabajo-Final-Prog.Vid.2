@@ -26,4 +26,14 @@ public class GameManager : MonoBehaviour
         }
         atributosGuardados = GetComponent<Atributos>();
     }
+
+    public void GuardarAtributos(Atributos atributos)
+    {
+        atributosGuardados.CopiarDesde(atributos);
+        tieneAtributos = true;
+    }
+    public void CargarAtributos(Atributos atributos)
+    {
+        atributos.CopiarDesde(atributosGuardados);
+    }
 }

@@ -27,6 +27,7 @@ public class CamaraContoller : MonoBehaviour
     void Start()
     {
         _camera = GetComponent<Camera>();
+        _camera.orthographicSize = zoomMinimo;
     }
     private void Update()
     {

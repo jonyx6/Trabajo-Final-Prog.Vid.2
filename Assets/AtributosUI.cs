@@ -31,13 +31,17 @@ public class AtributosUI : MonoBehaviour
     private TextMeshProUGUI textTopeNivel;
 
     [SerializeField] 
-    private Atributos atributosAMostrar;
+    private Atributos atributosDelJugador;
     [SerializeField] 
     private LevelSystem levelSystem;
 
-    private void Start()
+    public void ObtenerInformacionDeJugador()
     {
-
+        atributosDelJugador = GameObject.FindGameObjectWithTag("Player").GetComponent<Atributos>();
+        levelSystem = GameObject.FindGameObjectWithTag("Player").GetComponent<LevelSystem>();
+    }
+    private void Start() {
+        ObtenerInformacionDeJugador();
     }
 
     void Update()
@@ -47,17 +51,13 @@ public class AtributosUI : MonoBehaviour
             panelDeAtributos.SetActive(!panelDeAtributos.activeInHierarchy);
             AsignarAtributos();
         }
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            textTopeNivel.text = "1";
-        }
     }
     private void AsignarAtributos()
     {
-        textPoderAtaque.text = atributosAMostrar.Pa.ToString();
-        textPoderDefensa.text = atributosAMostrar.Pd.ToString();
-        textVida.text = atributosAMostrar.Vida+"/"+atributosAMostrar.VidaMaxima;
-        textVelocidad.text = atributosAMostrar.Velocidad.ToString("F1");
+        textPoderAtaque.text = atributosDelJugador.Pa.ToString();
+        textPoderDefensa.text = atributosDelJugador.Pd.ToString();
+        textVida.text = atributosDelJugador.Vida+"/"+atributosDelJugador.VidaMaxima;
+        textVelocidad.text = atributosDelJugador.Velocidad.ToString("F1");
 
         // texto niveles 
         textNroNivel.text = levelSystem.Nivel.ToString();

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Damager : MonoBehaviour, IDamager
+public class Arma : MonoBehaviour, IDamager
 {
     [SerializeField]
     private Atributos _atributos;

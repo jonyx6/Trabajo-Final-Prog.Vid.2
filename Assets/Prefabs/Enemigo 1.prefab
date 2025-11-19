@@ -285,8 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7841d0324167c1d438ea8e2ce1861f4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "layerQueLeHaceDa\xF1o": PlayerDamager
-  _atributos: {fileID: 0}
+  "layerQueHaceDa\xF1o": PlayerDamager
 --- !u!114 &6502408043752510751
 MonoBehaviour:
   m_ObjectHideFlags: 0

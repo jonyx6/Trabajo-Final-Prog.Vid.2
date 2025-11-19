@@ -16,13 +16,13 @@ public class ActorView : MonoBehaviour
     }
     private void OnEnable()
     {
-        _systemHealth.onTakeDamage += TakeDamageView;
-        _systemHealth.onDie += Die;
+        _systemHealth.OnTakeDamage += TakeDamageView;
+        _systemHealth.OnDie += Die;
     }
     private void OnDisable()
     {
-        _systemHealth.onTakeDamage -= TakeDamageView;
-        _systemHealth.onDie -= Die;
+        _systemHealth.OnTakeDamage -= TakeDamageView;
+        _systemHealth.OnDie -= Die;
     }
 
     public void TakeDamageView()

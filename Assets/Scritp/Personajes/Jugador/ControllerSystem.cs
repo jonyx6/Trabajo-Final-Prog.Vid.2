@@ -40,7 +40,7 @@ public class ControllerSystem : MonoBehaviour
 
     void OnEnable()
     {
-        _sistemDeSalud.onDie += Morir;
+        _sistemDeSalud.OnDie += Morir;
     }
 
     private void Update()

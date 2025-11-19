@@ -37835,8 +37835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7841d0324167c1d438ea8e2ce1861f4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "layerQueLeHaceDa\xF1o": PlayerDamager
-  _atributos: {fileID: 0}
+  "layerQueHaceDa\xF1o": 
 --- !u!114 &87223533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39912,8 +39911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7841d0324167c1d438ea8e2ce1861f4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "layerQueLeHaceDa\xF1o": PlayerDamager
-  _atributos: {fileID: 0}
+  "layerQueHaceDa\xF1o": 
 --- !u!114 &837256337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41259,8 +41257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7841d0324167c1d438ea8e2ce1861f4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "layerQueLeHaceDa\xF1o": PlayerDamager
-  _atributos: {fileID: 0}
+  "layerQueHaceDa\xF1o": 
 --- !u!114 &1206859863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42942,8 +42939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7841d0324167c1d438ea8e2ce1861f4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "layerQueLeHaceDa\xF1o": PlayerDamager
-  _atributos: {fileID: 0}
+  "layerQueHaceDa\xF1o": 
 --- !u!114 &1452728107
 MonoBehaviour:
   m_ObjectHideFlags: 0

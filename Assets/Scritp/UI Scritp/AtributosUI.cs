@@ -49,14 +49,14 @@ public class AtributosUI : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             panelDeAtributos.SetActive(!panelDeAtributos.activeInHierarchy);
-            AsignarAtributos();
+            MostrarAtributos();
         }
     }
-    private void AsignarAtributos()
+    private void MostrarAtributos()
     {
-        textPoderAtaque.text = atributosDelJugador.Pa.ToString();
-        textPoderDefensa.text = atributosDelJugador.Pd.ToString();
-        textVida.text = atributosDelJugador.Vida+"/"+atributosDelJugador.VidaMaxima;
+        textPoderAtaque.text = atributosDelJugador.Pa.ToString("F1");
+        textPoderDefensa.text = atributosDelJugador.Pd.ToString("F1");
+        textVida.text = atributosDelJugador.Vida.ToString("F1") + "/" + atributosDelJugador.VidaMaxima.ToString("F1");
         textVelocidad.text = atributosDelJugador.Velocidad.ToString("F1");
 
         // texto niveles 

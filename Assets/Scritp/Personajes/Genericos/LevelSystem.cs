@@ -34,8 +34,7 @@ public class LevelSystem : MonoBehaviour
         limitDelNivel *= 1+unaCant;
         atributos.Pa *= 1+unaCant ;
         atributos.CambiarVida(atributos.Vida * (1 + unaCant));
-        atributos.CambiarVidaMaxima(atributos.Vida * (1 + unaCant));
-        //atributos.Vida *=1+ unaCant ;
+        atributos.CambiarVidaMaxima(atributos.VidaMaxima * (1 + unaCant));
         atributos.Pd *= 1+unaCant ;
         atributos.Velocidad *= 1+unaCant;
         atributos.ExpAEntregar *= 1+ unaCant;

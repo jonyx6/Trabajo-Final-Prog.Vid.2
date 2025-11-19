@@ -293,9 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8a4d156ba962045affba6783827f32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  botonDeAtaque: {fileID: 0}
-  botonDeAtaqueEspecial: {fileID: 0}
-  recuperacionDeAtaque: 1
+  recuperacionDeAtaque: 0.3
   recuperacionDeAtaqueEspecial: 2
 --- !u!114 &5653794881685287725
 MonoBehaviour:
@@ -309,8 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7841d0324167c1d438ea8e2ce1861f4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "layerQueLeHaceDa\xF1o": EnemyDamager
-  _atributos: {fileID: 0}
+  "layerQueHaceDa\xF1o": EnemyDamager
 --- !u!114 &4275867988802872344
 MonoBehaviour:
   m_ObjectHideFlags: 0

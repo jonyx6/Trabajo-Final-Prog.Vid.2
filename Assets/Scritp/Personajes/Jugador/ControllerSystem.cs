@@ -17,6 +17,14 @@ public class ControllerSystem : MonoBehaviour
     private Vector2 target;// guarda la posicion donde hago el clik
     private Vector2 direccion;
 
+    private BotonDeObjeto botonDeAtaque;
+    private BotonDeObjeto botonDeAtaqueEspecial;
+
+    [SerializeField]
+    private float recuperacionDeAtaque;
+    [SerializeField]
+    private float recuperacionDeAtaqueEspecial;
+
 
     private void Awake()
     {
@@ -26,6 +34,8 @@ public class ControllerSystem : MonoBehaviour
         _sistemDeSalud = GetComponent<SistemaDeSalud>();
         _atributos = GetComponent<Atributos>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        botonDeAtaque = GameObject.Find("SlotAtaque").GetComponent<BotonDeObjeto>();
+        botonDeAtaqueEspecial = GameObject.Find("SlotFlechas").GetComponent<BotonDeObjeto>();
     }
 
     void OnEnable()
@@ -39,13 +49,15 @@ public class ControllerSystem : MonoBehaviour
         {
             target = cam.ScreenToWorldPoint(Input.mousePosition);//comvierte las cordenadad del screen en las del wordspace
         }
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && botonDeAtaque.sePuedeUsar)
         {
             Atacar();
+            botonDeAtaque.Usar(recuperacionDeAtaque);
         }
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) && botonDeAtaqueEspecial.sePuedeUsar)
         {
             AtacarEspecial();
+            botonDeAtaqueEspecial.Usar(recuperacionDeAtaqueEspecial);
         }
 
         if (EstaLejosDelObjetivo())

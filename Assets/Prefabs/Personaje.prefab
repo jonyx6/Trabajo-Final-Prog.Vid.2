@@ -275,8 +275,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Nombre: 
-  VidaMaxima: 10
-  Vida: 5
+  <VidaMaxima>k__BackingField: 10
+  <Vida>k__BackingField: 5
   Pa: 2
   Pd: 0
   Velocidad: 0.1
@@ -293,6 +293,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8a4d156ba962045affba6783827f32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  botonDeAtaque: {fileID: 0}
+  botonDeAtaqueEspecial: {fileID: 0}
+  recuperacionDeAtaque: 1
+  recuperacionDeAtaqueEspecial: 2
 --- !u!114 &5653794881685287725
 MonoBehaviour:
   m_ObjectHideFlags: 0

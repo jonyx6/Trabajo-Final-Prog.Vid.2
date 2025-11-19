@@ -49,12 +49,12 @@ public class ControllerSystem : MonoBehaviour
         {
             target = cam.ScreenToWorldPoint(Input.mousePosition);//comvierte las cordenadad del screen en las del wordspace
         }
-        if (Input.GetKeyDown(KeyCode.R) && botonDeAtaque.sePuedeUsar)
+        if (Input.GetKeyDown(KeyCode.R) && botonDeAtaque.SePuedeUsar())
         {
             Atacar();
             botonDeAtaque.Usar(recuperacionDeAtaque);
         }
-        if (Input.GetKeyDown(KeyCode.W) && botonDeAtaqueEspecial.sePuedeUsar)
+        if (Input.GetKeyDown(KeyCode.W) && botonDeAtaqueEspecial.SePuedeUsar())
         {
             AtacarEspecial();
             botonDeAtaqueEspecial.Usar(recuperacionDeAtaqueEspecial);

@@ -8,9 +8,14 @@ public class BotonDeObjeto : MonoBehaviour
 {
     [SerializeField]
     private Image imagenAsignada;
-    public bool sePuedeUsar{get;private set;} = true;
+    private bool seEstaRecargando = false;
 
-    internal void Usar(float recuperacionDeAtaque)
+    public virtual bool SePuedeUsar()
+    {
+        return !seEstaRecargando;
+    }
+
+    public virtual void Usar(float recuperacionDeAtaque)
     {
         StartCoroutine(RecargarBoton(imagenAsignada,recuperacionDeAtaque));
     }
@@ -22,10 +27,10 @@ public class BotonDeObjeto : MonoBehaviour
         {
             tiempo += Time.deltaTime;
             unBoton.fillAmount = tiempo / duracion;
-            sePuedeUsar = false;
+            seEstaRecargando = true;
             yield return null;
         }
-        sePuedeUsar = true;
+        seEstaRecargando = false;
         unBoton.fillAmount = 1f;
     }
 }

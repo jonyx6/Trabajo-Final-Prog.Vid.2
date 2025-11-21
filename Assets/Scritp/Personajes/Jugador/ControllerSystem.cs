@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Atributos))]
 [RequireComponent(typeof(Rigidbody2D))]
@@ -117,7 +118,13 @@ public class ControllerSystem : MonoBehaviour
     private void Morir()
     {
         this.enabled = false;
+        StartCoroutine(Reiniciar());
     }
-
+    IEnumerator Reiniciar()
+    {
+        NotificationSystem.Instance.ShowMessage("Has Muerto",4);
+        yield return new WaitForSeconds(4);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 
 }

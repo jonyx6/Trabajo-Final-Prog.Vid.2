@@ -27,6 +27,18 @@ public class Atributos : MonoBehaviour
     public float Velocidad;
 
     public float ExpAEntregar = 10;
+    
+    public void CambiarVida(float nuevaVida)
+    {
+        Vida = nuevaVida;
+        OnVidaChange?.Invoke(Vida, VidaMaxima);
+    }
+    public void CambiarVidaMaxima(float nuevaVida)
+    {
+        VidaMaxima = nuevaVida;
+        OnVidaChange?.Invoke(Vida, VidaMaxima);
+    }
+
     public void CopiarDesde(Atributos otros)
     {
         Nombre = otros.Nombre;
@@ -60,15 +72,4 @@ public class Atributos : MonoBehaviour
                 break;
         }
     }
-    public void CambiarVida(float nuevaVida)
-    {
-        Vida = nuevaVida;
-        OnVidaChange?.Invoke(Vida, VidaMaxima);
-    }
-    public void CambiarVidaMaxima(float nuevaVida)
-    {
-        VidaMaxima = nuevaVida;
-        OnVidaChange?.Invoke(Vida, VidaMaxima);
-    }
-
 }

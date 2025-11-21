@@ -2617,7 +2617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12bf2747448cb5b44b09aae843239782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rellenoDeBarraDeVida: {fileID: 8296164682712990251}
+  rellenoDeBarra: {fileID: 8296164682712990251}
   MultiplicadorDeAncho: 0.1
 --- !u!1 &8065010819162039390
 GameObject:

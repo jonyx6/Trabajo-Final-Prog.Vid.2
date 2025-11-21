@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 4554868135603468405}
   - component: {fileID: 712873775795493723}
   - component: {fileID: 2191698981303426347}
+  - component: {fileID: 6531350768603706261}
   m_Layer: 3
   m_Name: Personaje
   m_TagString: Player
@@ -333,7 +334,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4b8aa8386f4af343b76ddce0916c534, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerDeItems: Item
 --- !u!114 &4554868135603468405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,6 +385,20 @@ MonoBehaviour:
   expActual: 0
   limitDelNivel: 100
   porcentajeDeAumentoDeAtributos: 0.1
+--- !u!114 &6531350768603706261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190130724826333480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0273546a1651ea4e8d5213a63c2a01b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layerDeItems: Item
+  tagDeLLave: Llave
 --- !u!1 &1845658671778803017
 GameObject:
   m_ObjectHideFlags: 0

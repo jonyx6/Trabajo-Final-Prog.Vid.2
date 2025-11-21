@@ -8,17 +8,23 @@ public enum TipoDeAtributo
     Pa,
     Pd,
     Velocidad,
+    EstaminaMax
 }
+
+
 public class Atributos : MonoBehaviour
 {
+
+
+    
     public string Nombre;
     //public event Action onChangeName;
     [field: SerializeField, Min(1)]
-    public float VidaMaxima { get; private set; }
+    public float VidaMaxima { get; set; }
 
     [field: SerializeField]
-    public float Vida { get; private set; }
-    public event Action<float, float> OnVidaChange;
+    public float Vida { get;  set; }
+   
     //public event Action onChangeVida;
     public float Pa;
 
@@ -27,17 +33,17 @@ public class Atributos : MonoBehaviour
     public float Velocidad;
 
     public float ExpAEntregar = 10;
-    
-    public void CambiarVida(float nuevaVida)
+
+    public float EstaminaMax = 10;
+
+    private SistemaDeSalud ssCharacter;
+
+
+    private void Start()
     {
-        Vida = nuevaVida;
-        OnVidaChange?.Invoke(Vida, VidaMaxima);
+        ssCharacter = GetComponent<SistemaDeSalud>();
     }
-    public void CambiarVidaMaxima(float nuevaVida)
-    {
-        VidaMaxima = nuevaVida;
-        OnVidaChange?.Invoke(Vida, VidaMaxima);
-    }
+
 
     public void CopiarDesde(Atributos otros)
     {
@@ -48,7 +54,10 @@ public class Atributos : MonoBehaviour
         Pd = otros.Pd;
         Velocidad = otros.Velocidad;
         ExpAEntregar = otros.ExpAEntregar;
+        EstaminaMax = otros.EstaminaMax;
     }
+
+
     public void AumentarAtributo(TipoDeAtributo atributo, float cantidad)
     {
         switch (atributo)
@@ -63,11 +72,15 @@ public class Atributos : MonoBehaviour
                 Velocidad += cantidad;
                 break;
             case TipoDeAtributo.Vida:
-                CambiarVida(Vida + cantidad);
+                ssCharacter.CambiarVida(Vida + cantidad);
                 break;
             case TipoDeAtributo.VidaMaxima:
-                CambiarVidaMaxima(VidaMaxima + cantidad);
+                ssCharacter.CambiarVidaMaxima(VidaMaxima + cantidad);
                 break;
+            case TipoDeAtributo.EstaminaMax:
+                EstaminaMax += cantidad;
+                break;
+                
             default:
                 break;
         }

@@ -26,6 +26,10 @@ public class ControllerSystem : MonoBehaviour
     [SerializeField]
     private float recuperacionDeAtaqueEspecial;
 
+    private StaminaSystem _StaminaSistem;
+
+    public event Action OnAttack;
+
 
     private void Awake()
     {
@@ -37,6 +41,7 @@ public class ControllerSystem : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         botonDeAtaque = GameObject.Find("SlotAtaque").GetComponent<BotonDeObjeto>();
         botonDeAtaqueEspecial = GameObject.Find("SlotFlechas").GetComponent<BotonDeObjeto>();
+        _StaminaSistem = GetComponent<StaminaSystem>();
     }
 
     void OnEnable()
@@ -100,8 +105,9 @@ public class ControllerSystem : MonoBehaviour
     {
         return Vector2.Distance(target, (Vector2)transform.position) > 0.2f;
     }
-    private bool EstaAtacando()
+    public bool EstaAtacando()
     {
+        Debug.Log(" esta atacando");
         AnimatorStateInfo estado = _animator.GetCurrentAnimatorStateInfo(0);
         return estado.IsName("attack1") || estado.IsName("attack2") || estado.IsName("especialAtack");
     }
@@ -109,11 +115,15 @@ public class ControllerSystem : MonoBehaviour
     private void Atacar()
     {
         _animator.SetTrigger("isAtack");
+        _StaminaSistem.RestarUna_DeEstamina(_StaminaSistem.cansancionProAtacque);
+
+
     }
     private void AtacarEspecial()
     {
         _animator.SetTrigger("isEspecialAtack");
         //la flecha se dispara con un animation event
+        _StaminaSistem.RestarUna_DeEstamina(_StaminaSistem.cansancionProAtacque * 3);
     }
     private void Morir()
     {
@@ -122,9 +132,15 @@ public class ControllerSystem : MonoBehaviour
     }
     IEnumerator Reiniciar()
     {
-        NotificationSystem.Instance.ShowMessage("Has Muerto",4);
+        NotificationSystem.Instance.ShowMessage("Has Muerto", 4);
         yield return new WaitForSeconds(4);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+
+
+
+
+
 
 }

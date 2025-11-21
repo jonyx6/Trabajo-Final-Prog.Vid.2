@@ -1,12 +1,17 @@
+using UnityEngine;
+
 public class BarraDeStamina : BarraDeEstadisticas
+
 {
+    
     private void Start()
     {
-        //obtenemos el componente atributos del jugador
+        
+        StaminaSystem sCharacter = GameObject.FindGameObjectWithTag("Player").GetComponent<StaminaSystem>();
         Atributos atributosDelJugador = ObtenerAtributosDeJugador();
+        DibujarBarra(sCharacter.estamiaActual, atributosDelJugador.EstaminaMax);
+        sCharacter.OnStaminaChange += DibujarBarra;
 
-        //falta IMPLEMENTAR
-        //necesitamos un staminaSystem para cambiar la stamina
-        //necesitamos agregarla a los atributos y un evento que avise cuando cambio
+
     } 
 }

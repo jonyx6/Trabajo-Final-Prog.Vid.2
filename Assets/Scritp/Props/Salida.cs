@@ -7,11 +7,8 @@ public class Salida : MonoBehaviour
 {
     [SerializeField]
     private string nextLevel;
-    void OnTriggerEnter2D(Collider2D collision)
+    public void Salir()
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            SceneManager.LoadScene(nextLevel);
-        }
+        SceneManager.LoadScene(nextLevel);
     }
 }

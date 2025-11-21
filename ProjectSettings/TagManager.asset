@@ -9,6 +9,7 @@ TagManager:
   - Item
   - EspadaEnemiga
   - Salida
+  - Llave
   layers:
   - Default
   - TransparentFX

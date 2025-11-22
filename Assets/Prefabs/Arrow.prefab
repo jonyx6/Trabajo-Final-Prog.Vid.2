@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 9004552498965003984}
   - component: {fileID: 8452766216724386015}
   - component: {fileID: 3296481499629753260}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,3 +173,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   lifeTime: 5
+  damage: 2
+  sistemaDeNivelDelQueDispara: {fileID: 0}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1088

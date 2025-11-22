@@ -25,6 +25,7 @@ public class LevelSystem : MonoBehaviour
         {
             expActual -= limitDelNivel;
             Nivel ++;
+            NotificationSystem.Instance.ShowMessage("has subido de nivel",2);
             AumentarAtributos(porcentajeDeAumentoDeAtributos);
         }
 
@@ -47,6 +48,7 @@ public class LevelSystem : MonoBehaviour
     public void SubirExperiencia(float unCantDeExp)
     {
         expActual += unCantDeExp;
+        NotificationSystem.Instance.ShowMessage("+"+unCantDeExp+" XP",2);
 
         SubirDeNivelSiPuede();
 

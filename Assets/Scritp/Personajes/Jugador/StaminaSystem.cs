@@ -56,7 +56,6 @@ public class StaminaSystem : MonoBehaviour
 
     public void RecuperarEstamina(float cantidad)
     {
-        Debug.Log("esta recuperando estamina");
         estamiaActual = Mathf.Min(aCharacter.EstaminaMax , estamiaActual + cantidad);
         OnStaminaChange?.Invoke(estamiaActual, aCharacter.EstaminaMax);
     }

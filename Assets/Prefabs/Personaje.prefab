@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 712873775795493723}
   - component: {fileID: 2191698981303426347}
   - component: {fileID: 6531350768603706261}
+  - component: {fileID: 4490229831128774649}
   m_Layer: 3
   m_Name: Personaje
   m_TagString: Player
@@ -282,6 +283,7 @@ MonoBehaviour:
   Pd: 0
   Velocidad: 0.1
   ExpAEntregar: 10
+  EstaminaMax: 10
 --- !u!114 &8617052699034981783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,6 +371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 3424439298263046513, guid: 129d6fdf7d8174945b968046d4e8b499, type: 3}
   shootPoint: {fileID: 6267812080845448120}
+  layerDelProyectil: PlayerDamager
 --- !u!114 &2191698981303426347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,6 +402,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   layerDeItems: Item
   tagDeLLave: Llave
+--- !u!114 &4490229831128774649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190130724826333480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3edc227e67baf5b4ab34e6870e75f5e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cansancionProAtacque: 2
+  cantDeRecuperacion: 1
 --- !u!1 &1845658671778803017
 GameObject:
   m_ObjectHideFlags: 0

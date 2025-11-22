@@ -28,8 +28,6 @@ public class ControllerSystem : MonoBehaviour
 
     private StaminaSystem _StaminaSistem;
 
-    public event Action OnAttack;
-
 
     private void Awake()
     {
@@ -107,7 +105,6 @@ public class ControllerSystem : MonoBehaviour
     }
     public bool EstaAtacando()
     {
-        Debug.Log(" esta atacando");
         AnimatorStateInfo estado = _animator.GetCurrentAnimatorStateInfo(0);
         return estado.IsName("attack1") || estado.IsName("attack2") || estado.IsName("especialAtack");
     }

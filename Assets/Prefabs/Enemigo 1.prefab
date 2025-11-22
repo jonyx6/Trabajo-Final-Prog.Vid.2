@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 4964775874466046708}
   - component: {fileID: 1628425907988691656}
   - component: {fileID: 4273426461341412070}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemigo 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -357,6 +357,7 @@ MonoBehaviour:
   Pd: 0
   Velocidad: 0
   ExpAEntregar: 110
+  EstaminaMax: 10
 --- !u!114 &4273426461341412070
 MonoBehaviour:
   m_ObjectHideFlags: 0

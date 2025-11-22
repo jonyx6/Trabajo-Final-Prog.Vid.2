@@ -54,6 +54,7 @@ public class SistemaDeSalud : MonoBehaviour
         CambiarVida(_atributos.Vida - dañoRecibido);
         OnTakeDamage?.Invoke();
     }
+    
 
     private void EjecutarMuertePor(IDamager FunteDeDaño)
     {
@@ -69,7 +70,11 @@ public class SistemaDeSalud : MonoBehaviour
         Destroy(gameObject);
     }
 
-
+    public void Curarse(float cantCuracion)
+    {
+        float curacionRecibida = Mathf.Min(_atributos.VidaMaxima,_atributos.Vida +cantCuracion);
+        CambiarVida(_atributos.Vida - curacionRecibida);
+    }
 
     private bool PuedeRecibirDañoDe_(GameObject unaFuenteDeDaño)
     {

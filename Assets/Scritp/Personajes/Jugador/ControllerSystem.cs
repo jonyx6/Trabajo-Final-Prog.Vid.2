@@ -15,11 +15,14 @@ public class ControllerSystem : MonoBehaviour
     private Animator _animator;
     private SistemaDeSalud _sistemDeSalud;
     private Camera cam;
+    private Mochila _mochila;
     private Vector2 target;// guarda la posicion donde hago el clik
     private Vector2 direccion;
 
     private BotonDeObjeto botonDeAtaque;
     private BotonDeObjeto botonDeAtaqueEspecial;
+    private BotonDeObjeto botonDeManzana;
+    private BotonDeObjeto botonDePocion;
 
     [SerializeField]
     private float recuperacionDeAtaque;
@@ -37,6 +40,7 @@ public class ControllerSystem : MonoBehaviour
         _sistemDeSalud = GetComponent<SistemaDeSalud>();
         _atributos = GetComponent<Atributos>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _mochila = GetComponent<Mochila>();
         botonDeAtaque = GameObject.Find("SlotAtaque").GetComponent<BotonDeObjeto>();
         botonDeAtaqueEspecial = GameObject.Find("SlotFlechas").GetComponent<BotonDeObjeto>();
         _StaminaSistem = GetComponent<StaminaSystem>();
@@ -58,10 +62,16 @@ public class ControllerSystem : MonoBehaviour
             Atacar();
             botonDeAtaque.Usar(recuperacionDeAtaque);
         }
-        if (Input.GetKeyDown(KeyCode.W) && botonDeAtaqueEspecial.SePuedeUsar())
+        if (Input.GetKeyDown(KeyCode.W) && _mochila.SePuedeUsarUnItem(ItemsDeMochila.Flecha))
         {
+            _mochila.UsarItem(ItemsDeMochila.Flecha);
             AtacarEspecial();
-            botonDeAtaqueEspecial.Usar(recuperacionDeAtaqueEspecial);
+            //botonDeAtaqueEspecial.Usar(recuperacionDeAtaqueEspecial);
+        }
+        if(Input.GetKeyDown(KeyCode.E) && _mochila.SePuedeUsarUnItem(ItemsDeMochila.Manzana))
+        {
+            _mochila.UsarItem(ItemsDeMochila.Manzana);
+            _sistemDeSalud.CambiarVida(_atributos.Vida + 1);
         }
 
         if (EstaLejosDelObjetivo())

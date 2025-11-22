@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IInteractable
 {
-    void Interact(LevelSystem LsPersonaje);
+    void InteractuarCon(GameObject jugador);
 }

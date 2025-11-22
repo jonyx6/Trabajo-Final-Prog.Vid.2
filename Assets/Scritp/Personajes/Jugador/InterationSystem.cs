@@ -53,7 +53,7 @@ public class InterationSystem : MonoBehaviour
     {
         if (tieneLLave)
         {
-            playerManager.GuardarAtributos();
+            playerManager.GuardarDatosDelJugador();
             salida.Salir();
         }
         else

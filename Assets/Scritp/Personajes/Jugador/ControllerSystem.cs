@@ -53,35 +53,39 @@ public class ControllerSystem : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            target = cam.ScreenToWorldPoint(Input.mousePosition);//comvierte las cordenadad del screen en las del wordspace
-        }
-        if (Input.GetKeyDown(KeyCode.R) && botonDeAtaque.SePuedeUsar())
-        {
-            Atacar();
-            botonDeAtaque.Usar(recuperacionDeAtaque);
-        }
-        if (Input.GetKeyDown(KeyCode.W) && _mochila.SePuedeUsarUnItem(ItemsDeMochila.Flecha))
-        {
-            _mochila.UsarItem(ItemsDeMochila.Flecha);
-            AtacarEspecial();
-            //botonDeAtaqueEspecial.Usar(recuperacionDeAtaqueEspecial);
-        }
-        if(Input.GetKeyDown(KeyCode.E) && _mochila.SePuedeUsarUnItem(ItemsDeMochila.Manzana))
-        {
-            _mochila.UsarItem(ItemsDeMochila.Manzana);
-            _sistemDeSalud.CambiarVida(_atributos.Vida + 1);
-        }
+        
+        
+            if (Input.GetMouseButtonDown(0))
+            {
+                target = cam.ScreenToWorldPoint(Input.mousePosition);//comvierte las cordenadad del screen en las del wordspace
+            }
+            if (Input.GetKeyDown(KeyCode.R) && botonDeAtaque.SePuedeUsar())
+            {
+                Atacar();
+                botonDeAtaque.Usar(recuperacionDeAtaque);
+            }
+            if (Input.GetKeyDown(KeyCode.W) && _mochila.SePuedeUsarUnItem(ItemsDeMochila.Flecha))
+            {
+                _mochila.UsarItem(ItemsDeMochila.Flecha);
+                AtacarEspecial();
+                //botonDeAtaqueEspecial.Usar(recuperacionDeAtaqueEspecial);
+            }
+            if (Input.GetKeyDown(KeyCode.E) && _mochila.SePuedeUsarUnItem(ItemsDeMochila.Manzana))
+            {
+                _mochila.UsarItem(ItemsDeMochila.Manzana);
+                _sistemDeSalud.CambiarVida(_atributos.Vida + 1);
+            }
 
-        if (EstaLejosDelObjetivo())
-        {
-            AsignarDireccion();
-        }
-        else
-        {
-            QuitarDireccion();
-        }
+            if (EstaLejosDelObjetivo())
+            {
+                AsignarDireccion();
+            }
+            else
+            {
+                QuitarDireccion();
+            }
+        
+       
     }
     void FixedUpdate()
     {

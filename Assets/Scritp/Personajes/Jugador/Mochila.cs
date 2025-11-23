@@ -9,6 +9,7 @@ public enum ItemsDeMochila
     Flecha,
     Manzana
 }
+
 public class ItemGuardado
 {
     public int cantidad = 0;

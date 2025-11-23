@@ -38927,7 +38927,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5562213226847166093, guid: c528c3f2007b9894598f190e85d11aa3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.5946028
+      value: 3.61
       objectReference: {fileID: 0}
     - target: {fileID: 5562213226847166093, guid: c528c3f2007b9894598f190e85d11aa3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -40755,6 +40755,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flecha
       objectReference: {fileID: 0}
+    - target: {fileID: 1281737188855497759, guid: c528c3f2007b9894598f190e85d11aa3, type: 3}
+      propertyPath: m_TagString
+      value: Flecha
+      objectReference: {fileID: 0}
     - target: {fileID: 5562213226847166093, guid: c528c3f2007b9894598f190e85d11aa3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.23
@@ -41495,11 +41499,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1253176818}
   m_CullTransparentMesh: 1
---- !u!1 &1258351490 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1190130724826333480, guid: 41707e5753803144b86d1156838a4630, type: 3}
-  m_PrefabInstance: {fileID: 7023117331430432514}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1286320338
 GameObject:
   m_ObjectHideFlags: 0
@@ -44832,19 +44831,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7575617771036997328, guid: 41707e5753803144b86d1156838a4630, type: 3}
   m_PrefabInstance: {fileID: 7023117331430432514}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2063913610830528730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1258351490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aef931e6fe0a02745b25442fb44fa8d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tieneLLave: 0
 --- !u!1001 &2464995730160700030
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44918,14 +44904,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Personaje
       objectReference: {fileID: 0}
-    - target: {fileID: 1383065340048536634, guid: 41707e5753803144b86d1156838a4630, type: 3}
-      propertyPath: <Vida>k__BackingField
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6531350768603706261, guid: 41707e5753803144b86d1156838a4630, type: 3}
-      propertyPath: layerDeInteractuables
-      value: Interactuable
-      objectReference: {fileID: 0}
     - target: {fileID: 7575617771036997328, guid: 41707e5753803144b86d1156838a4630, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.05
@@ -44969,10 +44947,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1190130724826333480, guid: 41707e5753803144b86d1156838a4630, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2063913610830528730}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41707e5753803144b86d1156838a4630, type: 3}
 --- !u!1001 &7213608398862520241
 PrefabInstance:
@@ -44985,6 +44960,14 @@ PrefabInstance:
     - target: {fileID: 1866245865217237021, guid: a5349d71450a940449f8ea0511cd9215, type: 3}
       propertyPath: m_Name
       value: InterfazDeUsuario
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532329799201236864, guid: a5349d71450a940449f8ea0511cd9215, type: 3}
+      propertyPath: UsosRestantes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3299522197435063011, guid: a5349d71450a940449f8ea0511cd9215, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 128.7
       objectReference: {fileID: 0}
     - target: {fileID: 4099610379544312129, guid: a5349d71450a940449f8ea0511cd9215, type: 3}
       propertyPath: m_Pivot.x
@@ -45077,6 +45060,14 @@ PrefabInstance:
     - target: {fileID: 7750942543721109612, guid: a5349d71450a940449f8ea0511cd9215, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -24
+      objectReference: {fileID: 0}
+    - target: {fileID: 8515462399166068803, guid: a5349d71450a940449f8ea0511cd9215, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 127.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8701546646638003488, guid: a5349d71450a940449f8ea0511cd9215, type: 3}
+      propertyPath: UsosRestantes
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

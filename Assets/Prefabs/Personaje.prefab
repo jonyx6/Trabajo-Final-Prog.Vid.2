@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 2191698981303426347}
   - component: {fileID: 6531350768603706261}
   - component: {fileID: 4490229831128774649}
+  - component: {fileID: 7174225520643505144}
   m_Layer: 3
   m_Name: Personaje
   m_TagString: Player
@@ -278,7 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Nombre: 
   <VidaMaxima>k__BackingField: 10
-  <Vida>k__BackingField: 5
+  <Vida>k__BackingField: 10
   Pa: 2
   Pd: 0
   Velocidad: 0.1
@@ -400,8 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0273546a1651ea4e8d5213a63c2a01b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerDeItems: Item
-  tagDeLLave: Llave
+  layerDeInteractuables: Interactuable
 --- !u!114 &4490229831128774649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,6 +416,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cansancionProAtacque: 2
   cantDeRecuperacion: 1
+--- !u!114 &7174225520643505144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1190130724826333480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aef931e6fe0a02745b25442fb44fa8d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tieneLLave: 0
 --- !u!1 &1845658671778803017
 GameObject:
   m_ObjectHideFlags: 0

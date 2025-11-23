@@ -33,4 +33,8 @@ public class BotonDeObjeto : MonoBehaviour
         seEstaRecargando = false;
         unBoton.fillAmount = 1f;
     }
+
+
+
+
 }

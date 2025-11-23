@@ -10,6 +10,7 @@ TagManager:
   - EspadaEnemiga
   - Salida
   - Llave
+  - Flecha
   layers:
   - Default
   - TransparentFX

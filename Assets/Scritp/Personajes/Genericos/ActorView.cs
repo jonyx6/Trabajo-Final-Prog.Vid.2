@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ActorView : MonoBehaviour
 {
@@ -36,6 +37,8 @@ public class ActorView : MonoBehaviour
     {
         _anim.SetBool("isDeath",true);
         scriptADesactivar.enabled = false;
+        
+
     }
 
 }

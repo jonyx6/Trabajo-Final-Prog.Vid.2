@@ -3,25 +3,31 @@ using UnityEngine;
 
 public class BotonDeObjetoConCantidad : BotonDeObjeto
 {
-    public int UsosRestantes;
-
+    private int cantEnElSlot = 0;
     [SerializeField]
     private TMP_Text textoDeCantidad;
 
     void Start()
     {
-        textoDeCantidad.text = UsosRestantes.ToString();
+        textoDeCantidad.text = cantEnElSlot.ToString();
     }
 
     public override bool SePuedeUsar()
     {
-        return base.SePuedeUsar() && UsosRestantes > 0;
+        return base.SePuedeUsar() && cantEnElSlot > 0;
     }
 
     public override void Usar(float recuperacionDeAtaque)
     {
-        UsosRestantes--;
-        textoDeCantidad.text = UsosRestantes.ToString();
+        cantEnElSlot--;
+        textoDeCantidad.text = cantEnElSlot.ToString();
         base.Usar(recuperacionDeAtaque);
     }
+
+    public void ActualizarTexto()
+    {
+        textoDeCantidad.text = cantEnElSlot.ToString();
+    }
+
+
 }

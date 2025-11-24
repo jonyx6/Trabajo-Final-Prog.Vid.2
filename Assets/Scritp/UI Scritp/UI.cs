@@ -6,8 +6,7 @@ using UnityEngine.UI;
 
 public class UI : MonoBehaviour
 {
-    [Header("Panel de Inventario")]
-    public GameObject Inventario;
+
 
     [Header("Panel de Atributos")]
     public GameObject Atributos;

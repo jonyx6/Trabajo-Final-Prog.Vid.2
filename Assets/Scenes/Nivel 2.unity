@@ -495,6 +495,10 @@ PrefabInstance:
       value: Personaje
       objectReference: {fileID: 0}
     - target: {fileID: 1383065340048536634, guid: 41707e5753803144b86d1156838a4630, type: 3}
+      propertyPath: Nombre
+      value: JONY
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383065340048536634, guid: 41707e5753803144b86d1156838a4630, type: 3}
       propertyPath: <Vida>k__BackingField
       value: 0
       objectReference: {fileID: 0}

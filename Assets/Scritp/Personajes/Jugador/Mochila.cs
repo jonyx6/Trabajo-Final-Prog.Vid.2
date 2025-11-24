@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 
 public enum ItemsDeMochila
@@ -21,9 +23,15 @@ public class ItemGuardado
     }
 
 }
+
 //se encarga de guardar items
 public class Mochila : MonoBehaviour
 {
+    public TextMeshProUGUI textManzanas;
+    public TextMeshProUGUI textFlecha;
+    public TextMeshProUGUI textPosicion;
+
+
     Dictionary<ItemsDeMochila, ItemGuardado> ItemsRecolectados = new Dictionary<ItemsDeMochila, ItemGuardado>()
     {
         {ItemsDeMochila.Pocion, new ItemGuardado(1)},
@@ -38,17 +46,20 @@ public class Mochila : MonoBehaviour
     }
     public void GastarItemDeTipo(ItemsDeMochila tipoDeItem)
     {
-        ItemsRecolectados[tipoDeItem].cantidad--;
+        ItemsRecolectados[tipoDeItem].cantidad = math.max(0, ItemsRecolectados[tipoDeItem].cantidad-1); ///posible correccion
     }
+
     public bool SePuedeUsarUnItem(ItemsDeMochila tipoDeItem)
     {
         ItemGuardado item = ItemsRecolectados[tipoDeItem];
         return item.cantidad > 0 && !item.estaRecargado;
     }
+
     public bool HayAlgunItemDeTipo(ItemsDeMochila tipoDeItem)
     {
         return ItemsRecolectados[tipoDeItem].cantidad > 0;
     }
+
     public void UsarItem(ItemsDeMochila tipoDeItem)
     {
         Debug.Log("consumiste item de tipo " + tipoDeItem);
@@ -56,6 +67,7 @@ public class Mochila : MonoBehaviour
         GastarItemDeTipo(tipoDeItem);
         StartCoroutine(ConsumirItem(ItemsRecolectados[tipoDeItem]));
     }
+
     private IEnumerator ConsumirItem(ItemGuardado item)
     {
         item.estaRecargado = true;
@@ -64,4 +76,59 @@ public class Mochila : MonoBehaviour
         Debug.Log("item recargando");
         item.estaRecargado = false;
     }
+
+
+    /// las funciones de abajo las hizo "jony"
+ 
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Manzana"))
+        {
+            AgregarItemDeTipo(ItemsDeMochila.Manzana);
+           
+            ActualizarUI(ItemsDeMochila.Manzana);
+            Destroy(collision.gameObject);// analizar el por que lo tengo que hacer desde aca y no como los otros.
+        }
+
+        if (collision.gameObject.CompareTag("Flecha"))
+        {
+            
+            ActualizarUI(ItemsDeMochila.Flecha);
+
+        }
+        if (collision.gameObject.CompareTag("Pocion"))
+        {
+            ;
+            ActualizarUI(ItemsDeMochila.Pocion);
+
+        }
+
+    }
+
+
+    public void ActualizarUI(ItemsDeMochila tipoDeItem)
+    {
+        if (tipoDeItem == ItemsDeMochila.Manzana)
+        {
+            textManzanas.text = ItemsRecolectados[tipoDeItem].cantidad.ToString();
+        }
+
+        if (tipoDeItem == ItemsDeMochila.Flecha)
+        {
+            textFlecha.text = ItemsRecolectados[tipoDeItem].cantidad.ToString();
+        }
+
+        if (tipoDeItem == ItemsDeMochila.Pocion)
+        {
+            textPosicion.text = ItemsRecolectados[tipoDeItem].cantidad.ToString();
+        }
+    }
+
 }
+
+
+
+
+
+

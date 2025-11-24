@@ -10,7 +10,8 @@ public class ItemRecolectable : MonoBehaviour, IInteractable
     public void InteractuarCon(GameObject jugador)
     {
         jugador.GetComponent<Mochila>().AgregarItemDeTipo(tipoDeItem);
-        NotificationSystem.Instance.ShowMessage("has conseguido una "+tipoDeItem,1);
+        NotificationSystem.Instance.ShowMessage("has conseguido una " + tipoDeItem,1);
         Destroy(gameObject);
+   
     }
 }

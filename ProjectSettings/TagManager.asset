@@ -11,6 +11,8 @@ TagManager:
   - Salida
   - Llave
   - Flecha
+  - Manzana
+  - Pocion
   layers:
   - Default
   - TransparentFX

@@ -67,13 +67,22 @@ public class ControllerSystem : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.W) && _mochila.SePuedeUsarUnItem(ItemsDeMochila.Flecha))
             {
                 _mochila.UsarItem(ItemsDeMochila.Flecha);
+                _mochila.ActualizarUI(ItemsDeMochila.Flecha);//jony:actualizo la ui de aca
                 AtacarEspecial();
-                //botonDeAtaqueEspecial.Usar(recuperacionDeAtaqueEspecial);
+                botonDeAtaqueEspecial.Usar(recuperacionDeAtaqueEspecial);
             }
             if (Input.GetKeyDown(KeyCode.E) && _mochila.SePuedeUsarUnItem(ItemsDeMochila.Manzana))
             {
                 _mochila.UsarItem(ItemsDeMochila.Manzana);
+                _mochila.ActualizarUI(ItemsDeMochila.Manzana);
                 _sistemDeSalud.CambiarVida(_atributos.Vida + 1);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Q) && _mochila.SePuedeUsarUnItem(ItemsDeMochila.Pocion))
+            {
+                _mochila.UsarItem(ItemsDeMochila.Pocion);
+                _mochila.ActualizarUI(ItemsDeMochila.Pocion);
+                _sistemDeSalud.CambiarVida(_atributos.Vida + 3);
             }
 
             if (EstaLejosDelObjetivo())

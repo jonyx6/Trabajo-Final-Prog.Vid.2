@@ -24,10 +24,7 @@ public class BotonDeObjetoConCantidad : BotonDeObjeto
         base.Usar(recuperacionDeAtaque);
     }
 
-    public void ActualizarTexto()
-    {
-        textoDeCantidad.text = cantEnElSlot.ToString();
-    }
+
 
 
 }

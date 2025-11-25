@@ -82,7 +82,7 @@ public class ShooterSystem : MonoBehaviour
 
 
         // Le damos velocidad en la dirección calculada
-        //proyectil.GetComponent<Proyectile>().LanzarBala(direccion);
+      
         proyectil.GetComponent<Rigidbody2D>().velocity = direccion * 1;
         
     }

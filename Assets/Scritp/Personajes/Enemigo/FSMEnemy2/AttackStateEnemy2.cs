@@ -17,6 +17,7 @@ public class AttackStateEnemy2<T>:State<T>
     public override void Enter()
     {
         base.Enter();
+        _controller._animator.SetBool("isAttacking", true);
         _atacarCoroutine = _controller.StartCoroutine(Atacar());
     }
 
@@ -30,8 +31,12 @@ public class AttackStateEnemy2<T>:State<T>
         if (_atacarCoroutine != null)
         {
             _controller.StopCoroutine(_atacarCoroutine);
+            
+
             _atacarCoroutine = null;
         }
+
+        _controller._animator.SetBool("isAttacking", false);
     }
 
     public override void CheckConditions()
@@ -52,7 +57,7 @@ public class AttackStateEnemy2<T>:State<T>
     {
         while (_controller.CanChase())
         {
-            _controller.GetComponent<Animator>().SetTrigger("isAtacking");
+            
             _controller.GetComponent<ShooterSystem>().DispararAObjetivo( _controller._target.position);
             yield return new WaitForSeconds(1);
         }

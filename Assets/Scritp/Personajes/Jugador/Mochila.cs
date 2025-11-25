@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum ItemsDeMochila
@@ -32,6 +33,18 @@ public class Mochila : MonoBehaviour
     public TextMeshProUGUI textPosicion;
 
 
+    public void Start()
+    {
+        ActualizarUI(ItemsDeMochila.Manzana);
+        ActualizarUI(ItemsDeMochila.Pocion);
+        ActualizarUI(ItemsDeMochila.Flecha);
+    }
+
+
+
+
+
+
     Dictionary<ItemsDeMochila, ItemGuardado> ItemsRecolectados = new Dictionary<ItemsDeMochila, ItemGuardado>()
     {
         {ItemsDeMochila.Pocion, new ItemGuardado(1)},
@@ -46,7 +59,7 @@ public class Mochila : MonoBehaviour
     }
     public void GastarItemDeTipo(ItemsDeMochila tipoDeItem)
     {
-        ItemsRecolectados[tipoDeItem].cantidad = math.max(0, ItemsRecolectados[tipoDeItem].cantidad-1); ///posible correccion
+        ItemsRecolectados[tipoDeItem].cantidad = math.max(0, ItemsRecolectados[tipoDeItem] . cantidad-1); ///posible correccion
     }
 
     public bool SePuedeUsarUnItem(ItemsDeMochila tipoDeItem)
@@ -88,7 +101,7 @@ public class Mochila : MonoBehaviour
             AgregarItemDeTipo(ItemsDeMochila.Manzana);
            
             ActualizarUI(ItemsDeMochila.Manzana);
-            Destroy(collision.gameObject);// analizar el por que lo tengo que hacer desde aca y no como los otros.
+            
         }
 
         if (collision.gameObject.CompareTag("Flecha"))

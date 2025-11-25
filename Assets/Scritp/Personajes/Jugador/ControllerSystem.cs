@@ -67,7 +67,7 @@ public class ControllerSystem : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.W) && _mochila.SePuedeUsarUnItem(ItemsDeMochila.Flecha))
             {
                 _mochila.UsarItem(ItemsDeMochila.Flecha);
-                _mochila.ActualizarUI(ItemsDeMochila.Flecha);//jony:actualizo la ui de aca
+               _mochila.ActualizarUI(ItemsDeMochila.Flecha);//jony:actualizo la ui de aca
                 AtacarEspecial();
                 botonDeAtaqueEspecial.Usar(recuperacionDeAtaqueEspecial);
             }

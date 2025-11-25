@@ -26,7 +26,9 @@ public class ChaseStateEnemy2<T>: State<T>// perseguir;
         base.Enter();// ejecuta la funcion del la clase base  del state
 
         _chaseSpeed = _maxSpeed;
-       // _controller.GetComponent<Animator>().SetBool("isWalk", true);
+        _controller._animator.SetBool("isWalk", true);
+
+
     }
 
     public override void Execute()
@@ -53,7 +55,8 @@ public class ChaseStateEnemy2<T>: State<T>// perseguir;
     public override void Sleep()
     {
         base.Sleep();
-       // _controller.GetComponent<Animator>().SetBool("isWalk", false);
+        _controller._animator.SetBool("isWalk", false);
+
     }
 
     public override void CheckConditions()

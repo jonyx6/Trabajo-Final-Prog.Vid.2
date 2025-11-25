@@ -27,7 +27,7 @@ public class IdleStateEnemy2<T> :State<T>
     {
         if (_controller.CanChase())
         {
-            _controller.SetChase();
+            _controller.SetearAtaque();
         }
     }
 

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BotonDeObjetoConCantidad : BotonDeObjeto
 {
-    private int cantEnElSlot = 0;
+    private int cantEnElSlot;
     [SerializeField]
     private TMP_Text textoDeCantidad;
 

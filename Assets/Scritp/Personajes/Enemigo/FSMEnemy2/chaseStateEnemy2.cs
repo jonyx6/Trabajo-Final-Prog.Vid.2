@@ -58,18 +58,7 @@ public class ChaseStateEnemy2<T>: State<T>// perseguir;
 
     public override void CheckConditions()
     {
-        /*if (!_controller.CanChase())
-        {
-            _controller.SetIdle();
-        }
-        if (_controller.CanFlee())
-        {
-            _controller.SetFlee();
-        }
-        if (_controller.PuedeAtacar())
-        {
-            _controller.SetearAtaque();
-        }*/
+     
         if (!_controller.CanChase())
             _controller.SetIdle();
         else if (_controller.CanFlee())

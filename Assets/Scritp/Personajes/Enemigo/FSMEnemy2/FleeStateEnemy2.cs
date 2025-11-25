@@ -47,9 +47,9 @@ public class FleeStateEnemy2<T> : State<T>
 
     override public void CheckConditions()
     {
-        if (!_controller.CanFlee())
+        if (!_controller.siElEnemigoEstaSerca()) 
         {
-            _controller.SetIdle();
+            _controller.SetearAtaque();
         }
     }
 

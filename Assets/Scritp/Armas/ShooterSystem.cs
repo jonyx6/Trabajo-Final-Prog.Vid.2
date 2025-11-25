@@ -27,9 +27,9 @@ public class ShooterSystem : MonoBehaviour
      */
     public void Shoot()
     {
-        GameObject proyectil = Instantiate(arrowPrefab, shootPoint.position, shootPoint.rotation);
-        
-        AsignarPropiedadesAProyectil(proyectil);
+        //GameObject proyectil = Instantiate(arrowPrefab, shootPoint.position, shootPoint.rotation);
+        DispararHaciaAdelante();
+       // AsignarPropiedadesAProyectil();
     }
     /*
         cosas como:
@@ -57,4 +57,47 @@ public class ShooterSystem : MonoBehaviour
             //al final no hace falta desuscribirse por que se elimina
         }
     }
+
+
+    //jony funcions disparar enemigo.
+
+
+    public void DispararAObjetivo(Vector3 _target)
+    {
+        // Dirección hacia el objetivo
+        Vector2 direccion = (_target - shootPoint.position).normalized;
+
+        // Ángulo para rotar la flecha
+        float angulo = Mathf.Atan2(direccion.y, direccion.x) * Mathf.Rad2Deg;
+
+        // Instanciamos la flecha con la rotación correcta
+        GameObject proyectil = Instantiate(
+            arrowPrefab,
+            shootPoint.position,
+            Quaternion.Euler(0f, 0f, angulo)
+        );
+
+
+        
+
+
+        // Le damos velocidad en la dirección calculada
+        //proyectil.GetComponent<Proyectile>().LanzarBala(direccion);
+        proyectil.GetComponent<Rigidbody2D>().velocity = direccion * 1;
+        
+    }
+
+    // funciones de fran pruebas
+
+    public void DispararHaciaAdelante()
+    {
+        DispararHacia(transform.right);
+    }
+    public void DispararHacia(Vector3 direccion)
+    {
+        GameObject proyectil = Instantiate(arrowPrefab, shootPoint.position, shootPoint.rotation);
+        proyectil.GetComponent<Proyectile>().LanzarBala(direccion);
+    }
+
+
 }

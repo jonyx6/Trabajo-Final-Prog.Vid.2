@@ -24,11 +24,16 @@ public class Proyectile : MonoBehaviour, IDamager
     [SerializeField]
     private string layerDeEnemigo = "Enemigo";
 
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+
+
     //metodos de unity
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        rb.velocity = transform.right * speed;
 
         //esto hace que pasado un tiempo se destruya la flecha
         Destroy(gameObject, lifeTime);
@@ -42,7 +47,7 @@ public class Proyectile : MonoBehaviour, IDamager
     }
     void OnDisable()
     {
-        StartCoroutine(DesuscribirEventoDeDarXpEn1Segundo());
+       // StartCoroutine(DesuscribirEventoDeDarXpEn1Segundo());
     }
 
     //metodos de Idamager
@@ -75,5 +80,17 @@ public class Proyectile : MonoBehaviour, IDamager
     {
         yield return new WaitForSeconds(1);
         AlRecibirXp = null;
+    }
+
+
+
+    // jony codigo
+    public void LanzarBala(Vector2 direccion)
+    {
+        Debug.Log(direccion);
+        Debug.Log(speed);
+        Debug.Log(rb.velocity);
+        rb.velocity = direccion * speed;
+
     }
 }

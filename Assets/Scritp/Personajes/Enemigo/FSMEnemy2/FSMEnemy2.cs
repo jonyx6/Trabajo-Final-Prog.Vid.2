@@ -56,9 +56,11 @@ public class FSMEnemy2 : MonoBehaviour
 
         idle.AddTransition(EstadosDeLaIA.Flee, flee);
         idle.AddTransition(EstadosDeLaIA.Chase, chase);
+        idle.AddTransition(EstadosDeLaIA.attack, atacar);
 
         flee.AddTransition(EstadosDeLaIA.Idle, idle);
         flee.AddTransition(EstadosDeLaIA.Chase, chase);
+        flee.AddTransition(EstadosDeLaIA.attack, atacar);
 
         chase.AddTransition(EstadosDeLaIA.Idle, idle);
         chase.AddTransition(EstadosDeLaIA.Flee, flee);
@@ -67,6 +69,7 @@ public class FSMEnemy2 : MonoBehaviour
        
         atacar.AddTransition(EstadosDeLaIA.Chase, chase);
         atacar.AddTransition(EstadosDeLaIA.Flee, flee);
+        atacar.AddTransition(EstadosDeLaIA.Idle, idle);
 
         _fsm.SetInit(idle);
     }
@@ -111,6 +114,11 @@ public class FSMEnemy2 : MonoBehaviour
     public void SetFlee()
     {
         _fsm.ChangeState(EstadosDeLaIA.Flee);
+    }
+
+    public bool siElEnemigoEstaSerca()
+    {
+        return _inSightView.EstaCerca();
     }
 
 

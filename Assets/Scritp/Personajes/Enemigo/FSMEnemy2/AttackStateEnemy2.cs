@@ -36,24 +36,24 @@ public class AttackStateEnemy2<T>:State<T>
 
     public override void CheckConditions()
     {
-        if (!_controller.PuedeAtacar())
-        {
-            if (_controller.CanChase())
-                _controller.SetChase();
-            else
-                _controller.SetIdle();
-        }
-        else if (_controller.CanFlee())
+        if (_controller.siElEnemigoEstaSerca())
         {
             _controller.SetFlee();
         }
+
+        if (!_controller.CanChase())
+        {
+            _controller.SetIdle();
+        }
+
     }
 
     private IEnumerator Atacar()
     {
-        while (_controller.PuedeAtacar())
+        while (_controller.CanChase())
         {
             _controller.GetComponent<Animator>().SetTrigger("isAtacking");
+            _controller.GetComponent<ShooterSystem>().DispararAObjetivo( _controller._target.position);
             yield return new WaitForSeconds(1);
         }
     }

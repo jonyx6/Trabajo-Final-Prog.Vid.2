@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7562781411613632317}
   - component: {fileID: 3464980289885847957}
   - component: {fileID: 8030762677800305479}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: hitbox
   m_TagString: EspadaEnemiga
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 413e9f8274233e3499c76bad684aed6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radioDeVision: 5
+  radioDeVision: 4
   anguloDeVision: 360
   edgeColor: {r: 0, g: 1, b: 0, a: 0.2}
   withoutDetect: {r: 1, g: 1, b: 1, a: 0.13725491}

@@ -51,9 +51,6 @@ public class EstadoAtacar<T> : State<T>
             _controller.SetFlee();
         }
 
-    
-
-
     }
     private IEnumerator Atacar()
     {

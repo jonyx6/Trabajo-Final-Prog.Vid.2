@@ -1,9 +1,10 @@
-
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Agent_FSM_Controller : MonoBehaviour
+public class FSMEnemy2 : MonoBehaviour 
 {
+
     private FSM<EstadosDeLaIA> _fsm;
 
     [SerializeField]
@@ -20,7 +21,6 @@ public class Agent_FSM_Controller : MonoBehaviour
     private Atributos _atributos;
 
     private SistemaDeSalud _sistemaDeSalud;
-
 
     private InSightViewPro _inSightView;
 
@@ -43,16 +43,17 @@ public class Agent_FSM_Controller : MonoBehaviour
 
     public void InitializationFSM()
     {
-        ///Inicializar FSM
         _fsm = new FSM<EstadosDeLaIA>();
-        ///Instanciamos los estados
-        EstadoIdle<EstadosDeLaIA> idle = new EstadoIdle<EstadosDeLaIA>(EstadosDeLaIA.Idle, transform, this, _fsm);
-        EstadoFlee<EstadosDeLaIA> flee = new EstadoFlee<EstadosDeLaIA>(EstadosDeLaIA.Flee, transform, this, _fsm, _target, _fleeSpeed, _rotSpeed);
-        EstadoChase<EstadosDeLaIA> chase = new EstadoChase<EstadosDeLaIA>(EstadosDeLaIA.Chase, transform, this, _fsm, _inSightView, _chaseSpeed, _rotSpeed);
-        //jony:inicio un uevo estado
-        EstadoAtacar<EstadosDeLaIA> atacar = new EstadoAtacar<EstadosDeLaIA>(EstadosDeLaIA.attack, transform, this, _fsm);
 
-        ///Creamos la transiciones
+        IdleStateEnemy2<EstadosDeLaIA> idle = new IdleStateEnemy2<EstadosDeLaIA>(EstadosDeLaIA.Idle, transform, this, _fsm);
+        FleeStateEnemy2<EstadosDeLaIA> flee = new FleeStateEnemy2<EstadosDeLaIA>(EstadosDeLaIA.Flee, transform, this, _fsm, _target, _fleeSpeed, _rotSpeed);
+        ChaseStateEnemy2<EstadosDeLaIA> chase = new ChaseStateEnemy2<EstadosDeLaIA>(EstadosDeLaIA.Chase, transform, this, _fsm,_inSightView,_chaseSpeed,_rotSpeed);
+        AttackStateEnemy2<EstadosDeLaIA> atacar = new AttackStateEnemy2<EstadosDeLaIA>(EstadosDeLaIA.attack, transform, this, _fsm);
+
+
+
+
+
         idle.AddTransition(EstadosDeLaIA.Flee, flee);
         idle.AddTransition(EstadosDeLaIA.Chase, chase);
 
@@ -63,19 +64,17 @@ public class Agent_FSM_Controller : MonoBehaviour
         chase.AddTransition(EstadosDeLaIA.Flee, flee);
         chase.AddTransition(EstadosDeLaIA.attack, atacar);
 
-        //jony: creo una nueva trancision
-        atacar.AddTransition(EstadosDeLaIA.attack, atacar);
+       
         atacar.AddTransition(EstadosDeLaIA.Chase, chase);
         atacar.AddTransition(EstadosDeLaIA.Flee, flee);
-
-
 
         _fsm.SetInit(idle);
     }
 
-    void Update()
+    private void Update()
     {
         _fsm.OnUpdate();
+
     }
 
     public bool CanChase()
@@ -85,8 +84,9 @@ public class Agent_FSM_Controller : MonoBehaviour
 
     public bool CanFlee()
     {
-        return _inSightView.EnRango() && _atributos.Vida < healthForFlee; 
+        return _inSightView.EnRango() && _atributos.Vida < healthForFlee;
     }
+
     public void SetIdle()
     {
 
@@ -112,5 +112,6 @@ public class Agent_FSM_Controller : MonoBehaviour
     {
         _fsm.ChangeState(EstadosDeLaIA.Flee);
     }
+
 
 }

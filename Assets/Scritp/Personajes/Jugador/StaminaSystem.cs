@@ -15,12 +15,17 @@ public class StaminaSystem : MonoBehaviour
 
     public float cansancionProAtacque;
 
-    public float cantDeRecuperacion;
+    [SerializeField]
+    private float cantDeRecuperacion;
 
     public event Action<float, float> OnStaminaChange;
 
+    
 
-    private bool estaCansado => estamiaActual < 2;
+
+    public bool estaCansado => estamiaActual < cansancionProAtacque; 
+
+    private Animator animCharacter;
 
     
 
@@ -29,8 +34,14 @@ public class StaminaSystem : MonoBehaviour
         aCharacter = GetComponent<Atributos>();
         estamiaActual = aCharacter.EstaminaMax;
         csCharacter = GetComponent<ControllerSystem>();
+        animCharacter = GetComponent<Animator>();
 
-       
+        cantDeRecuperacion = aCharacter.cantDeRecuperacion;
+
+
+        cansancionProAtacque = aCharacter.Pa;
+
+
     }
 
     public void RestarUna_DeEstamina(float cantidad)
@@ -40,19 +51,7 @@ public class StaminaSystem : MonoBehaviour
          OnStaminaChange?.Invoke(estamiaActual,aCharacter.EstaminaMax);
     }
 
-    public void EstaAgotado()
-    {
-        if (estaCansado)
-        {
-            // detener personaje 
 
-            csCharacter.enabled = false;
-        }
-        else
-        {
-            csCharacter.enabled = true;
-        }
-    }
 
     public void RecuperarEstamina(float cantidad)
     {
@@ -63,25 +62,6 @@ public class StaminaSystem : MonoBehaviour
 
 
 
-
-/*
-    public void RecuperarEstamina()
-    {
-        IEnumerator corutine = RecuperarEstaminaPorSegundo();
-        if (!csCharacter.EstaAtacando())
-        {
-            // iniciar corrutina que sume la estamina 
-
-            StartCoroutine(corutine);
-        }
-        if(estamiaActual == aCharacter.EstaminaMax)
-        {
-            // pararia la corutina
-            StopCoroutine(corutine);
-        }
-    }*/
-
-
     private void Update()
     {
         if (!csCharacter.EstaAtacando() ) 
@@ -90,6 +70,8 @@ public class StaminaSystem : MonoBehaviour
 
         }
 
-        EstaAgotado();
+        
+
+       
     }
 }

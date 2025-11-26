@@ -122,17 +122,20 @@ public class Mochila : MonoBehaviour
 
     public void ActualizarUI(ItemsDeMochila tipoDeItem)
     {
-        if (tipoDeItem == ItemsDeMochila.Manzana)
+        if (tipoDeItem == ItemsDeMochila.Manzana && ItemsRecolectados[tipoDeItem].cantidad.ToString() != null)
         {
-            textManzanas.text = ItemsRecolectados[tipoDeItem].cantidad.ToString();
+            
+            
+                textManzanas.text = ItemsRecolectados[tipoDeItem].cantidad.ToString();
+            
         }
 
-        if (tipoDeItem == ItemsDeMochila.Flecha)
+        if (tipoDeItem == ItemsDeMochila.Flecha && ItemsRecolectados[tipoDeItem].cantidad.ToString() != null)
         {
             textFlecha.text = ItemsRecolectados[tipoDeItem].cantidad.ToString();
         }
 
-        if (tipoDeItem == ItemsDeMochila.Pocion)
+        if (tipoDeItem == ItemsDeMochila.Pocion && ItemsRecolectados[tipoDeItem].cantidad.ToString() != null)
         {
             textPosicion.text = ItemsRecolectados[tipoDeItem].cantidad.ToString();
         }

@@ -18,7 +18,8 @@ public class ControllerSystem : MonoBehaviour
     private Mochila _mochila;
     private Vector2 target;// guarda la posicion donde hago el clik
     private Vector2 direccion;
-
+    
+    
     private BotonDeObjeto botonDeAtaque;
     private BotonDeObjeto botonDeAtaqueEspecial;
     private BotonDeObjeto botonDeManzana;
@@ -43,6 +44,9 @@ public class ControllerSystem : MonoBehaviour
         _mochila = GetComponent<Mochila>();
         botonDeAtaque = GameObject.Find("SlotAtaque").GetComponent<BotonDeObjeto>();
         botonDeAtaqueEspecial = GameObject.Find("SlotFlechas").GetComponent<BotonDeObjeto>();
+      
+
+
         _StaminaSistem = GetComponent<StaminaSystem>();
     }
 
@@ -59,7 +63,7 @@ public class ControllerSystem : MonoBehaviour
             {
                 target = cam.ScreenToWorldPoint(Input.mousePosition);//comvierte las cordenadad del screen en las del wordspace
             }
-            if (Input.GetKeyDown(KeyCode.R) && botonDeAtaque.SePuedeUsar())
+            if (Input.GetKeyDown(KeyCode.R) && botonDeAtaque.SePuedeUsar() && !_StaminaSistem.estaCansado)
             {
                 Atacar();
                 botonDeAtaque.Usar(recuperacionDeAtaque);

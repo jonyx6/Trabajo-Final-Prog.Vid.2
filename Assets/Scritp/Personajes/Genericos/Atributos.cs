@@ -36,6 +36,8 @@ public class Atributos : MonoBehaviour
 
     public float EstaminaMax = 10;
 
+    public float cantDeRecuperacion;
+
     private SistemaDeSalud ssCharacter;
 
 

@@ -8,7 +8,7 @@ public class LevelSystem : MonoBehaviour
     public float expActual = 0f;
     public float limitDelNivel = 100f;
     private Atributos atributos;
-    public float porcentajeDeAumentoDeAtributos =0.1f;
+    public float porcentajeDeAumentoDeAtributos = 0.1f;
     private SistemaDeSalud _ssPlayer;
 
 

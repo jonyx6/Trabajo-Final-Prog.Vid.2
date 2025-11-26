@@ -56,7 +56,7 @@ public class BossAttackState<T>: State<T>
     {
         while (true)
         {
-            _controller.GetComponent<Animator>().SetTrigger("isAtacking");
+            _controller.GetComponent<Animator>().SetTrigger("Atack1");
             yield return new WaitForSeconds(1);
         }
     }

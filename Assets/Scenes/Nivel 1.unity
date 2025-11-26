@@ -38709,7 +38709,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &394311490
 Transform:
   m_ObjectHideFlags: 0
@@ -38719,7 +38719,7 @@ Transform:
   m_GameObject: {fileID: 394311489}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.94, y: 0.25, z: 0}
+  m_LocalPosition: {x: -2.09, y: 0.95, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -39019,6 +39019,10 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 2063913610830528701}
+    - target: {fileID: 7648026996868377178, guid: 90ddec7182e4e53439b361b2c247d397, type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 7648026996868377178, guid: 90ddec7182e4e53439b361b2c247d397, type: 3}
       propertyPath: m_LinearDrag
       value: 10
@@ -42380,7 +42384,7 @@ Transform:
   m_GameObject: {fileID: 1786698479}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.15, y: 33.67, z: 0}
+  m_LocalPosition: {x: 11.65, y: 34.07, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:

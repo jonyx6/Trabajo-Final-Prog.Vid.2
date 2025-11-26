@@ -23,6 +23,7 @@ public class FleeStateEnemy2<T> : State<T>
     {
         base.Enter();
         _fleeSpeed = _maxSpeed;
+        _controller._animator.SetBool("isWalk ", true);
     }
 
     public override void Execute()
@@ -59,6 +60,7 @@ public class FleeStateEnemy2<T> : State<T>
     public override void Sleep()
     {
         base.Sleep();
+        _controller._animator.SetBool("isWalk ", false);
 
     }
 

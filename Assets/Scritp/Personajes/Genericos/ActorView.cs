@@ -35,7 +35,7 @@ public class ActorView : MonoBehaviour
 
     public void Die()
     {
-        _anim.SetBool("isDeath",true);
+        _anim.SetTrigger("isDeath");
         scriptADesactivar.enabled = false;
         
 

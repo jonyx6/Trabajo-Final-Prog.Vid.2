@@ -2,8 +2,8 @@ public enum EstadosDeLaIA
 {
     Default,
     Idle,
-    Flee,
-    Chase,
+    Flee,//huir
+    Chase,//Perseguir
     attack
 
 }

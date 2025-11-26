@@ -16,6 +16,8 @@ public class IdleStateEnemy2<T> :State<T>
     public override void Enter()
     {
         //base.Enter();
+        _controller._animator.SetBool("isIdle", true);
+
     }
 
     public override void Execute()
@@ -29,10 +31,16 @@ public class IdleStateEnemy2<T> :State<T>
         {
             _controller.SetearAtaque();
         }
+        if (_controller.siElEnemigoEstaSerca())
+        {
+            _controller.SetFlee();
+        }
+            
     }
 
     public override void Sleep()
     {
         base.Sleep();
+        _controller._animator.SetBool("isIdle", false);
     }
 }

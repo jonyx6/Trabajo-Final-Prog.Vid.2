@@ -26,7 +26,7 @@ public class ChaseStateEnemy2<T>: State<T>// perseguir;
         base.Enter();// ejecuta la funcion del la clase base  del state
 
         _chaseSpeed = _maxSpeed;
-        _controller._animator.SetBool("isWalk", true);
+        
 
 
     }
@@ -62,12 +62,6 @@ public class ChaseStateEnemy2<T>: State<T>// perseguir;
     public override void CheckConditions()
     {
      
-        if (!_controller.CanChase())
-            _controller.SetIdle();
-        else if (_controller.CanFlee())
-            _controller.SetFlee();
-        else if (_controller.PuedeAtacar())
-            _controller.SetearAtaque();
 
 
     }

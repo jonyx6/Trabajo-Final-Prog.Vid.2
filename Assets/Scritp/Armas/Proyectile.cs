@@ -11,6 +11,8 @@ using UnityEngine;
 //detecta cuando deben destruirse(al impactar muro o enemigo) o al pasar el tiempo de vida
 
 //el proyectil no sabe ni debe saber quien lo lanza
+
+
 public class Proyectile : MonoBehaviour, IDamager
 {
     public float speed = 25f;

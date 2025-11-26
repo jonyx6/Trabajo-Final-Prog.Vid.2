@@ -2,23 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EstadoFlee<T> : State<T>
+public class BossFleeState<T> : State<T>
 {
     private Transform _target;
     private float _maxSpeed;
     private float _fleeSpeed;
     private float _rotSpeed;
-    private Agent_FSM_Controller _controller;
+    private Boss_Fms_Controller _controller;
 
-    public EstadoFlee(T stateID, Transform NPCAgent, Agent_FSM_Controller controller, FSM<T> fsm, Transform target, float maxSpeed, float rotSpeed)
-        : base(stateID, NPCAgent, fsm)
+    public BossFleeState(T stateID, Transform NPCAgent, Boss_Fms_Controller controller, FSM<T> fsm, Transform target, float maxSpeed, float rotSpeed)
+    : base(stateID, NPCAgent, fsm)
     {
         _target = target;
         _maxSpeed = maxSpeed;
         _rotSpeed = rotSpeed;
         _controller = controller;
     }
-
 
     public override void Enter()
     {
@@ -44,6 +43,7 @@ public class EstadoFlee<T> : State<T>
                 _agentTransform.rotation = Quaternion.Euler(0, 0, 0);
             }
         }
+
     }
 
     override public void CheckConditions()
@@ -59,4 +59,6 @@ public class EstadoFlee<T> : State<T>
         base.Sleep();
 
     }
+
+
 }

@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EstadoChase<T> : State<T>
-
+public class BossChaseState<T>: State<T>
 {
+
     private float _maxSpeed;
     private float _chaseSpeed;
     private float _rotationSpeed;
     private InSightViewPro _inSightViewPro;
-    private Agent_FSM_Controller _controller;
+    private Boss_Fms_Controller _controller;
 
-    public EstadoChase(T stateID, Transform NPCAgent, Agent_FSM_Controller controller, FSM<T> fsm, InSightViewPro inSightViewPro, float maxSpeed, float rotSpeed)
-       : base(stateID, NPCAgent, fsm)
+    public BossChaseState(T stateID, Transform NPCAgent, Boss_Fms_Controller controller, FSM<T> fsm, InSightViewPro inSightViewPro, float maxSpeed, float rotSpeed)
+   : base(stateID, NPCAgent, fsm)
     {
         _inSightViewPro = inSightViewPro;
         _maxSpeed = maxSpeed;
@@ -20,17 +20,13 @@ public class EstadoChase<T> : State<T>
         _controller = controller;
     }
 
-
-
     public override void Enter()
     {
         base.Enter();// ejecuta la funcion del la clase base  del state
 
         _chaseSpeed = _maxSpeed;
-        _controller.GetComponent<Animator>().SetBool("isWalk", true);
+        //_controller.GetComponent<Animator>().SetBool("isWalk", true);
     }
-
-
 
     public override void Execute()
     {
@@ -56,7 +52,7 @@ public class EstadoChase<T> : State<T>
     public override void Sleep()
     {
         base.Sleep();
-        _controller.GetComponent<Animator>().SetBool("isWalk", false);
+        //_controller.GetComponent<Animator>().SetBool("isWalk", false);
     }
 
     public override void CheckConditions()
@@ -77,15 +73,20 @@ public class EstadoChase<T> : State<T>
 
     public Vector3 CalculateSteering()
     {
-        // Direcci�n opuesta al target
+        // Direcci?n opuesta al target
         Vector3 chaseDir = (_inSightViewPro.objetivoActual.position - _agentTransform.position).normalized;
 
-        // Queremos ir a m�xima velocidad
+        // Queremos ir a m?xima velocidad
         Vector3 direction = chaseDir * _maxSpeed;
 
-        // C�lculo del steering
+        // C?lculo del steering
         Vector3 steer = direction;
 
         return steer;
     }
+
+
+
+
+
 }

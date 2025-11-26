@@ -98,7 +98,7 @@ public class Mochila : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Manzana"))
         {
-            AgregarItemDeTipo(ItemsDeMochila.Manzana);
+           // AgregarItemDeTipo(ItemsDeMochila.Manzana);
            
             ActualizarUI(ItemsDeMochila.Manzana);
             

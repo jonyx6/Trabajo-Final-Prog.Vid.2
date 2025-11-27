@@ -21,11 +21,11 @@ public class LevelSystem : MonoBehaviour
 
     public void SubirDeNivelSiPuede()
     {
-        if (expActual >= limitDelNivel)
+        while (expActual >= limitDelNivel)
         {
             expActual -= limitDelNivel;
             Nivel ++;
-            NotificationSystem.Instance.ShowMessage("has subido de nivel",2);
+            NotificationSystem.Instance.ShowMessage("has subido de nivel",Nivel);
             AumentarAtributos(porcentajeDeAumentoDeAtributos);
         }
 

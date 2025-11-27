@@ -39016,6 +39016,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1628425907988691656, guid: 90ddec7182e4e53439b361b2c247d397, type: 3}
+      propertyPath: Velocidad
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1628425907988691656, guid: 90ddec7182e4e53439b361b2c247d397, type: 3}
+      propertyPath: <VidaMaxima>k__BackingField
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 2592960436807687924, guid: 90ddec7182e4e53439b361b2c247d397, type: 3}
       propertyPath: m_Size.y
       value: 0.34558678
@@ -41925,12 +41933,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Nombre: JEFE
-  <VidaMaxima>k__BackingField: 12
+  <VidaMaxima>k__BackingField: 100
   <Vida>k__BackingField: 12
   Pa: 4
   Pd: 0
-  Velocidad: 0
-  ExpAEntregar: 4000
+  Velocidad: 1.5
+  ExpAEntregar: 300
   EstaminaMax: 10
   cantDeRecuperacion: 0
 --- !u!114 &1513708382
@@ -41950,7 +41958,7 @@ MonoBehaviour:
   _rotSpeed: 1
   _animator: {fileID: 1513708385}
   _target: {fileID: 2063913610830528701}
-  healthForFlee: 9
+  healthForFlee: 0
 --- !u!114 &1513708383
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42763,7 +42771,6 @@ MonoBehaviour:
   _rotSpeed: 1
   _animator: {fileID: 1786698491}
   _target: {fileID: 2063913610830528701}
-  healthForFlee: 9
 --- !u!50 &1786698486
 Rigidbody2D:
   serializedVersion: 4

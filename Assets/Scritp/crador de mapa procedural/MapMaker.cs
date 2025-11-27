@@ -46,6 +46,7 @@ public class MapMaker : MonoBehaviour
         PlaceCharacter();
         PlaceExit();
     }
+
     void GenerateTiles()
     {
         mapData = cell.GenerateData(mapWith, mapHeight,iterations,fillPercente);

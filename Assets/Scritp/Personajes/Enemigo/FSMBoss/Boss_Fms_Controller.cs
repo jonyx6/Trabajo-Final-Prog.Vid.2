@@ -8,11 +8,11 @@ public class Boss_Fms_Controller : MonoBehaviour
     private FSM<EstadosDeLaIA> _fsm;// jony: podemos intentar hacer otro enum con mas estados
 
     [SerializeField]
-    private float _chaseSpeed = 10f;
+    private float _chaseSpeed;
     [SerializeField]
-    private float _fleeSpeed = 10f;
+    private float _fleeSpeed;
     [SerializeField]
-    private float _rotSpeed = 10f;
+    private float _rotSpeed;
 
     public Animator _animator;
 
@@ -25,7 +25,7 @@ public class Boss_Fms_Controller : MonoBehaviour
     private InSightViewPro _inSightView;
 
     [SerializeField]
-    private float healthForFlee = 9f;
+    private float healthForFlee ;
 
     private void Awake()
     {
@@ -33,6 +33,9 @@ public class Boss_Fms_Controller : MonoBehaviour
         _atributos = GetComponent<Atributos>();
         _inSightView = GetComponent<InSightViewPro>();
         _animator = GetComponent<Animator>();
+        healthForFlee = _atributos.VidaMaxima / 2;
+        _chaseSpeed = _atributos.Velocidad;
+        _fleeSpeed = _atributos.Velocidad * 2;
 
     }
 

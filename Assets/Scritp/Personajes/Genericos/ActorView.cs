@@ -8,6 +8,7 @@ public class ActorView : MonoBehaviour
     private SistemaDeSalud _systemHealth;
 
     private Animator _anim;
+
     public MonoBehaviour scriptADesactivar;
 
     private void Awake()

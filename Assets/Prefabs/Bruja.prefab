@@ -199,7 +199,7 @@ MonoBehaviour:
   <Vida>k__BackingField: 12
   Pa: 2
   Pd: 0
-  Velocidad: 0.05
+  Velocidad: 1
   ExpAEntregar: 50
   EstaminaMax: 10
   cantDeRecuperacion: 0

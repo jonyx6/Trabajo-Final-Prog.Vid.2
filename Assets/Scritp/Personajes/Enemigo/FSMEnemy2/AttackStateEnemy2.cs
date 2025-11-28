@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Dynamic;
 using UnityEngine;
 
 public class AttackStateEnemy2<T>:State<T>
 {
-    private Coroutine _atacarCoroutine;
+    private Coroutine atacarCoroutine;
     private FSMEnemy2 _controller;
 
     public AttackStateEnemy2(T stateID, Transform NPCAgent, FSMEnemy2 controller , FSM<T> fsm) : base( stateID ,NPCAgent,fsm)
@@ -18,7 +19,7 @@ public class AttackStateEnemy2<T>:State<T>
     {
         base.Enter();
         _controller.GetComponent<ShooterSystem>().objetivo = _controller._target;
-        _controller._animator.SetBool("isAttacking", true);
+        atacarCoroutine = _controller.StartCoroutine(Atacar());
     }
 
     public override void Execute()
@@ -28,11 +29,19 @@ public class AttackStateEnemy2<T>:State<T>
 
     public override void Sleep()
     {
-        _controller._animator.SetBool("isAttacking", false);
+        base.Sleep();
+        _controller.StopCoroutine(atacarCoroutine);
     }
 
 
-
+    private IEnumerator Atacar()
+    {
+        while (true)
+        {
+            _controller.GetComponent<Animator>().SetTrigger("isAtacking");
+            yield return new WaitForSeconds(4);
+        }
+    }
 
     public override void CheckConditions()
     {

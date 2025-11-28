@@ -7,11 +7,14 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     private static AudioManager _instance;
-    private AudioSource audioSource;
-/*     [SerializeField]
+    [SerializeField]
+    private AudioSource sfxSource;
+    [SerializeField]
+    private AudioSource musicSource;
+    [SerializeField]
     private AudioClip music;
     [SerializeField]
-    private float musicVolume; */
+    private float musicVolume;
 
     public static AudioManager Instance
     {
@@ -23,21 +26,21 @@ public class AudioManager : MonoBehaviour
         {
             _instance = this;
             DontDestroyOnLoad(this);
-        } else
+        }
+        else
         {
             Destroy(gameObject);
         }
     }
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-/*         audioSource.clip = music;
-        audioSource.loop = true;
-        audioSource.volume = musicVolume;
-        audioSource.Play(); */
+        musicSource.clip = music;
+        musicSource.loop = true;
+        musicSource.volume = musicVolume;
+        musicSource.Play();
     }
     public void ReproducirSonido(AudioClip clip)
     {
-        audioSource.PlayOneShot(clip);
+        sfxSource.PlayOneShot(clip);
     }
 }

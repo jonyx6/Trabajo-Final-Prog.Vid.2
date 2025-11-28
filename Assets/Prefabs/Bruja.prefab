@@ -244,6 +244,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97a9edba99d6bb74fa0db15b1a075487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  intemsSpawns:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   scriptADesactivar: {fileID: 6957337686793916962}
 --- !u!114 &1557846928139406869
 MonoBehaviour:

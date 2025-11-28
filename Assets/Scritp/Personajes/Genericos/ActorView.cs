@@ -7,6 +7,8 @@ public class ActorView : MonoBehaviour
 {
     private SistemaDeSalud _systemHealth;
 
+    public List<GameObject> intemsSpawns = new List<GameObject>();
+
     private Animator _anim;
 
     public MonoBehaviour scriptADesactivar;
@@ -15,6 +17,7 @@ public class ActorView : MonoBehaviour
     {
         _anim = GetComponent<Animator>();
         _systemHealth = GetComponent<SistemaDeSalud>();
+        
     }
     private void OnEnable()
     {
@@ -38,8 +41,18 @@ public class ActorView : MonoBehaviour
     {
         _anim.SetTrigger("isDeath");
         scriptADesactivar.enabled = false;
-        
 
+        Invoke("SpawnearObjeto", 2f);
+
+
+
+    }
+
+   public void SpawnearObjeto()
+    {
+        int index = Random.Range(0, intemsSpawns.Count);
+        GameObject objetoAleaorio = intemsSpawns[index];
+        Instantiate(objetoAleaorio, transform.position, Quaternion.identity);
     }
 
 }

@@ -23,6 +23,9 @@ public class ControllerSystem : MonoBehaviour
     private Mochila _mochila;
     private Vector2 target;// guarda la posicion donde hago el clik
     private Vector2 direccion;
+
+    public  GameObject panel;
+    public bool juegoPausado= false;
     
     
     private BotonDeObjeto botonDeAtaque;
@@ -47,6 +50,7 @@ public class ControllerSystem : MonoBehaviour
         _atributos = GetComponent<Atributos>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _mochila = GetComponent<Mochila>();
+        
         
         botonDeAtaque = GameObject.Find("SlotAtaque").GetComponent<BotonDeObjeto>();
         
@@ -91,6 +95,11 @@ public class ControllerSystem : MonoBehaviour
                 _mochila.UsarItem(ItemsDeMochila.Pocion);
                 _sistemDeSalud.Curarse(vidaDePocion);
             }
+
+
+
+  
+
 
             if (EstaLejosDelObjetivo())
             {
@@ -155,14 +164,19 @@ public class ControllerSystem : MonoBehaviour
     private void Morir()
     {
         this.enabled = false;
-        StartCoroutine(Reiniciar());
+        StartCoroutine(CargarEscenaDeMuerte());
     }
-    IEnumerator Reiniciar()
+
+    IEnumerator CargarEscenaDeMuerte()
     {
-        NotificationSystem.Instance.ShowMessage("Has Muerto", 4);
+       
         yield return new WaitForSeconds(4);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        
+        GameManager.Instance.nivelActual = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene("EscenaDeMuerte");
+
     }
+
 
 
 

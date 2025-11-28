@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Nivel del jefe.unity
     guid: 90d9b47666514674f9f8f39ac423391a
+  - enabled: 1
+    path: Assets/Scenes/EscenaDeMuerte.unity
+    guid: 6a5a21245b4ed8e48ba78db7850e2114
   m_configObjects: {}

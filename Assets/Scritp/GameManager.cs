@@ -19,6 +19,9 @@ public class GameManager : MonoBehaviour
     private float limitDelNivel = 100f;
     public bool tieneLevelSystem = false;
 
+    public bool tieneMochila = false;
+    Dictionary<ItemsDeMochila, ItemGuardado> ItemsDeMochilaGuardados;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -57,6 +60,16 @@ public class GameManager : MonoBehaviour
         levelSystem.Nivel = Nivel;
         levelSystem.expActual = expActual;
         levelSystem.limitDelNivel = limitDelNivel;
+    }
+
+    public void GuardarMochila(Mochila mochila)
+    {
+        tieneMochila = true;
+        ItemsDeMochilaGuardados = mochila.ItemsRecolectados;
+    }
+    public void CargarMochila(Mochila mochila)
+    {
+        mochila.ItemsRecolectados = ItemsDeMochilaGuardados;
     }
 
 }

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2620049127246888384}
   - component: {fileID: 6277342089290316470}
   - component: {fileID: 5541346168637495343}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Salida
   m_TagString: Salida
   m_Icon: {fileID: 0}
@@ -133,4 +133,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917107f686047bb489f091b286831ac3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: Nivel del jefe
+  nextLevel: Nivel 2

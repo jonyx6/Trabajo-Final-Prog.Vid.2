@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Atributos))]
@@ -6,6 +7,7 @@ public class PlayerManager : MonoBehaviour
 {
     Atributos atributosDelJugador;
     LevelSystem levelSystemDelJugador;
+    Mochila mochilaDelJugador;
     private void Awake()
     {
         CargarDatosDelJugador();
@@ -14,11 +16,14 @@ public class PlayerManager : MonoBehaviour
     {
         IntentarCargarAtributos();
         IntentarCargarLevelSystem();
+        IntentarCargarMochila();
     }
+
     public void GuardarDatosDelJugador()
     {
         GuardarAtributos();
         GuardarLevelSystem();
+        GuardarMochila();
     }
 
     private void IntentarCargarAtributos()
@@ -46,5 +51,18 @@ public class PlayerManager : MonoBehaviour
     {
         GameManager.Instance.GuardarLevelSystem(levelSystemDelJugador);
     }
+    
+    private void IntentarCargarMochila()
+    {
+        mochilaDelJugador = GetComponent<Mochila>();
+        if (GameManager.Instance != null && GameManager.Instance.tieneMochila)
+        {
+            GameManager.Instance.CargarMochila(mochilaDelJugador);
+        }
+    }
 
+    private void GuardarMochila()
+    {
+        GameManager.Instance.GuardarMochila(mochilaDelJugador);
+    }
 }

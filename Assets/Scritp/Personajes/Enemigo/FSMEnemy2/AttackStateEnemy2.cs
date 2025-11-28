@@ -17,12 +17,8 @@ public class AttackStateEnemy2<T>:State<T>
     public override void Enter()
     {
         base.Enter();
-        if (_atacarCoroutine == null)
-        {
-            _controller._animator.SetBool("isAttacking", true);
-            _atacarCoroutine = _controller.StartCoroutine(Atacar());
-        }
-
+        _controller.GetComponent<ShooterSystem>().objetivo = _controller._target;
+        _controller._animator.SetBool("isAttacking", true);
     }
 
     public override void Execute()
@@ -32,14 +28,6 @@ public class AttackStateEnemy2<T>:State<T>
 
     public override void Sleep()
     {
-        if (_atacarCoroutine != null)
-        {
-            _controller.StopCoroutine(_atacarCoroutine);
-            
-
-            _atacarCoroutine = null;
-        }
-
         _controller._animator.SetBool("isAttacking", false);
     }
 
@@ -57,18 +45,6 @@ public class AttackStateEnemy2<T>:State<T>
         {
             _controller.SetFlee();
         }
-    }
-
-
-    private IEnumerator Atacar()
-    {
-        while ( _controller.CanChase())
-        {
-            
-            _controller.GetComponent<ShooterSystem>().DispararAObjetivo( _controller._target.position);
-            yield return new WaitForSeconds(1);
-        }
-        
     }
 
 

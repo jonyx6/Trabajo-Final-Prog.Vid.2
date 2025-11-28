@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum ItemsDeMochila
 {
@@ -30,11 +30,28 @@ public class Mochila : MonoBehaviour
 {
     public TextMeshProUGUI textManzanas;
     public TextMeshProUGUI textFlecha;
-    public TextMeshProUGUI textPosicion;
+    public TextMeshProUGUI textPocion;
+
+
+    public Image botonManzanas;
+    public Image botonFlecha;
+    public Image botonPocion;
 
 
     public void Start()
     {
+        GameObject slotFlecha = GameObject.Find("SlotFlechas");
+        botonFlecha = slotFlecha.GetComponent<Image>();
+        textFlecha = slotFlecha.transform.GetChild(2).GetComponent<TextMeshProUGUI>();
+
+        GameObject slotManzana = GameObject.Find("SlotManzana");
+        botonManzanas = slotManzana.GetComponent<Image>();
+        textManzanas = slotManzana.transform.GetChild(2).GetComponent<TextMeshProUGUI>();
+
+        GameObject slotPocion = GameObject.Find("SlotPocion");
+        botonPocion = slotPocion.GetComponent<Image>();
+        textPocion = slotPocion.transform.GetChild(2).GetComponent<TextMeshProUGUI>();
+
         ActualizarUI(ItemsDeMochila.Manzana);
         ActualizarUI(ItemsDeMochila.Pocion);
         ActualizarUI(ItemsDeMochila.Flecha);
@@ -45,7 +62,7 @@ public class Mochila : MonoBehaviour
 
 
 
-    Dictionary<ItemsDeMochila, ItemGuardado> ItemsRecolectados = new Dictionary<ItemsDeMochila, ItemGuardado>()
+    public Dictionary<ItemsDeMochila, ItemGuardado> ItemsRecolectados = new Dictionary<ItemsDeMochila, ItemGuardado>()
     {
         {ItemsDeMochila.Pocion, new ItemGuardado(1)},
         {ItemsDeMochila.Flecha, new ItemGuardado(1)},
@@ -56,10 +73,12 @@ public class Mochila : MonoBehaviour
     public void AgregarItemDeTipo(ItemsDeMochila tipoDeItem)
     {
         ItemsRecolectados[tipoDeItem].cantidad++;
+        ActualizarUI(tipoDeItem);
     }
     public void GastarItemDeTipo(ItemsDeMochila tipoDeItem)
     {
         ItemsRecolectados[tipoDeItem].cantidad = math.max(0, ItemsRecolectados[tipoDeItem] . cantidad-1); ///posible correccion
+        ActualizarUI(tipoDeItem);
     }
 
     public bool SePuedeUsarUnItem(ItemsDeMochila tipoDeItem)
@@ -78,6 +97,7 @@ public class Mochila : MonoBehaviour
         Debug.Log("consumiste item de tipo " + tipoDeItem);
         Debug.Log(ItemsRecolectados[tipoDeItem].cantidad);
         GastarItemDeTipo(tipoDeItem);
+        UsarBotonUI(tipoDeItem);
         StartCoroutine(ConsumirItem(ItemsRecolectados[tipoDeItem]));
     }
 
@@ -90,13 +110,46 @@ public class Mochila : MonoBehaviour
         item.estaRecargado = false;
     }
 
+    public void UsarBotonUI(ItemsDeMochila tipoDeItem)
+    {   
+        float tiempoDeRecup = ItemsRecolectados[tipoDeItem].tiempoDeRecuperacion;
+        if (tipoDeItem == ItemsDeMochila.Manzana)
+        {
+            StartCoroutine(RecargarBoton(botonManzanas,tiempoDeRecup));
+            textManzanas.text = ItemsRecolectados[tipoDeItem].cantidad.ToString();
+        }
+        else if (tipoDeItem == ItemsDeMochila.Flecha)
+        {
+            StartCoroutine(RecargarBoton(botonFlecha,tiempoDeRecup));
+            textFlecha.text = ItemsRecolectados[tipoDeItem].cantidad.ToString();
+        }
+        else if (tipoDeItem == ItemsDeMochila.Pocion)
+        {
+            StartCoroutine(RecargarBoton(botonPocion,tiempoDeRecup));
+            textPocion.text = ItemsRecolectados[tipoDeItem].cantidad.ToString();
+        }
+    }
+    //esto tambien lo hizo jony pero en UI
+    IEnumerator RecargarBoton(Image unBoton, float duracion)
+    {
+        float tiempo = 0f;
+        while (tiempo < duracion)
+        {
+            tiempo += Time.deltaTime;
+            unBoton.fillAmount = tiempo / duracion;
+            
+            yield return null;
+        }
+        unBoton.fillAmount = 1f;
+    }
 
     /// las funciones de abajo las hizo "jony"
  
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Manzana"))
+        //tuve que comentar esto sino agarraba items dobless
+/*         if (collision.gameObject.CompareTag("Manzana"))
         {
            // AgregarItemDeTipo(ItemsDeMochila.Manzana);
            
@@ -115,19 +168,17 @@ public class Mochila : MonoBehaviour
             ;
             ActualizarUI(ItemsDeMochila.Pocion);
 
-        }
+        } */
 
     }
+
 
 
     public void ActualizarUI(ItemsDeMochila tipoDeItem)
     {
         if (tipoDeItem == ItemsDeMochila.Manzana && ItemsRecolectados[tipoDeItem].cantidad.ToString() != null)
         {
-            
-            
-                textManzanas.text = ItemsRecolectados[tipoDeItem].cantidad.ToString();
-            
+            textManzanas.text = ItemsRecolectados[tipoDeItem].cantidad.ToString();
         }
 
         if (tipoDeItem == ItemsDeMochila.Flecha && ItemsRecolectados[tipoDeItem].cantidad.ToString() != null)
@@ -137,10 +188,9 @@ public class Mochila : MonoBehaviour
 
         if (tipoDeItem == ItemsDeMochila.Pocion && ItemsRecolectados[tipoDeItem].cantidad.ToString() != null)
         {
-            textPosicion.text = ItemsRecolectados[tipoDeItem].cantidad.ToString();
+            textPocion.text = ItemsRecolectados[tipoDeItem].cantidad.ToString();
         }
     }
-
 }
 
 

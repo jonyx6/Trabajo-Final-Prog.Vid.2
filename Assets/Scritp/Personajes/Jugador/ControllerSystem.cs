@@ -10,6 +10,10 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Animator))]
 public class ControllerSystem : MonoBehaviour
 {
+    [SerializeField]
+    private int vidaDeManzana = 1;
+    [SerializeField]
+    private int vidaDePocion = 4;
     private Atributos _atributos;
     private Rigidbody2D _rigidbody2D;
     private Animator _animator;
@@ -42,8 +46,9 @@ public class ControllerSystem : MonoBehaviour
         _atributos = GetComponent<Atributos>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _mochila = GetComponent<Mochila>();
+        
         botonDeAtaque = GameObject.Find("SlotAtaque").GetComponent<BotonDeObjeto>();
-        botonDeAtaqueEspecial = GameObject.Find("SlotFlechas").GetComponent<BotonDeObjeto>();
+        
       
 
 
@@ -71,22 +76,19 @@ public class ControllerSystem : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.W) && _mochila.SePuedeUsarUnItem(ItemsDeMochila.Flecha))
             {
                 _mochila.UsarItem(ItemsDeMochila.Flecha);
-               _mochila.ActualizarUI(ItemsDeMochila.Flecha);//jony:actualizo la ui de aca
                 AtacarEspecial();
-                botonDeAtaqueEspecial.Usar(recuperacionDeAtaqueEspecial);
             }
+
             if (Input.GetKeyDown(KeyCode.E) && _mochila.SePuedeUsarUnItem(ItemsDeMochila.Manzana))
             {
                 _mochila.UsarItem(ItemsDeMochila.Manzana);
-                _mochila.ActualizarUI(ItemsDeMochila.Manzana);
-                _sistemDeSalud.CambiarVida(_atributos.Vida + 1);
+                _sistemDeSalud.CambiarVida(_atributos.Vida + vidaDeManzana);
             }
 
             if (Input.GetKeyDown(KeyCode.Q) && _mochila.SePuedeUsarUnItem(ItemsDeMochila.Pocion))
             {
                 _mochila.UsarItem(ItemsDeMochila.Pocion);
-                _mochila.ActualizarUI(ItemsDeMochila.Pocion);
-                _sistemDeSalud.CambiarVida(_atributos.Vida + 3);
+                _sistemDeSalud.CambiarVida(_atributos.Vida + vidaDePocion);
             }
 
             if (EstaLejosDelObjetivo())

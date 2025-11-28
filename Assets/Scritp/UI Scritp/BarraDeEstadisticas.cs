@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 //De aca tienen que heredar las diferentes barras como la de stamina o vida
+
+//IMPORTANTE acordase de acer la imagen del relleno filled
 public class BarraDeEstadisticas : MonoBehaviour
 {
     [SerializeField]

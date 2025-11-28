@@ -285,6 +285,7 @@ MonoBehaviour:
   Velocidad: 0.1
   ExpAEntregar: 10
   EstaminaMax: 10
+  cantDeRecuperacion: 1
 --- !u!114 &8617052699034981783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,6 +298,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c8a4d156ba962045affba6783827f32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vidaDeManzana: 1
+  vidaDePocion: 4
   recuperacionDeAtaque: 0.3
   recuperacionDeAtaqueEspecial: 2
 --- !u!114 &5653794881685287725
@@ -372,7 +375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 3424439298263046513, guid: 129d6fdf7d8174945b968046d4e8b499, type: 3}
   shootPoint: {fileID: 6267812080845448120}
-  layerDelProyectil: PlayerDamager
+  objetivo: {fileID: 0}
 --- !u!114 &2191698981303426347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,6 +431,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aef931e6fe0a02745b25442fb44fa8d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textManzanas: {fileID: 0}
+  textFlecha: {fileID: 0}
+  textPocion: {fileID: 0}
+  botonManzanas: {fileID: 0}
+  botonFlecha: {fileID: 0}
+  botonPocion: {fileID: 0}
   tieneLLave: 0
 --- !u!1 &1845658671778803017
 GameObject:

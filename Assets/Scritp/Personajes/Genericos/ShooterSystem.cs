@@ -9,10 +9,7 @@ public class ShooterSystem : MonoBehaviour
     public Transform shootPoint;
     private LevelSystem levelSystem;
     private Atributos atributos;
-    //aca se asigna si es un PlayerDamager(que daña enemigos)
-    //o un EnemyDamager (que daña jugadores)
-    [SerializeField]
-    private string layerDelProyectil;
+    public Transform objetivo;
     private void Start() {
         levelSystem = GetComponent<LevelSystem>();
         atributos = GetComponent<Atributos>();
@@ -41,8 +38,6 @@ public class ShooterSystem : MonoBehaviour
     {
         Proyectile scriptDeProyectil =  proyectil.GetComponent<Proyectile>();
 
-        proyectil.layer = LayerMask.NameToLayer(layerDelProyectil);
-
         //si el personaje tiene atributos aumenta el daño del proyectil segun pa
         if(atributos != null)
         {
@@ -60,6 +55,11 @@ public class ShooterSystem : MonoBehaviour
 
 
     //jony funcions disparar enemigo.
+
+    public void Disparar()
+    {
+        DispararAObjetivo(objetivo.position);
+    }
 
 
     public void DispararAObjetivo(Vector3 _target)

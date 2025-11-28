@@ -36,8 +36,8 @@ public class Agent_FSM_Controller : MonoBehaviour
         healthForFlee = _atributos.VidaMaxima / 2;
         _chaseSpeed = _atributos.Velocidad;
         _fleeSpeed = _atributos.Velocidad * 2;
+        _target = GameObject.FindGameObjectWithTag("Player").transform;
     }
-
     void Start()
     {
         InitializationFSM();

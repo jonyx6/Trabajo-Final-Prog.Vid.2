@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7562781411613632317}
   - component: {fileID: 3464980289885847957}
   - component: {fileID: 8030762677800305479}
-  m_Layer: 10
+  m_Layer: 7
   m_Name: hitbox
   m_TagString: EspadaEnemiga
   m_Icon: {fileID: 0}
@@ -92,7 +92,6 @@ GameObject:
   m_Component:
   - component: {fileID: 601152793268594362}
   - component: {fileID: 3181723721858815451}
-  - component: {fileID: 2592960436807687924}
   - component: {fileID: 7648026996868377178}
   - component: {fileID: 2237849433047034584}
   - component: {fileID: 1531458491110019242}
@@ -101,6 +100,7 @@ GameObject:
   - component: {fileID: 4964775874466046708}
   - component: {fileID: 1628425907988691656}
   - component: {fileID: 4273426461341412070}
+  - component: {fileID: 733293695815442726}
   m_Layer: 10
   m_Name: Enemigo 1
   m_TagString: Untagged
@@ -176,51 +176,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &2592960436807687924
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9017187255747463432}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0032224655, y: -0.00966835}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.125, y: 3.125}
-    newSize: {x: 1, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.3489914, y: 0.48527527}
-  m_EdgeRadius: 0
 --- !u!50 &7648026996868377178
 Rigidbody2D:
   serializedVersion: 4
@@ -233,8 +188,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 100
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -247,7 +202,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 6
+  m_Constraints: 4
 --- !u!114 &2237849433047034584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,13 +306,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Nombre: 
-  <VidaMaxima>k__BackingField: 10
+  <VidaMaxima>k__BackingField: 13
   <Vida>k__BackingField: 10
   Pa: 1
   Pd: 0
-  Velocidad: 0
+  Velocidad: 1
   ExpAEntregar: 110
   EstaminaMax: 10
+  cantDeRecuperacion: 0
 --- !u!114 &4273426461341412070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,3 +332,38 @@ MonoBehaviour:
   hurtSound: {fileID: 8300000, guid: 32cf2ee7cdfaaef4e977291cbaf51f0b, type: 3}
   deathSound: {fileID: 8300000, guid: 70486556db4cc4b48bc9e95a4f77dc8a, type: 3}
   walkSounds: []
+--- !u!70 &733293695815442726
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9017187255747463432}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.021579742, y: 0.0092487335}
+  m_Size: {x: 0.35661316, y: 0.627903}
+  m_Direction: 0

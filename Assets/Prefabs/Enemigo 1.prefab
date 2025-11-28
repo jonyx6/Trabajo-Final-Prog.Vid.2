@@ -272,11 +272,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intemsSpawns:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6661891674917959723, guid: c48fbc76131711c4f8d3d8a668541d00, type: 3}
+  - {fileID: 1281737188855497759, guid: c528c3f2007b9894598f190e85d11aa3, type: 3}
+  - {fileID: 1890662212469236800, guid: 20f31247469bb684e85f2ead67df8e73, type: 3}
+  - {fileID: 4297296528853400125, guid: d68a507c6ad3b454192a52c6a513e37c, type: 3}
+  - {fileID: 951521090310194727, guid: 7f31d79784fa3f0468ab4d15eaf1e0de, type: 3}
+  - {fileID: 8508612930347876487, guid: 7ffae982d008fb847b831539a4b67bbf, type: 3}
+  - {fileID: 8244179680856513142, guid: dfeb2f32734e53c47ab5394a9100f603, type: 3}
+  - {fileID: 5687692621556148708, guid: 028f0648f48b83c4996396550c64b461, type: 3}
   scriptADesactivar: {fileID: 6502408043752510751}
 --- !u!95 &4964775874466046708
 Animator:

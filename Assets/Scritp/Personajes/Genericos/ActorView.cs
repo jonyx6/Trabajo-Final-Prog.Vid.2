@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ActorView : MonoBehaviour
 {
-    private SistemaDeSalud _systemHealth;
+    protected SistemaDeSalud _systemHealth;
 
     public List<GameObject> intemsSpawns = new List<GameObject>();
 
@@ -13,18 +13,17 @@ public class ActorView : MonoBehaviour
 
     public MonoBehaviour scriptADesactivar;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         _anim = GetComponent<Animator>();
         _systemHealth = GetComponent<SistemaDeSalud>();
-        
     }
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         _systemHealth.OnTakeDamage += TakeDamageView;
         _systemHealth.OnDie += Die;
     }
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         _systemHealth.OnTakeDamage -= TakeDamageView;
         _systemHealth.OnDie -= Die;
@@ -50,9 +49,12 @@ public class ActorView : MonoBehaviour
 
    public void SpawnearObjeto()
     {
-        int index = Random.Range(0, intemsSpawns.Count);
-        GameObject objetoAleaorio = intemsSpawns[index];
-        Instantiate(objetoAleaorio, transform.position, Quaternion.identity);
+        if(intemsSpawns.Count > 0)
+        {
+            int index = Random.Range(0, intemsSpawns.Count);
+            GameObject objetoAleaorio = intemsSpawns[index];
+            Instantiate(objetoAleaorio, transform.position, Quaternion.identity);
+        }
     }
 
 }

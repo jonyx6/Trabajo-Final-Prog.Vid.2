@@ -82,13 +82,13 @@ public class ControllerSystem : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E) && _mochila.SePuedeUsarUnItem(ItemsDeMochila.Manzana))
             {
                 _mochila.UsarItem(ItemsDeMochila.Manzana);
-                _sistemDeSalud.CambiarVida(_atributos.Vida + vidaDeManzana);
+                _sistemDeSalud.Curarse(vidaDeManzana);
             }
 
             if (Input.GetKeyDown(KeyCode.Q) && _mochila.SePuedeUsarUnItem(ItemsDeMochila.Pocion))
             {
                 _mochila.UsarItem(ItemsDeMochila.Pocion);
-                _sistemDeSalud.CambiarVida(_atributos.Vida + vidaDePocion);
+                _sistemDeSalud.Curarse(vidaDePocion);
             }
 
             if (EstaLejosDelObjetivo())

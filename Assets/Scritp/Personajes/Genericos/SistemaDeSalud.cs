@@ -16,6 +16,7 @@ public class SistemaDeSalud : MonoBehaviour
     //aca declaro las acciones que van a ocurrir 
     public event Action OnDie;
     public event Action OnTakeDamage;
+    public event Action OnHeal;
 
     public event Action<float, float> OnVidaChange;
 
@@ -72,8 +73,9 @@ public class SistemaDeSalud : MonoBehaviour
 
     public void Curarse(float cantCuracion)
     {
-        float curacionRecibida = Mathf.Min(_atributos.VidaMaxima,_atributos.Vida +cantCuracion);
-        CambiarVida(_atributos.Vida - curacionRecibida);
+        float curacionRecibida = Mathf.Min(_atributos.VidaMaxima,_atributos.Vida + cantCuracion);
+        CambiarVida(curacionRecibida);
+        OnHeal?.Invoke();
     }
 
     private bool PuedeRecibirDañoDe_(GameObject unaFuenteDeDaño)

@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 413e9f8274233e3499c76bad684aed6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radioDeVision: 4
+  radioDeVision: 6
   anguloDeVision: 360
   edgeColor: {r: 0, g: 1, b: 0, a: 0.2}
   withoutDetect: {r: 1, g: 1, b: 1, a: 0.13725491}
@@ -305,13 +305,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c9b48f701feffc40b367b3052c892bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Nombre: 
+  Nombre: Orco
   <VidaMaxima>k__BackingField: 13
   <Vida>k__BackingField: 10
   Pa: 1
   Pd: 0
   Velocidad: 1
-  ExpAEntregar: 110
+  ExpAEntregar: 35
   EstaminaMax: 10
   cantDeRecuperacion: 0
 --- !u!114 &4273426461341412070

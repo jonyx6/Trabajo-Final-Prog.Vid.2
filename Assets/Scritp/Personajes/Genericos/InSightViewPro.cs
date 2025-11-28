@@ -99,9 +99,10 @@ public class InSightViewPro : MonoBehaviour
         //Debug.Log("suestamente el Orco esta serca");
         if (objetivoActual == null) return false;
 
-        float distancia = Vector2.Distance(transform.position, objetivoActual.position);
+        float distanciaX = Mathf.Abs(transform.position.x - objetivoActual.position.x);
+        float distanciaY = Mathf.Abs(transform.position.y - objetivoActual.position.y);
 
-        return distancia < distanciaDeAtaque; // jony: harcodeado , puede mejorar con una variable attackRadius configurable desde el Inspector
+        return distanciaX < distanciaDeAtaque && distanciaY < 0.3f; // jony: harcodeado , puede mejorar con una variable attackRadius configurable desde el Inspector
         
     }
 

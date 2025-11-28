@@ -33,7 +33,7 @@ public class Agent_FSM_Controller : MonoBehaviour
         _atributos = GetComponent<Atributos>();
         _inSightView = GetComponent<InSightViewPro>();
         _animator = GetComponent<Animator>();
-        healthForFlee = _atributos.VidaMaxima / 2;
+        healthForFlee = _atributos.VidaMaxima / 5;
         _chaseSpeed = _atributos.Velocidad;
         _fleeSpeed = _atributos.Velocidad * 2;
         _target = GameObject.FindGameObjectWithTag("Player").transform;

@@ -10,6 +10,7 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Animator))]
 public class ControllerSystem : MonoBehaviour
 {
+    //por falta de tiempo no pudimos dividirlo bien
     [SerializeField]
     private int vidaDeManzana = 1;
     [SerializeField]

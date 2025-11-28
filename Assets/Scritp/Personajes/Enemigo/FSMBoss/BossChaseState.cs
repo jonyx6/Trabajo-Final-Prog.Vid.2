@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossChaseState<T>: State<T>
+public class BossChaseState<T> : State<T>
 {
 
     private float _maxSpeed;
@@ -37,15 +37,29 @@ public class BossChaseState<T>: State<T>
             Vector3 direction = (_inSightViewPro.objetivoActual.position - _agentTransform.position).normalized;
             _agentTransform.position += direction * _chaseSpeed * Time.deltaTime;
 
+            //RotarHacia(_inSightViewPro.objetivoActual);
+            // Creamos la variable que apunta en la direcci�n de movimiento
+            Vector3 dir = new Vector3(direction.x, direction.y, 0).normalized;
+
+            // Creamos la rotaci�n objetivo
+            Quaternion targetRotation = Quaternion.FromToRotation(Vector3.right, dir);
+
+            // Rotaci�n suave
+            _agentTransform.rotation = Quaternion.RotateTowards(_agentTransform.rotation, targetRotation, _rotationSpeed);
+
+/*             Vector3 rotacion = _agentTransform.rotation.eulerAngles;
             // Volteamos el sprite segun la direccion en X
             if (direction.x < 0)
             {
-                _agentTransform.rotation = Quaternion.Euler(0, -180, 0);
+                rotacion.y = -180;
+                //rotacion.z = -rotacion.z;
             }
             else
             {
-                _agentTransform.rotation = Quaternion.Euler(0, 0, 0);
+                rotacion.y = 0;
             }
+            _agentTransform.eulerAngles = rotacion; */
+
         }
     }
 
@@ -84,7 +98,16 @@ public class BossChaseState<T>: State<T>
 
         return steer;
     }
+    public void RotarHacia(Transform objective)
+    {
+        Vector3 dir = objective.position - _agentTransform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        //_agentTransform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
+        Vector3 rotacion = _agentTransform.rotation.eulerAngles;
+        rotacion.z += Mathf.Clamp(angle / 199, -1, 1);
+        _agentTransform.eulerAngles = rotacion;
+    }
 
 
 

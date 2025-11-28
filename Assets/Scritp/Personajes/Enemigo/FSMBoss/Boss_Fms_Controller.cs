@@ -33,6 +33,7 @@ public class Boss_Fms_Controller : MonoBehaviour
         _atributos = GetComponent<Atributos>();
         _inSightView = GetComponent<InSightViewPro>();
         _animator = GetComponent<Animator>();
+
         healthForFlee = _atributos.VidaMaxima / 2;
         _chaseSpeed = _atributos.Velocidad;
         _fleeSpeed = _atributos.Velocidad * 2;

@@ -200,7 +200,7 @@ MonoBehaviour:
   Pa: 2
   Pd: 0
   Velocidad: 0.05
-  ExpAEntregar: 200
+  ExpAEntregar: 50
   EstaminaMax: 10
   cantDeRecuperacion: 0
 --- !u!114 &3441501725515552529

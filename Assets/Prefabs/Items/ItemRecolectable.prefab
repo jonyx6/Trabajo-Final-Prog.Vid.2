@@ -134,3 +134,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipoDeItem: 1
+  sonidoAlRecolectar: {fileID: 8300000, guid: 93803ca5000e20a4793128409888d60e, type: 3}

@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   atributo: 5
   cantidadQueAumenta: 1
+  sonidoAlConsumir: {fileID: 8300000, guid: f46921407d7860f45bd30f6d1c02b6c2, type: 3}
 --- !u!212 &7451837473901282399
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class MenuInicial : MonoBehaviour
 
     public void EmpezarJuego()
     {
-        // Cambiá "Nivel1" por el nombre de tu escena
+        // Cambiï¿½ "Nivel1" por el nombre de tu escena
         SceneManager.LoadScene("Nivel 1");
     }
 
@@ -21,6 +21,6 @@ public class MenuInicial : MonoBehaviour
 
     public void ReiniciarNivel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        EmpezarJuego();
     }
 }

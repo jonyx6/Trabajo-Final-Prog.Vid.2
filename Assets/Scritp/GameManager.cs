@@ -8,6 +8,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public int nivelDelJugador = 1;
+    public int nivelActual;
     public static GameManager Instance { get; private set; }
     public GameObject Jugador;
 

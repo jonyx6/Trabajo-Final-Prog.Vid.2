@@ -3,12 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 class AtaqueBasico : Ataque
 {
-    public void Atacar()
+    public override void Ejecutar()
     {
-        
+        Debug.Log("Se ejecuta ataque 1");
     }
-    public override IEnumerator AtacarI(GameObject objetivo, GameObject atacante)
+
+    public override void Entrar()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Entra ataque 1");
+    }
+
+    public override void Salir()
+    {
+        Debug.Log("Sale ataque 1");
     }
 }

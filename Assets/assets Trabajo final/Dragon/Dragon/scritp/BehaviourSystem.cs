@@ -14,9 +14,6 @@ public class BehaviourSystem : MonoBehaviour
     
 
     private Vector3 posicionVision;
-    
-
-    private SpriteRenderer spDragon;
 
     public GameObject _target;
 
@@ -26,7 +23,6 @@ public class BehaviourSystem : MonoBehaviour
 
     private void Awake()
     {
-        spDragon = GetComponent<SpriteRenderer>();
         rbDragon = GetComponent<Rigidbody2D>();
         posicionVision = vision.localPosition;
 
@@ -49,17 +45,11 @@ public class BehaviourSystem : MonoBehaviour
             
             if (direccion.x < 0)
             {
-                vision.transform.rotation = Quaternion.Euler(0f, 0f, -179f);
-                vision.localPosition = new Vector3(-0.55f,posicionVision.y);
-
-                spDragon.flipX = true;
+                transform.rotation = Quaternion.Euler(0,180,0);
             }
             if (direccion.x > 0)
             {
-                vision.transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-                vision.localPosition = new Vector3(posicionVision.x, posicionVision.y);
-
-                spDragon.flipX = false;
+                transform.rotation = Quaternion.Euler(0,0,0);
             }
 
         }

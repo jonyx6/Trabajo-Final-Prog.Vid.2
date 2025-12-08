@@ -246,14 +246,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 872803816}
     - target: {fileID: 3913547103316647996, guid: ca399f4fd799ba7498b1faa91f93440a, type: 3}
-      propertyPath: radioDeVision
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3913547103316647996, guid: ca399f4fd799ba7498b1faa91f93440a, type: 3}
-      propertyPath: anguloDeVision
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 3913547103316647996, guid: ca399f4fd799ba7498b1faa91f93440a, type: 3}
       propertyPath: objetivoActual
       value: 
       objectReference: {fileID: 1874488086}
@@ -300,14 +292,6 @@ PrefabInstance:
     - target: {fileID: 4793199005518366645, guid: ca399f4fd799ba7498b1faa91f93440a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5851820511919924992, guid: ca399f4fd799ba7498b1faa91f93440a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.481
-      objectReference: {fileID: 0}
-    - target: {fileID: 5851820511919924992, guid: ca399f4fd799ba7498b1faa91f93440a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -91460,6 +91444,10 @@ PrefabInstance:
     - target: {fileID: 1190130724826333480, guid: 41707e5753803144b86d1156838a4630, type: 3}
       propertyPath: m_Name
       value: Personaje
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383065340048536634, guid: 41707e5753803144b86d1156838a4630, type: 3}
+      propertyPath: Pa
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7575617771036997328, guid: 41707e5753803144b86d1156838a4630, type: 3}
       propertyPath: m_LocalPosition.x

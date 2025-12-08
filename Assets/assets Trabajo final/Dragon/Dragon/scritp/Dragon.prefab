@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3583220645743193005}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.247, y: -0.196, z: 0}
+  m_LocalPosition: {x: 0.481, y: -0.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radioDeVision: 0
-  anguloDeVision: 80
+  anguloDeVision: 180
   edgeColor: {r: 0, g: 1, b: 0, a: 0.07058824}
   withoutDetect: {r: 1, g: 1, b: 1, a: 0.07058824}
   withDetect: {r: 1, g: 0, b: 0, a: 0.08627451}
@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 2551256221189639354}
   - component: {fileID: 4369680517266175732}
   - component: {fileID: 2425115375896717590}
+  - component: {fileID: 2947783812044802859}
   m_Layer: 0
   m_Name: Dragon
   m_TagString: Untagged
@@ -141,7 +142,7 @@ SpriteRenderer:
   m_SortingOrder: 3
   m_Sprite: {fileID: -1914431401, guid: f51dd3851f1555a458768ce195c578d0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -264,7 +265,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.06542049, y: -0.12950572}
+  m_Offset: {x: 0, y: -0.12950572}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -275,7 +276,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.079159, y: 0.40098852}
+  m_Size: {x: 1.2, y: 0.40098852}
   m_EdgeRadius: 0
 --- !u!114 &2425115375896717590
 MonoBehaviour:
@@ -293,11 +294,24 @@ MonoBehaviour:
   <VidaMaxima>k__BackingField: 100
   <Vida>k__BackingField: 0
   Pa: 15
-  Pd: 7
+  Pd: 1
   Velocidad: 1
   ExpAEntregar: 400
   EstaminaMax: 0
   cantDeRecuperacion: 0
+--- !u!114 &2947783812044802859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4211443993310780646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7841d0324167c1d438ea8e2ce1861f4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "layerQueHaceDa\xF1o": PlayerDamager
 --- !u!1 &4545820154337540937
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,16 +337,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4545820154337540937}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 4649027453766437129}
+  m_Father: {fileID: 7406694338616507859}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 515, y: 259}
+  m_AnchoredPosition: {x: 236, y: 68}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3478148738549214059
@@ -390,14 +404,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 27.3
+  m_fontSizeBase: 27.3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -426,7 +440,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -174.1374, y: 0, z: 18.657745, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -518,6 +532,7 @@ GameObject:
   - component: {fileID: 7406694338616507859}
   - component: {fileID: 3222763700560289081}
   - component: {fileID: 1612469446914920401}
+  - component: {fileID: 8488141140973582941}
   m_Layer: 5
   m_Name: UIVidaDragon
   m_TagString: Untagged
@@ -534,16 +549,17 @@ RectTransform:
   m_GameObject: {fileID: 8699872294835701306}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.0235007, y: 2.0235007, z: 2.0235007}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2671670573755603727}
+  - {fileID: 6306370338908998057}
   m_Father: {fileID: 4649027453766437129}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 547, y: 30}
-  m_SizeDelta: {x: 412.6788, y: 23.1116}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -88, y: -5}
+  m_SizeDelta: {x: 412.67883, y: 23.1116}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3222763700560289081
 CanvasRenderer:
@@ -583,6 +599,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8488141140973582941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8699872294835701306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83b33b740aaf6d5409660b86e0cd8cea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rellenoDeBarra: {fileID: 4112565050932390225}
+  MultiplicadorDeAncho: 0.1
+  atributosDeBoss: {fileID: 2425115375896717590}
+  sistemaDeSaludDeBoss: {fileID: 2947783812044802859}
 --- !u!1 &8852417315071065308
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,7 +647,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7406694338616507859}
-  - {fileID: 6306370338908998057}
   m_Father: {fileID: 4793199005518366645}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -658,10 +689,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

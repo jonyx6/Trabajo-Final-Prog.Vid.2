@@ -75,6 +75,7 @@ public class BehaviourSystem : MonoBehaviour
         animatonsDragon.OnAttacking -= AtacarConFuego;
         //
         animatonsDragon.OnFlyingInSide += VolarEnLaUbicacion;
+        animatonsDragon.OnAttakingFly -= AtacarVolando;
 
     }
 
@@ -152,8 +153,22 @@ public class BehaviourSystem : MonoBehaviour
 
     public void AtacarVolando()
     {
-        Acercarse();
-        //agregar comportamiento DeAtaque
+
+        if (rutinaAtaque == null)
+            rutinaAtaque = StartCoroutine(AtaqueAereo());
     }
 
+
+    public IEnumerator AtaqueAereo()
+    {
+        Debug.Log("el dragon comenzo el ataque");
+        while (inSightViewProDragon.EstaCerca())
+        {
+            
+            animatorDragon.SetTrigger("EspecialAtack");
+            yield return new WaitForSeconds(3f); // espera 3 segundos
+        }
+
+        rutinaAtaque = null;
+    }
 }

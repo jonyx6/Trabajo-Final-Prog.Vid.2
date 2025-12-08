@@ -247,7 +247,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2425115375896717590, guid: ca399f4fd799ba7498b1faa91f93440a, type: 3}
       propertyPath: <Vida>k__BackingField
-      value: 73
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2425115375896717590, guid: ca399f4fd799ba7498b1faa91f93440a, type: 3}
       propertyPath: <VidaMaxima>k__BackingField
@@ -257,6 +257,10 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 872803816}
+    - target: {fileID: 2782183255125356607, guid: ca399f4fd799ba7498b1faa91f93440a, type: 3}
+      propertyPath: m_LinearDrag
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3913547103316647996, guid: ca399f4fd799ba7498b1faa91f93440a, type: 3}
       propertyPath: objetivoActual
       value: 

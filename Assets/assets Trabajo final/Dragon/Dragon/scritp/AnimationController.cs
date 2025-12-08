@@ -6,7 +6,7 @@ using UnityEngine.Video;
 
 public class AnimationController : MonoBehaviour
 {
-    //clase hecha para controlar las animaciones usando el in sight view;
+   //clase hecha para controlar las animaciones usando el in sight view;
     [SerializeField] private InSightViewPro1 inSightViewProDragon;
     [SerializeField] private Animator animatorDragon;
 
@@ -19,7 +19,6 @@ public class AnimationController : MonoBehaviour
     public Action OnAttacking;
     // eventos del segundo patron
     public Action OnFlyingInSide;
-
     public Action OnAttakingFly;
 
 
@@ -46,6 +45,7 @@ public class AnimationController : MonoBehaviour
             Debug.Log("pasa al patron 1 de ataque");
             PatronDeAtaqueA();
         }
+
         if(inSightViewProDragon.objetivoActual != null && atributosDragon.Vida <= atributosDragon.VidaMaxima * 0.7f)
         {
             Debug.Log("pasa al patron 2 de ataque");
@@ -127,11 +127,12 @@ public class AnimationController : MonoBehaviour
         }
     }
 
-    // patron de ataque dos 
+
 
     public void VolarEnElLugar()
     {
         Debug.Log("vuela en el sitio");
+        inSightViewProDragon.GetComponent<InSightViewPro1>().distanciaDeAtaque = 1.5f;
         animatorDragon.SetBool("Flight",true);
         OnFlyingInSide?.Invoke();
       
@@ -141,20 +142,22 @@ public class AnimationController : MonoBehaviour
 
     public void PerseguirVolandoSiEstaALaVista()
     {
-        if (inSightViewProDragon.EnAngulo() ) 
+        if (inSightViewProDragon.EstaCerca() && inSightViewProDragon.EnRango())
         {
             
             OnAttakingFly?.Invoke();
         }
-        if(inSightViewProDragon.EnAngulo() && inSightViewProDragon.EstaCerca())
+        if (!inSightViewProDragon.EstaCerca() && inSightViewProDragon.EnRango())
         {
-            animatorDragon.SetTrigger("EspecialAtack");
-            OnAttakingFly?.Invoke();
+            OnPersuit.Invoke();
         }
-        
 
     }
 
 
-
 }
+
+
+
+
+

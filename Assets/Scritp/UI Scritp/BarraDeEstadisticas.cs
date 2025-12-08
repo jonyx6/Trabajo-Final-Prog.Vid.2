@@ -21,11 +21,13 @@ public class BarraDeEstadisticas : MonoBehaviour
         CambiarAnchoDeBarraSegun(estadisticaMax);
         CambiarRellenoDeBarraSegun(estadistica,estadisticaMax);
     }
+
     private void CambiarAnchoDeBarraSegun(float estadisticaMax)
     {
         float anchoDeBarra = estadisticaMax * MultiplicadorDeAncho;
         transform.localScale = new Vector2(anchoDeBarra,transform.localScale.y);
     }
+
     protected void CambiarRellenoDeBarraSegun(float estadistica,float estadisticaMax)
     {
         rellenoDeBarra.fillAmount = estadistica /estadisticaMax;

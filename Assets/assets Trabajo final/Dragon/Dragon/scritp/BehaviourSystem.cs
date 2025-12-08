@@ -61,6 +61,9 @@ public class BehaviourSystem : MonoBehaviour
         animatonsDragon.OnFlying += Volar;
         animatonsDragon.OnAwait += Esperar;
         animatonsDragon.OnAttacking += AtacarConFuego;
+        //
+        animatonsDragon.OnFlyingInSide += VolarEnLaUbicacion;
+        animatonsDragon.OnAttakingFly += AtacarVolando;
 
     }
 
@@ -70,6 +73,8 @@ public class BehaviourSystem : MonoBehaviour
         animatonsDragon.OnFlying  -= Volar;
         animatonsDragon.OnAwait -= Esperar;
         animatonsDragon.OnAttacking -= AtacarConFuego;
+        //
+        animatonsDragon.OnFlyingInSide += VolarEnLaUbicacion;
 
     }
 
@@ -140,8 +145,15 @@ public class BehaviourSystem : MonoBehaviour
 
     // comportamientos para la fase 2
 
+    public void VolarEnLaUbicacion()
+    {
+        Esperar();
+    }
 
-
-
+    public void AtacarVolando()
+    {
+        Acercarse();
+        //agregar comportamiento DeAtaque
+    }
 
 }

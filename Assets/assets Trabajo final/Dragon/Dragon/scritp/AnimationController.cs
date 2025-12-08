@@ -17,6 +17,10 @@ public class AnimationController : MonoBehaviour
     public Action OnPersuit;
     public Action OnFlying;
     public Action OnAttacking;
+    // eventos del segundo patron
+    public Action OnFlyingInSide;
+
+    public Action OnAttakingFly;
 
 
     public bool estaVolando = false;
@@ -45,6 +49,7 @@ public class AnimationController : MonoBehaviour
         if(inSightViewProDragon.objetivoActual != null && atributosDragon.Vida <= atributosDragon.VidaMaxima * 0.7f)
         {
             Debug.Log("pasa al patron 2 de ataque");
+            PatronDeAtaqueB();
         }
 
     }
@@ -55,6 +60,13 @@ public class AnimationController : MonoBehaviour
         EscaparVolandoSiNoEstaEnAngulo();
         AterrizarSiEsSeguro();
         AtacarSiEstaEnSerca();
+
+    }
+
+    public void PatronDeAtaqueB()
+    {
+        VolarEnElLugar();
+        PerseguirVolandoSiEstaALaVista();
 
     }
 
@@ -115,6 +127,33 @@ public class AnimationController : MonoBehaviour
         }
     }
 
+    // patron de ataque dos 
+
+    public void VolarEnElLugar()
+    {
+        Debug.Log("vuela en el sitio");
+        animatorDragon.SetBool("Flight",true);
+        OnFlyingInSide?.Invoke();
+      
+        
+    }
+
+
+    public void PerseguirVolandoSiEstaALaVista()
+    {
+        if (inSightViewProDragon.EnAngulo() ) 
+        {
+            
+            OnAttakingFly?.Invoke();
+        }
+        if(inSightViewProDragon.EnAngulo() && inSightViewProDragon.EstaCerca())
+        {
+            animatorDragon.SetTrigger("EspecialAtack");
+            OnAttakingFly?.Invoke();
+        }
+        
+
+    }
 
 
 

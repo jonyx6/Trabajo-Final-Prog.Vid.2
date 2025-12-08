@@ -50,7 +50,7 @@ public class LevelSystem : MonoBehaviour
         atributos.Velocidad *= 1 + unaCant;
         atributos.ExpAEntregar *= 1 + unaCant;
         atributos.EstaminaMax *= 1 + unaCant;
-        atributos.cantDeRecuperacion *= 1 + unaCant;
+        atributos.cantDeRecuperacion += 1  ;
     }
 
 

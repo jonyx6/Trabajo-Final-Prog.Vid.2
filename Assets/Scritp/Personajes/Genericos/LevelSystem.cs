@@ -9,7 +9,7 @@ public class LevelSystem : MonoBehaviour
     public float expActual = 0f;
     public float limitDelNivel = 100f;
     private Atributos atributos;
-    public float porcentajeDeAumentoDeAtributos = 0.1f;
+    public float porcentajeDeAumentoDeAtributos = 0.3f;
     private SistemaDeSalud _ssPlayer;
 
     public event Action OnLevelUp;
@@ -50,7 +50,7 @@ public class LevelSystem : MonoBehaviour
         atributos.Velocidad *= 1 + unaCant;
         atributos.ExpAEntregar *= 1 + unaCant;
         atributos.EstaminaMax *= 1 + unaCant;
-        atributos.cantDeRecuperacion += 1  ;
+        atributos.cantDeRecuperacion += 2  ;
     }
 
 

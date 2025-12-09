@@ -15,7 +15,7 @@ public class StaminaSystem : MonoBehaviour
 
     public float cansancionProAtacque;
 
-    [SerializeField]
+    
     private float cantDeRecuperacion;
 
     public event Action<float, float> OnStaminaChange;
@@ -39,7 +39,7 @@ public class StaminaSystem : MonoBehaviour
         cantDeRecuperacion = aCharacter.cantDeRecuperacion;
 
 
-        cansancionProAtacque = aCharacter.Pa;
+        cansancionProAtacque = aCharacter.Pa / 2;
 
 
     }
@@ -66,7 +66,7 @@ public class StaminaSystem : MonoBehaviour
     {
         if (!csCharacter.EstaAtacando() ) 
         {
-            RecuperarEstamina(cantDeRecuperacion*Time.deltaTime);
+            RecuperarEstamina(cantDeRecuperacion*Time.deltaTime );
 
         }
 

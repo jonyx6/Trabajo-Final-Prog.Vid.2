@@ -118,12 +118,15 @@ public class ControllerSystem : MonoBehaviour
         {
             return;
         }
-        _rigidbody2D.MovePosition(_rigidbody2D.position + direccion * _atributos.Velocidad);
+        
+        _rigidbody2D.velocity = direccion * _atributos.Velocidad;
     }
     private void AsignarDireccion()
     {
         _animator.SetBool("isWalk", true);
         direccion = (target - (Vector2)transform.position).normalized;
+
+        
         if (direccion.x < 0)
         {
             transform.rotation = Quaternion.Euler(0, -180, 0);
@@ -151,7 +154,7 @@ public class ControllerSystem : MonoBehaviour
     private void Atacar()
     {
         _animator.SetTrigger("isAtack");
-        _StaminaSistem.RestarUna_DeEstamina(_StaminaSistem.cansancionProAtacque);
+        _StaminaSistem.RestarUna_DeEstamina(_StaminaSistem.cansancionProAtacque * 2);
 
 
     }

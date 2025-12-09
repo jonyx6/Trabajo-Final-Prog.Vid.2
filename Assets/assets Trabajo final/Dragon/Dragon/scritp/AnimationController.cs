@@ -20,6 +20,7 @@ public class AnimationController : MonoBehaviour
     // eventos del segundo patron
     public Action OnFlyingInSide;
     public Action OnAttakingFly;
+    public Action OnFlyingPersuit;
 
 
     public bool estaVolando = false;
@@ -66,8 +67,12 @@ public class AnimationController : MonoBehaviour
     public void PatronDeAtaqueB()
     {
         VolarEnElLugar();
+
+
         PerseguirVolandoSiEstaALaVista();
 
+
+        EvadirEnElAire();
     }
 
 
@@ -95,10 +100,10 @@ public class AnimationController : MonoBehaviour
 
     public void EscaparVolandoSiNoEstaEnAngulo()
     {
-        if (!inSightViewProDragon.EnAngulo() && inSightViewProDragon.EnRango())
+        if (!inSightViewProDragon.EnAngulo() && inSightViewProDragon.EnRango() )
         {
             inSightViewProDragon.GetComponent<InSightViewPro1>().anguloDeVision = 0f;
-            inSightViewProDragon.GetComponent<InSightViewPro1>().radioDeVision = 6f;
+            
             estaVolando = true;
             animatorDragon.SetBool("Flight", true);
             OnFlying?.Invoke();
@@ -110,7 +115,8 @@ public class AnimationController : MonoBehaviour
         if (!inSightViewProDragon.EnRango() )
         {
             inSightViewProDragon.GetComponent<InSightViewPro1>().anguloDeVision = 160f;
-            inSightViewProDragon.GetComponent<InSightViewPro1>().radioDeVision = 10f;
+
+            
 
             estaVolando = false;
             animatorDragon.SetBool("Flight", false);
@@ -123,6 +129,7 @@ public class AnimationController : MonoBehaviour
     {
         if (inSightViewProDragon.EstaCerca())
         {
+            OnPersuit?.Invoke();
             OnAttacking?.Invoke();
         }
     }
@@ -132,7 +139,7 @@ public class AnimationController : MonoBehaviour
     public void VolarEnElLugar()
     {
         Debug.Log("vuela en el sitio");
-        inSightViewProDragon.GetComponent<InSightViewPro1>().distanciaDeAtaque = 1.5f;
+        
         animatorDragon.SetBool("Flight",true);
         OnFlyingInSide?.Invoke();
       
@@ -142,19 +149,24 @@ public class AnimationController : MonoBehaviour
 
     public void PerseguirVolandoSiEstaALaVista()
     {
-        if (inSightViewProDragon.EstaCerca() && inSightViewProDragon.EnRango())
+        if ( inSightViewProDragon.EnAngulo())
         {
             
             OnAttakingFly?.Invoke();
         }
-        if (!inSightViewProDragon.EstaCerca() && inSightViewProDragon.EnRango())
-        {
-            OnPersuit.Invoke();
-        }
+  
 
     }
 
+    public void EvadirEnElAire()
+    {
+        if(!inSightViewProDragon.EnAngulo() && inSightViewProDragon.EnRango())
+        {
+            OnFlying?.Invoke();
+        }
+    }
 
+    
 }
 
 

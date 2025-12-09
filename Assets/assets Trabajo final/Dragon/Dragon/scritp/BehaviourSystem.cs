@@ -9,6 +9,9 @@ public class BehaviourSystem : MonoBehaviour
 
     public InSightViewPro1 inSightViewProDragon;
 
+    public Atributos aDragon;
+
+
     public Transform vision;
 
     
@@ -26,6 +29,7 @@ public class BehaviourSystem : MonoBehaviour
         rbDragon = GetComponent<Rigidbody2D>();
         posicionVision = vision.localPosition;
 
+        aDragon = GetComponent<Atributos>();
 
     }
 
@@ -64,6 +68,7 @@ public class BehaviourSystem : MonoBehaviour
         //
         animatonsDragon.OnFlyingInSide += VolarEnLaUbicacion;
         animatonsDragon.OnAttakingFly += AtacarVolando;
+        animatonsDragon.OnAttakingFly += Acercarse;
 
     }
 
@@ -74,8 +79,9 @@ public class BehaviourSystem : MonoBehaviour
         animatonsDragon.OnAwait -= Esperar;
         animatonsDragon.OnAttacking -= AtacarConFuego;
         //
-        animatonsDragon.OnFlyingInSide += VolarEnLaUbicacion;
+        animatonsDragon.OnFlyingInSide -= VolarEnLaUbicacion;
         animatonsDragon.OnAttakingFly -= AtacarVolando;
+        animatonsDragon.OnAttakingFly -= Acercarse;
 
     }
 
@@ -89,7 +95,7 @@ public class BehaviourSystem : MonoBehaviour
                _target.transform.position,
                1f * Time.deltaTime
            );*/
-        rbDragon.velocity = ( _target.transform.position - transform.position ).normalized * 1f;
+        rbDragon.velocity = ( _target.transform.position - transform.position ).normalized * aDragon.Velocidad / 2;
 
 
     }
@@ -102,7 +108,7 @@ public class BehaviourSystem : MonoBehaviour
        Vector3 direction = (transform.position - _target.transform.position).normalized;
 
         //transform.position += direction * 5f * Time.deltaTime; // 5f esta harcodeado ..cambiarlo por una variable modificable en el inspector
-        rbDragon.velocity = direction * 5f;
+        rbDragon.velocity = direction * aDragon.Velocidad;
        
 
     }
@@ -119,7 +125,7 @@ public class BehaviourSystem : MonoBehaviour
 
     public void AtacarConFuego()
     {
-        Esperar();
+        
         Debug.Log("el dragon se detiene para atacar ");
         animatorDragon.SetBool("Walk", false);
         
@@ -153,7 +159,7 @@ public class BehaviourSystem : MonoBehaviour
 
     public void AtacarVolando()
     {
-
+        Acercarse();
         if (rutinaAtaque == null)
             rutinaAtaque = StartCoroutine(AtaqueAereo());
     }

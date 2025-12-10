@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuInicial : MonoBehaviour
 {
+    public GameObject panel;
+
 
     public void EmpezarJuego()
     {
@@ -12,6 +14,21 @@ public class MenuInicial : MonoBehaviour
         SceneManager.LoadScene("Nivel 1");
         GameManager.Instance.nivelActual = "Nivel 1";
     }
+
+    public void ControlesMenu()
+    {
+        Debug.Log("panel de  controles habilitado");
+        panel.SetActive(true);
+    }
+
+    public void RegresarAlMenu()
+    {
+        Debug.Log("panel de  controles deshabilitado");
+        panel.SetActive(false);
+    }
+
+
+
 
     public void SalirDelJuego()
     {

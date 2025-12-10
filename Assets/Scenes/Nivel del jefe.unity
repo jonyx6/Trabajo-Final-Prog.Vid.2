@@ -241,22 +241,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2425115375896717590, guid: ca399f4fd799ba7498b1faa91f93440a, type: 3}
-      propertyPath: Pa
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2425115375896717590, guid: ca399f4fd799ba7498b1faa91f93440a, type: 3}
-      propertyPath: Pd
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2425115375896717590, guid: ca399f4fd799ba7498b1faa91f93440a, type: 3}
-      propertyPath: Velocidad
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2425115375896717590, guid: ca399f4fd799ba7498b1faa91f93440a, type: 3}
-      propertyPath: <VidaMaxima>k__BackingField
-      value: 200
-      objectReference: {fileID: 0}
     - target: {fileID: 2551256221189639354, guid: ca399f4fd799ba7498b1faa91f93440a, type: 3}
       propertyPath: _target
       value: 

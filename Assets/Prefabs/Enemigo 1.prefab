@@ -92,8 +92,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5610864001600553800}
   - component: {fileID: 2567983842645715506}
+  - component: {fileID: 5795446311132943526}
   m_Layer: 10
-  m_Name: Square
+  m_Name: BarraDeVida
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,6 +167,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5795446311132943526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8211220432072152891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b867246d2aded640904d6687a9dd852, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "tama\xF1oDeBarra": 0.1
+  sistemaDeSalud: {fileID: 1531458491110019242}
+  atributos: {fileID: 1628425907988691656}
 --- !u!1 &9017187255747463432
 GameObject:
   m_ObjectHideFlags: 0

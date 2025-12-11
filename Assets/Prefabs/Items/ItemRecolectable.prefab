@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7136090570987425746}
   - component: {fileID: 2866612112277134707}
   - component: {fileID: 3646850906675103345}
+  - component: {fileID: 6568328447434402477}
   m_Layer: 11
   m_Name: ItemRecolectable
   m_TagString: Flecha
@@ -135,3 +136,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tipoDeItem: 1
   sonidoAlRecolectar: {fileID: 8300000, guid: 93803ca5000e20a4793128409888d60e, type: 3}
+--- !u!114 &6568328447434402477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1281737188855497759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 057ce291bc34d6d4ebe0c59192df62c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velMovimiento: 2
+  amplitud: 0.3

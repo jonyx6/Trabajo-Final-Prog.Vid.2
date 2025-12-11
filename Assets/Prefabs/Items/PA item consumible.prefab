@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4571425668971196461}
   - component: {fileID: 3667074382061180638}
   - component: {fileID: 811312396244481294}
+  - component: {fileID: 8917950759709738035}
   m_Layer: 11
   m_Name: PA item consumible
   m_TagString: Untagged
@@ -136,3 +137,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &8917950759709738035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4297296528853400125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 057ce291bc34d6d4ebe0c59192df62c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velMovimiento: 2
+  amplitud: 0.3
